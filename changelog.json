@@ -1,0 +1,19 @@
+{
+	"releases": {
+		"1.0.0": [
+			"[New] library created",
+			"[New] formatters namespace created",
+			"[New] controls namespace created",
+			"[New] utilities namespace created",
+			"[New] themes namespace created",
+			"[New] formatter class \"NumberFormatter\" added",
+			"[New] utility class \"BindingUtils\" added",
+			"[New] utility class \"DialogUtils\" added",
+			"[New] utility class \"DateUtils\" added",
+			"[New] unit test suite created",
+			"[New] unit test for class \"NumberFormatter\" added",
+			"[New] unit test for class \"BindingUtils\" added",
+			"[New] unit test for class \"DateUtils\" added"
+		]
+	}
+}

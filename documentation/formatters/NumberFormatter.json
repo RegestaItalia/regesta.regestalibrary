@@ -1,0 +1,74 @@
+{
+	"Class": "NumberFormatter",
+	"FullPath": "regesta.regestalibrary.utilities.BindingUtils",
+	"Description": "Formatter class for numbers",
+	"Attributes": [],
+	"Methods": [{
+		"Name": "round",
+		"Description": "round a floating point number to the specified decimal precision",
+		"Parameters": [{
+			"Name": "number",
+			"Type": "float",
+			"Default": null,
+			"Description": "Number to round",
+			"Optional": false,
+			"Level": 1
+		}, {
+			"Name": "decimals",
+			"Type": "integer",
+			"Default": null,
+			"Description": "Number of decimal positions",
+			"Optional": false,
+			"Level": 1
+		}],
+		"ReturnType": "number"
+	}, {
+		"Name": "threeDecimals",
+		"Description": "round a floating point number to three decimals",
+		"Parameters": [{
+			"Name": "number",
+			"Type": "float",
+			"Default": null,
+			"Description": "Number to round",
+			"Optional": false,
+			"Level": 1
+		}],
+		"ReturnType": "number"
+	}, {
+		"Name": "twoDecimals",
+		"Description": "round a floating point number to two decimals",
+		"Parameters": [{
+			"Name": "number",
+			"Type": "float",
+			"Default": null,
+			"Description": "Number to round",
+			"Optional": false,
+			"Level": 1
+		}],
+		"ReturnType": "number"
+	}, {
+		"Name": "oneDecimal",
+		"Description": "round a floating point number to one decimal",
+		"Parameters": [{
+			"Name": "number",
+			"Type": "float",
+			"Default": null,
+			"Description": "Number to round",
+			"Optional": false,
+			"Level": 1
+		}],
+		"ReturnType": "number"
+	}, {
+		"Name": "noDecimals",
+		"Description": "round a floating point number to an integer",
+		"Parameters": [{
+			"Name": "number",
+			"Type": "float",
+			"Default": null,
+			"Description": "Number to round",
+			"Optional": false,
+			"Level": 1
+		}],
+		"ReturnType": "number"
+	}]
+}

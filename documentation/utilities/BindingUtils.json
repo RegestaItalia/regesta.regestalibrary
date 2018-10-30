@@ -1,0 +1,38 @@
+{
+	"Class": "BindingUtils",
+	"FullPath": "regesta.regestalibrary.utilities.BindingUtils",
+	"Description": "Utility class for managing bindings between model and view",
+	"Attributes": [],
+	"Methods": [{
+		"Name": "updateBindingParamsFilter",
+		"Description": "Insert a new filter into a table binding, respecting the pre existing filters",
+		"Parameters": [{
+			"Name": "bindingParams",
+			"Type": "object",
+			"Default": null,
+			"Description": "Binding parameters to update",
+			"Optional": false,
+			"Level": 1
+		}, {
+			"Name": "newFilter",
+			"Type": "sap.ui.model.Filter",
+			"Default": null,
+			"Description": "New filter to insert",
+			"Optional": false,
+			"Level": 1
+		}],
+		"ReturnType": "void"
+	}, {
+		"Name": "alignDateTimeFilter",
+		"Description": "Recursive align date in filters according to the current culture",
+		"Parameters": [{
+			"Name": "filter",
+			"Type": "sap.ui.model.Filter",
+			"Default": null,
+			"Description": "Filter structure to update",
+			"Optional": false,
+			"Level": 1
+		}],
+		"ReturnType": "void"
+	}]
+}
