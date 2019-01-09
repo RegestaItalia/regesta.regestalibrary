@@ -6,7 +6,7 @@
  * Initialization Code and shared classes of library regesta.regestalibrary.
  */
 sap.ui.define(["jquery.sap.global",
-		"sap/ui/core/library",
+		"sap/ui/core/library"
 	], // library dependency
 	function ( /*jQuery*/ ) {
 
@@ -17,7 +17,7 @@ sap.ui.define(["jquery.sap.global",
 		 *
 		 * @namespace
 		 * @name regesta.regestalibrary
-		 * @author Regesta S.R.L
+		 * @author SAP SE
 		 * @version ${version}
 		 * @public
 		 */
