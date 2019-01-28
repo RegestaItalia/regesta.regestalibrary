@@ -1,0 +1,14 @@
+{
+	"Class": "RegSmartTable",
+	"BaseControl": "SmartTable",
+	"FullPath": "regesta.regestalibrary.controls.RegSmartTable",
+	"Description": "Custom smart table",
+	"Metadata": {
+		"properties": [{
+			"name": "exportVisibleColumns",
+			"type": "string",
+			"defaultValue": "false",
+			"description": "Enable exporting in excel of the visible columns only"
+		}]
+	}
+}
