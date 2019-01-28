@@ -11,8 +11,12 @@
     function suite() {
         var sTestPath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/") + 1);
         var suite = new top.jsUnitTestSuite();
-
+		
+		// unit test for controls
         suite.addTestPage(sTestPath + "controls/RegInput.qunit.html");
+        suite.addTestPage(sTestPath + "controls/RegSmartTable.qunit.html");
+            
+        // unit test for formatters and utilities
         suite.addTestPage(sTestPath + "formatters/NumberFormatter.qunit.html");
         suite.addTestPage(sTestPath + "utilities/BindingUtils.qunit.html");
         suite.addTestPage(sTestPath + "utilities/DateUtils.qunit.html");
