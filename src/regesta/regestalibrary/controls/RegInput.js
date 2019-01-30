@@ -25,6 +25,9 @@ sap.ui.define(["jquery.sap.global", "./../library", "sap/m/Input"],
 					case "Integer":
 						this.validateInteger(oEvent);
 						break;
+					case "Decimal":
+						this.validateDecimal(oEvent);
+						break;
 					}
 				} else {
 					Input.prototype.onkeydown.apply(this, arguments);
@@ -41,6 +44,25 @@ sap.ui.define(["jquery.sap.global", "./../library", "sap/m/Input"],
 				} else {
 					oEvent.preventDefault();
 				}
+			},
+
+			validateDecimal: function (oEvent) {
+				if (oEvent.key === "Backspace" || !isNaN(parseInt(oEvent.key, 10)) || this.checkSingleComma(oEvent.key)) {
+					Input.prototype.onkeydown.apply(this, arguments);
+				} else {
+					oEvent.preventDefault();
+				}
+			},
+			
+			checkSingleComma: function (oKey){
+				if(oKey !== "."){
+					return false;
+				}
+				
+				if(this.getValue().indexOf(".") !== -1)
+					return false;
+				
+				return true;
 			}
 		});
 
