@@ -1,226 +1,225 @@
-sap.ui.define([], function () {
+sap.ui.define([
+	"regesta/regestalibrary/enums/DialogActions",
+	"regesta/regestalibrary/enums/DialogTypes",
+	"regesta/regestalibrary/utilities/BindingUtils"
+], function (DialogActions, DialogTypes, BindingUtils) {
 	"use strict";
 	var DialogUtils = {};
-	var _dialogs = [];
 
 	var _resourceBundle = new sap.ui.model.resource.ResourceModel({
 		bundleName: "regesta.regestalibrary.i18n.i18n"
 	}).getResourceBundle();
 
-	DialogUtils.showMessageBox = function (message, type, details) {
-		var msgBox = sap.ca.ui.message.showMessageBox({
-			type: type ? type : sap.ca.ui.message.Type.ERROR,
-			message: message,
-			details: details
-		});
-		if (!sap.ui.Device.support.touch) {
-			msgBox.addStyleClass("sapUiSizeCompact");
+	var _dialogs = {};
+	var _dialogsTypeDefaults = {
+		Generic: {
+			title: null,
+			icon: null,
+			state: sap.ui.core.ValueState.None,
+			actions: ["Close"],
+			type: "Standard",
+			resizab  le: true
+		},
+		Message: {
+			title: _resourceBundle.getText("dialogMessage"),
+			icon: "sap-icon://message-information",
+			state: sap.ui.core.ValueState.Information,
+			actions: [],
+			type: "Message",
+			resizable: false
+		},
+		Question: {
+			title: _resourceBundle.getText("dialogQuestion"),
+			icon: "sap-icon://question-mark",
+			state: sap.ui.core.ValueState.None,
+			actions: ["Accept", "Reject"],
+			type: "Message",
+			resizable: false
+		},
+		Success: {
+			title: _resourceBundle.getText("dialogSuccess"),
+			icon: "sap-icon://message-success",
+			state: sap.ui.core.ValueState.Success,
+			actions: [],
+			type: "Message",
+			resizable: false
+		},
+		Warning: {
+			title: _resourceBundle.getText("dialogWarning"),
+			icon: "sap-icon://message-warning",
+			state: sap.ui.core.ValueState.Warning,
+			actions: [],
+			type: "Message",
+			resizable: false
+		},
+		Error: {
+			title: _resourceBundle.getText("dialogError"),
+			icon: "sap-icon://message-error",
+			state: sap.ui.core.ValueState.Error,
+			actions: [],
+			type: "Message",
+			resizable: false
 		}
 	};
-	
-	DialogUtils.getText = function(textName){
-		return _resourceBundle.getText(textName);
-	};
-	
-	DialogUtils.createDialog = function (content, options) {
-		// TODO: fix outerclick of multiple stacked dialogs (second one steal listener from first one)
-		if (!content) {
-			throw ("Missing parameter for DialogUtils.createDialog");
+	var _dialogsActionDefaults = {
+		Accept: {
+			text: _resourceBundle.getText("dialogAccept"),
+			icon: "sap-icon://accept",
+			type: sap.m.ButtonType.Emphasized
+		},
+		Reject: {
+			text: _resourceBundle.getText("dialogReject"),
+			icon: "sap-icon://decline",
+			type: sap.m.ButtonType.Default
+		},
+		Confirm: {
+			text: _resourceBundle.getText("dialogConfirm"),
+			icon: "sap-icon://accept",
+			type: sap.m.ButtonType.Emphasized
+		},
+		Abort: {
+			text: _resourceBundle.getText("dialogAbort"),
+			icon: "sap-icon://decline",
+			type: sap.m.ButtonType.Default
+		},
+		Close: {
+			text: _resourceBundle.getText("dialogClose"),
+			icon: "sap-icon://inspect-down",
+			type: sap.m.ButtonType.Default
 		}
+	};
 
-		var typeDefaults = {
-			generic: {
-				title: null,
-				icon: null,
-				state: sap.ui.core.ValueState.None,
-				actions: ["close"]
-			},
-			message: {
-				title: _resourceBundle.getText("DIALOG_MESSAGE"),
-				icon: "sap-icon://message-information",
-				state: sap.ui.core.ValueState.None,
-				actions: ["close"]
-			},
-			question: {
-				title: _resourceBundle.getText("DIALOG_QUESTION"),
-				icon: "sap-icon://question-mark",
-				state: sap.ui.core.ValueState.None,
-				actions: ["accept", "reject"]
-			},
-			success: {
-				title: _resourceBundle.getText("DIALOG_SUCCESS"),
-				icon: "sap-icon://message-success",
-				state: sap.ui.core.ValueState.Success,
-				actions: ["close"]
-			},
-			warning: {
-				title: _resourceBundle.getText("DIALOG_WARNING"),
-				icon: "sap-icon://message-warning",
-				state: sap.ui.core.ValueState.Warning,
-				actions: ["close"]
-			},
-			error: {
-				title: _resourceBundle.getText("DIALOG_ERROR"),
-				icon: "sap-icon://message-error",
-				state: sap.ui.core.ValueState.Error,
-				actions: ["close"]
-			}
-		};
-		
-		var buttonDefaults = {
-			accept: {
-				text: _resourceBundle.getText("DIALOG_ACCEPT"),
-				icon: "sap-icon://accept",
-				type: sap.m.ButtonType.Accept
-			},
-			reject: {
-				text: _resourceBundle.getText("DIALOG_REJECT"),
-				icon: "sap-icon://decline",
-				type: sap.m.ButtonType.Reject
-			},
-			confirm: {
-				text: _resourceBundle.getText("DIALOG_CONFIRM"),
-				icon: "sap-icon://accept",
-				type: sap.m.ButtonType.Emphasized
-			},
-			abort: {
-				text: _resourceBundle.getText("DIALOG_ABORT"),
-				icon: "sap-icon://decline",
-				type: sap.m.ButtonType.Default
-			},
-			close: {
-				text: _resourceBundle.getText("DIALOG_CLOSE"),
-				icon: "sap-icon://inspect-down",
-				type: sap.m.ButtonType.Default
-			}
-		};
+	DialogUtils.dialog = function (context, content, options, name) { // eslint-disable-line complexity
+		BindingUtils.checkParameters("dialog", [{
+			name: "context",
+			value: context
+		}, {
+			name: "content",
+			value: content
+		}]);
 
 		options = options || {};
-		options.type = options.type || "generic";
-		options.icon = options.icon || typeDefaults[options.type].icon;
-		options.title = options.title || typeDefaults[options.type].title;
-		options.state = options.state || typeDefaults[options.type].state;
-		options.size = options.size || "auto";
-		options.stretch = options.stretch || options.stretch === true;
-		options.preventDuplicate = options.preventDuplicate || options.preventDuplicate !== false;
-		options.autoOpen = options.autoOpen || options.autoOpen !== false;
-		options.closeOnOuterTap = options.closeOnOuterTap || options.closeOnOuterTap !== false;
-		options.closeOnEscape = options.closeOnEscape || options.closeOnEscape !== false;
+		options.rebuild = options.rebuild || options.rebuild === true;
+		options.type = options.type || this.DialogTypes.Generic;
+		options.icon = options.icon || _dialogsTypeDefaults[options.type].icon;
+		options.title = options.title || _dialogsTypeDefaults[options.type].title;
+		options.state = options.state || _dialogsTypeDefaults[options.type].state;
 		options.draggable = options.draggable || options.draggable !== false;
-		options.resizable = options.resizable || options.resizable === true;
-		options.showButtonIcons = options.showButtonIcons || options.showButtonIcons === true;
-		options.padding = options.padding || options.padding !== false;
-		options.compact = options.compact || options.compact !== false;
+		options.resizable = options.resizable || _dialogsTypeDefaults[options.type].resizable;
+		options.stretch = options.stretch || options.stretch === true;
+		options.contentWidth = options.stretch ? "auto" : options.contentWidth;
+		options.contentHeight = options.stretch ? "auto" : options.contentHeight;
 		options.fragment = options.fragment || options.fragment === true;
+		options.textAlign = options.textAlign || "Center";
+		options.actions = options.actions || _dialogsTypeDefaults[options.type].actions;
+		options.buttonIcons = options.buttonIcons || options.buttonIcons === true;
+		options.closeOnOuterTap = options.closeOnOuterTap || options.closeOnOuterTap !== false;
+		options.autoOpen = options.autoOpen || options.autoOpen !== false;
 
-		var dialog = _dialogs[content];
+		var dialogKey = name + content;
+		var dialog = _dialogs[dialogKey];
 
-		if (!(options.preventDuplicate && dialog && dialog.isOpen())) {
-			dialog = new sap.m.Dialog();
-			if (this.getView) {
-				this.getView().addDependent(dialog);
-			}
-
-			// content
-			if (options.fragment) {
-				dialog.addContent(sap.ui.xmlfragment(content, this));
-			} else {
-				dialog.addContent(new sap.m.Text({
+		if (!dialog || options.rebuild) {
+			dialog = new sap.m.Dialog({
+				icon: options.icon,
+				title: options.title,
+				customHeader: options.customHeader,
+				subHeader: options.subHeader,
+				state: options.state,
+				type: _dialogsTypeDefaults[options.type].type,
+				showHeader: !(!options.title && !options.icon),
+				draggable: options.draggable,
+				resizable: options.resizable,
+				contentWidth: options.contentWidth,
+				contentHeight: options.contentHeight,
+				stretch: options.stretch,
+				content: options.fragment ? sap.ui.xmlfragment(content, context) : new sap.m.Text({
 					width: "100%",
 					text: content,
-					textAlign: "Center"
-				}));
+					textAlign: options.textAlign
+				})
+			});
+
+			if (context.getView) {
+				context.getView().addDependent(dialog);
 			}
 
-			if (options.customHeader) {
-				dialog.setCustomHeader(options.customHeader);
-			}
-			if (options.subHeader) {
-				dialog.setSubHeader(options.subHeader);
-			}
-
-			// options
-			dialog.setTitle(options.title);
-			dialog.setIcon(options.icon);
-			dialog.setState(options.state);
-			dialog.setShowHeader(!(!options.title && !options.icon));
-			if (dialog.setDraggable) {
-				dialog.setDraggable(options.draggable);
-			}
-			if (dialog.setResizable) {
-				dialog.setResizable(options.resizable);
-			}
-			if (options.padding) {
-				dialog.addStyleClass("sapUiContentPadding");
-			}
-			if (options.compact) {
-				dialog.addStyleClass("sapUiSizeCompact");
-			}
-			if (options.stretch) {
-				dialog.setContentWidth("auto");
-				dialog.setContentHeight("auto");
-				dialog.setStretch(true);
-			} else {
-				dialog.setContentWidth(options.size.split(",")[0]);
-				dialog.setContentHeight(options.size.split(",")[1] || "auto");
-				dialog.setStretch(false);
-			}
+			dialog.addStyleClass(this.getContentDensity(context));
 
 			// actions
-			(options.actions || typeDefaults[options.type].actions).forEach(function (x) {
+			options.actions.forEach(function (action) {
 				dialog.addButton(new sap.m.Button({
-					icon: options.showButtonIcons ? options[x + "Icon"] || buttonDefaults[x].icon : null,
-					text: options.showButtonIcons ? null : options[x + "Text"] || buttonDefaults[x].text,
-					type: options[x + "Type"] || buttonDefaults[x].type,
-					press: function () {
+					icon: options.buttonIcons ? options[action + "Icon"] || _dialogsActionDefaults[action].icon : null,
+					text: options.buttonIcons ? null : options[action + "Text"] || _dialogsActionDefaults[action].text,
+					type: options[action + "Type"] || _dialogsActionDefaults[action].type,
+					press: function (e) {
+						var sourceDialog = this.parentOfType(e.getSource(), "sap.m.Dialog");
+
 						new Promise(function (resolve) {
-							if (options[x + "Callback"]) {
-								options[x + "Callback"].call(this, resolve, dialog);
+							if (options[action + "Callback"]) {
+								options[action + "Callback"].call(this, resolve, sourceDialog);
 							} else {
 								resolve();
 							}
 						}).then(function () {
-							dialog.close();
+							sourceDialog.close();
 						});
-					}
+					}.bind(this)
 				}));
-			});
+			}.bind(this));
 
 			// additional handlers
-			dialog.attachAfterOpen(function () {
+			dialog.attachAfterOpen(function (e) {
+				dialog = e.getSource();
+				var domDialog = dialog.getDomRef();
+
+				if (dialog.getType() === "Message") {
+					setTimeout(function () { // eslint-disable-line sap-timeout-usage
+						var footer = domDialog.querySelector("footer>*");
+
+						if (footer) {
+							footer.classList.remove("sapContrast");
+							footer.classList.remove("sapContrastPlus");
+						}
+
+						// necessary since displaying a dialog within onInit or onAfterRendering would ignore dialogType = "Message"
+					}, 50);
+				}
+
 				if (options.closeOnOuterTap) {
-					document.getElementById(dialog.getId()).parentElement.parentElement.onclick = function (e) {
-						if (e.target.className.indexOf("sapMDialogBlockLayerInit") > -1) {
-							new Promise(function (resolve) {
-								if (options.outerTapCallback) {
-									options.outerTapCallback.call(this, resolve, dialog);
-								} else {
-									resolve();
-								}
-							}).then(function () {
-								dialog.close();
+					document.onclick = function (sube) {
+						if (sube.target.classList.contains("sapMDialogBlockLayerInit")) {
+							var domDialogs = Array.prototype.slice.call(document.querySelectorAll("[class~=sapMDialog]"));
+							var zIndices = domDialogs.reduce(function (acc, curval) {
+								acc.push(curval.style.zIndex);
+
+								return acc;
+							}, []);
+							var maxZIndex = Math.max.apply(null, zIndices);
+
+							domDialog = domDialogs.find(function (node) {
+								return node.style.zIndex === maxZIndex.toString();
 							});
+							dialog = sap.ui.getCore().byId(domDialog.id);
+
+							if (dialog.getButtons().length === 0) {
+								new Promise(function (resolve) {
+									if (options.outerTapCallback) {
+										options.outerTapCallback.call(this, resolve, dialog);
+									} else {
+										resolve();
+									}
+								}).then(function () {
+									dialog.close();
+								});
+							}
 						}
 					};
 				}
-			}.bind(this, dialog));
-			if (dialog.setEscapeHandler) {
-				dialog.setEscapeHandler(function () {
-					if (options.closeOnEscape) {
-						new Promise(function (resolve) {
-							if (options.escapeCallback) {
-								options.escapeCallback.call(this, resolve, dialog);
-							} else {
-								resolve();
-							}
-						}).then(function () {
-							dialog.close();
-						});
-					}
-				}.bind(this, dialog));
-			}
+			});
+			dialog.setEscapeHandler(function () {});
 
-			_dialogs[content] = dialog;
+			_dialogs[dialogKey] = dialog;
 		}
 
 		if (options.autoOpen) {

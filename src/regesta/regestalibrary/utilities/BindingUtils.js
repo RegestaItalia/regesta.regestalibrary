@@ -1,8 +1,8 @@
-sap.ui.define([], function() {
+sap.ui.define([], function () {
 	"use strict";
 	var BindingUtils = {};
 
-	BindingUtils.updateBindingParamsFilter = function(bindingParams, newFilter) {
+	BindingUtils.updateBindingParamsFilter = function (bindingParams, newFilter) {
 		if (!bindingParams.filters || bindingParams.filters.length === 0) {
 			bindingParams.filters = [newFilter];
 		} else if (bindingParams.filters.length === 1) {
@@ -21,14 +21,14 @@ sap.ui.define([], function() {
 				filters: bindingParams.filters
 			});
 
-			bindingParams.filters = [ new sap.ui.model.Filter({
+			bindingParams.filters = [new sap.ui.model.Filter({
 				and: true,
 				filters: [oldFilters, newFilter]
-			}) ];
+			})];
 		}
 	};
-	
-	BindingUtils.alignDateTimeFilter = function(filter) {
+
+	BindingUtils.alignDateTimeFilter = function (filter) {
 		if (filter.aFilters !== null && filter.aFilters !== undefined && filter.aFilters.length > 0) {
 			for (var i = 0; i < filter.aFilters.length; i++) {
 				this.alignDateTimeFilter(filter.aFilters[i]);
@@ -43,6 +43,14 @@ sap.ui.define([], function() {
 				filter.oValue2 = new Date(filter.oValue2 - oOffsetValue2 * 60 * 1000);
 			}
 		}
+	};
+
+	BindingUtils.checkParameters = function (functionName, mandatoryParameters) {
+		mandatoryParameters.forEach(function (parameter) {
+			if (!parameter.value) {
+				throw new Error("@" + functionName + ": mandatory parameter \"" + parameter.name + "\" not provided");
+			}
+		});
 	};
 
 	return BindingUtils;

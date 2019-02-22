@@ -31,7 +31,9 @@ sap.ui.define(["jquery.sap.global",
 			interfaces: [],
 			controls: [
 				"regesta.regestalibrary.controls.RegInput",
-				"regesta.regestalibrary.controls.RegSmartTable"
+				"regesta.regestalibrary.controls.RegSmartTable",
+				"regesta.regestalibrary.controls.RegCharContainer",
+				"regesta.regestalibrary.controls.RegCharItem"
 			],
 			elements: []
 		});

@@ -182,5 +182,29 @@ sap.ui.require(
 				BindingUtils.updateBindingParamsFilter(binding, newFilter);
 				assert.deepEqual(binding, expectedBinding);
 			});
+
+		QUnit.test("Mandatory field missing in function call", function (assert) {
+			try {
+				BindingUtils.checkParameters("afterNavigate", [{
+					name: "context",
+					value: null
+				}]);
+				assert.ok(false);
+			} catch (exc) {
+				assert.ok(true);
+			}
+		});
+
+		QUnit.test("Mandatory field provided in function call", function (assert) {
+			try {
+				BindingUtils.checkParameters("afterNavigate", [{
+					name: "context",
+					value: "value"
+				}]);
+				assert.ok(true);
+			} catch (exc) {
+				assert.ok(false);
+			}
+		});
 	}
 );

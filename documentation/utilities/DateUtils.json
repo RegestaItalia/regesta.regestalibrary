@@ -29,5 +29,25 @@
 			"Level": 1
 		}],
 		"ReturnType": "date"
+	},
+	{
+		"Name": "addWorkingDays",
+		"Description": "Adds number of working days to a date",
+		"Parameters": [{
+			"Name": "startDate",
+			"Type": "date",
+			"Default": null,
+			"Description": "Date to which add time",
+			"Optional": false,
+			"Level": 1
+		}, {
+			"Name": "days",
+			"Type": "integer",
+			"Default": null,
+			"Description": "Amount of working days to be added (only positive values)",
+			"Optional": false,
+			"Level": 1
+		}],
+		"ReturnType": "date"
 	}]
 }

@@ -55,5 +55,29 @@ sap.ui.require(
 			var newDate = DateUtils.addTime(startDate, 1, "y");
 			assert.deepEqual(newDate, expectedDate);
 		});
+
+		QUnit.test("Adding 4 working days to specified date", function (assert) {
+			var startDate = new Date(2019, 1, 11, 0, 0, 0); //Lun
+			var expectedDate = new Date(2019, 1, 15, 0, 0, 0); //Ven
+
+			var newDate = DateUtils.addWorkingDays(startDate, 4);
+			assert.deepEqual(newDate, expectedDate);
+		});
+		
+		QUnit.test("Adding 4 working days to specified date", function (assert) {
+			var startDate = new Date(2019, 1, 13, 0, 0, 0); //Mer
+			var expectedDate = new Date(2019, 1, 19, 0, 0, 0); //Mar
+
+			var newDate = DateUtils.addWorkingDays(startDate, 4);
+			assert.deepEqual(newDate, expectedDate);
+		});
+		
+		QUnit.test("Adding 14 working days to specified date", function (assert) {
+			var startDate = new Date(2019, 1, 11, 0, 0, 0); 
+			var expectedDate = new Date(2019, 2, 1, 0, 0, 0);
+
+			var newDate = DateUtils.addWorkingDays(startDate, 14);
+			assert.deepEqual(newDate, expectedDate);
+		});
 	}
 );
