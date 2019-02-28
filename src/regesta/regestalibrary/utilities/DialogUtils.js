@@ -18,7 +18,7 @@ sap.ui.define([
 			state: sap.ui.core.ValueState.None,
 			actions: ["Close"],
 			type: "Standard",
-			resizab  le: true
+			resizable: true
 		},
 		Message: {
 			title: _resourceBundle.getText("dialogMessage"),
