@@ -139,7 +139,7 @@ sap.ui.define(["jquery.sap.global",
 					path: bindingInfo.path,
 					model: bindingInfo.model,
 					template: bindingInfo.template,
-					filters: [new sap.ui.model.Filter(bindingInfo.template.getGroup(), sap.ui.model.FilterOperator.EQ, sKey)]
+					filters: [new sap.ui.model.Filter(bindingInfo.template.getBindingPath("group"), sap.ui.model.FilterOperator.EQ, sKey)]
 				});
 
 				return oTable;
