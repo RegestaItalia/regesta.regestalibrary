@@ -1,6 +1,6 @@
 {
 	"Class": "NumberFormatter",
-	"FullPath": "regesta.regestalibrary.utilities.BindingUtils",
+	"FullPath": "regesta.regestalibrary.utilities.NumberFormatter",
 	"Description": "Formatter class for numbers",
 	"Attributes": [],
 	"Methods": [{
