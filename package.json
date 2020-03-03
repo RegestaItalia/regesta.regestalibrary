@@ -5,15 +5,15 @@
 	"devDependencies": {
 		"@sap/di.code-validation.js": "1.1.6",
 		"@sap/di.code-validation.xml": "1.1.10",
-		"@ui5/cli": "0.2.1",
+		"@ui5/cli": "1.5.3",
+		"@sap/ui5-builder-webide-extension": "1.0.9",
 		"ajv": "6.5.2",
-		"grunt": "1.0.1",
-		"grunt-run": "0.8.1"
+		"jsdoc": "3.6.3",
+		"docdash": "1.2.0"
 	},
-	"main": "Gruntfile.js",
 	"scripts": {
-		"clean": "rm -rf dist",
-		"build": "ui5 build",
+		"clean": "rm -rf dist docs",
+		"build": "npm run clean &&  ui5 build --include-task=generateManifestBundle generateCachebusterInfo",
 		"build-for-deploy": "npm run build && npm run flatten && npm run clean-after-flatten",
 		"flatten": "cp -r dist/resources/regesta/regestalibrary/* dist && cp -r dist/resources/regesta/regestalibrary/.* dist && cp dist/resources/* dist || cp dist/resources/.* dist || true",
 		"clean-after-flatten": "rm -rf dist/resources dist/test-resources"
@@ -22,5 +22,10 @@
 	"dependencies": {
 		"@openui5/sap.ui.core": "",
 		"@openui5/themelib_sap_belize": ""
+	},
+	"ui5": {
+		"dependencies": [
+			"@sap/ui5-builder-webide-extension"
+		]
 	}
 }

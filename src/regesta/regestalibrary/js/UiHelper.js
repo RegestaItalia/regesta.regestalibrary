@@ -617,7 +617,7 @@ sap.ui.define([
 		/** 
 		 * Sets/unsets busy states, using a counter to keep track of control's busy states (e.g. for subsequent http calls).
 		 * 
-		 * @param	{[sap.ui.model.PropertyBinding]}		[bindings]		An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.
+		 * @param	{sap.ui.model.PropertyBinding}			[bindings]		An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.
 		 * @param	{boolean}								[unset = false]	Defines whether to decrement busy counter.
 		 * @param	{boolean}								[reset = false]	Defines whether to force unset of busyState.
 		 * @param	{integer}								[delay = 0]		The delay to apply when showing sap.ui.core.BusyIndicator. For other controls use inherited sap.ui.core.Control.busyIndicatorDelay property.
