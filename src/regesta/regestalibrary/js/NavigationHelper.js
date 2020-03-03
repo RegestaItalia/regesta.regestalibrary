@@ -3,7 +3,7 @@
  */
 
 sap.ui.define([
-	"regesta/regestalibrary/enum/NavigationDirection",
+	"regesta/regestalibrary/enums/NavigationDirection",
 	"regesta/regestalibrary/js/JsHelper",
 	"regesta/regestalibrary/js/UiHelper",
 	"sap/ui/generic/app/navigation/service/NavigationHandler"

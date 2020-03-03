@@ -5,8 +5,8 @@
 sap.ui.define([
 	"sap/m/ButtonType",
 	"regesta/regestalibrary/js/JsHelper",
-	"regesta/regestalibrary/enum/DialogAction",
-	"regesta/regestalibrary/enum/DialogType",
+	"regesta/regestalibrary/enums/DialogAction",
+	"regesta/regestalibrary/enums/DialogType",
 	"sap/m/Dialog",
 	"sap/ui/core/ValueState",
 	"sap/ui/model/Filter",
