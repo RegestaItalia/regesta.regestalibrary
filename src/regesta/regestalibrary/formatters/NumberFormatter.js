@@ -1,3 +1,7 @@
+/**
+ * @file Formatter class for numbers
+ */
+
 sap.ui.define([], function() {
 	"use strict";
 	var numberFormatter = {};

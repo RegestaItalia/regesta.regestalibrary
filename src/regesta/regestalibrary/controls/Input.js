@@ -1,3 +1,25 @@
+/**
+ * @file	Extends an sap.m.Input, automatically setting/binding some properties. 
+ *			Value binding path defines input's keyProperty, as well as its [name].
+ *			Busy and description will bound to [localModel]>/[keyProperty]Busy and [localModel]>/[keyProperty]Description.
+ *			MaxLength will bound via metadata binding to the maxLength of the entityset entity's property named as the [keyProperty].
+ *			SuggestionItems will bound to suggestionItemsSet, valueHelpEnries will bound to valueHelpItemSet (to show either suggestion or valueHelp, the corresponding 
+ *			property - showSuggestion / showValueHelp - should be set accordingly).
+ *			Handlers will be attached to valueHelpRequest, suggest, valueHelpItemSelected and suggestionItemSelected to correctly handle valueHelp and suggestion logic. 
+ *			Additionally, it'll be exposed a beforeRebindValueHelpTable event to allow operations before valueHelp table binding (e.g. filtering)
+ *			Hnadlers will be attached to parseError and liveChange to handle messages relative to this input.
+ * 
+ * @prop	{string}	entitySet								EntitySet from which determining maxLength (if provided).
+ * @prop	{string}	localModel=local						Name of the model to which [busy] and [description] will bound.
+ * @prop	{string}	suggestionEntitySet						EntitySet defining suggestion items, if not provided it'll be [keyProperty]Set.
+ * @prop	{string}	suggestionProperties=Code,Description	A list of properties to be shown in the suggestion list, separated by a comma.
+ * @prop	{string}	valueHelpEntitySet						EntitySet defining valueHelp items, if not provided it'll be [keyProperty]Set.
+ * @prop	{string}	valueHelpProperties=Code,Description	A list of properties to be shown in the valueHelp list, separated by a comma.
+ * 
+ * @event				valueHelpItemSelected					Event fired at a valueHelpItem selection.
+ * @event				beforeRebindValueHelpTable				Event fired before rebinding valueHelp table.
+ */
+ 
 sap.ui.define([
 	"regesta/regestalibrary/js/MessageHelper",
 	"regesta/regestalibrary/js/ModelHelper",
@@ -30,6 +52,10 @@ sap.ui.define([
 				valueHelpEntitySet: {
 					type: "string"
 						/*default: _keyProperty + "Set"*/
+				},
+				valueHelpProperties: {
+					type: "string",
+					defaultValue: "Code,Description"
 				}
 			},
 			aggregations: {
@@ -246,7 +272,7 @@ sap.ui.define([
 		_createValueHelpDialog: function () {
 			var valueHelpDialog = this.getAggregation("valueHelpDialog");
 			var valueHelpEntitySet = this.getValueHelpEntitySet();
-			var suggestionProperties = this.getSuggestionProperties();
+			var valueHelpProperties = this.getValueHelpProperties();
 
 			var smartFilterBar = new SmartFilterBar({
 				id: this.getId() + "_" + "ValueHelpFilterBar",
@@ -258,7 +284,7 @@ sap.ui.define([
 				entitySet: valueHelpEntitySet,
 				useExportToExcel: false,
 				persistencyKey: this._keyProperty + "ValueHelpTable",
-				initiallyVisibleFields: suggestionProperties,
+				initiallyVisibleFields: valueHelpProperties,
 				beforeRebindTable: function (e) {
 					this.fireEvent("beforeRebindValueHelpTable", e.getParameters());
 				}.bind(this),

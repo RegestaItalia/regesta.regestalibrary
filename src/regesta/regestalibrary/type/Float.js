@@ -1,3 +1,7 @@
+/**
+ * @file	Custom float type with handling of blank values. It's an extension of the standard sap.ui.model.type.Float type.
+ */
+
 sap.ui.define([
 	"sap/ui/model/SimpleType"
 ], function (SimpleType) {

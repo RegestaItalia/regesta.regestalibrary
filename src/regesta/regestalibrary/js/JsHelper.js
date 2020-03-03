@@ -1,3 +1,7 @@
+/**
+ * @file	Basic helper functions.
+ */
+
 sap.ui.define([], function () {
 	"use strict";
 
@@ -26,7 +30,7 @@ sap.ui.define([], function () {
 						functionName,
 						parameter.name
 					]);
-				}else if (isParameterOfWrongType) {
+				} else if (isParameterOfWrongType) {
 					errorMessage = this.replaceByIndex(
 						"@ {0}: mandatory parameter \"{1}\" is of wrong type: \"{2}\" expected, \"{3}\" provided.", [
 							functionName,
@@ -50,13 +54,13 @@ sap.ui.define([], function () {
 		 * 
 		 * @returns	{object}					The created object.
 		 */
-		createObjectByPath: function(path, value, separator){
+		createObjectByPath: function (path, value, separator) {
 			this.checkParameters("createObjectByPath", [{
 				name: "path",
 				value: path,
 				expected: ["string"]
 			}]);
-			
+
 			var pathParts = path.split(separator || "/").filter(function (x) {
 				return !!x;
 			});
@@ -68,7 +72,7 @@ sap.ui.define([], function () {
 					configurable: true
 				});
 			}, value === undefined ? {} : value);
-			
+
 			return nestedData;
 		},
 		/**

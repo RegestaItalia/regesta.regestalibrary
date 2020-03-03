@@ -1,3 +1,7 @@
+/**
+ * @file	MessageManager-related helper functions.
+ */
+
 sap.ui.define([
 	"regesta/regestalibrary/js/JsHelper",
 	"regesta/regestalibrary/js/UiHelper",
@@ -178,7 +182,7 @@ sap.ui.define([
 			options.excludeTechnical = options.excludeTechnical ? options.excludeTechnical : options.excludeTechnical !== false;
 			options.excludeNoText = options.excludeNoText ? options.excludeNoText : options.excludeNoText !== false;
 
-			if(options.excludeNoText){
+			if (options.excludeNoText) {
 				messages = messages.filter(function (message) {
 					return message.getMessage();
 				});
@@ -187,7 +191,7 @@ sap.ui.define([
 				if (JsHelper.typeOf(options.targets) !== "array") {
 					options.targets = [options.targets];
 				}
-				
+
 				messages = messages.filter(function (message) {
 					return options.targets.length === 0 ? !message.getTarget() : options.targets.includes(message.getTarget());
 				});

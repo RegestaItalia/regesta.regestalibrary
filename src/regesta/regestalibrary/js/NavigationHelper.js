@@ -1,3 +1,7 @@
+/**
+ * @file	Navigation-related helper functions.
+ */
+
 sap.ui.define([
 	"regesta/regestalibrary/enum/NavigationDirection",
 	"regesta/regestalibrary/js/JsHelper",

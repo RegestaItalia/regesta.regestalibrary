@@ -1,3 +1,7 @@
+/**
+ * @file	Model-related helper functions.
+ */
+
 sap.ui.define([
 	"regesta/regestalibrary/js/JsHelper",
 	"regesta/regestalibrary/js/MessageHelper",

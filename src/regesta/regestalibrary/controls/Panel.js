@@ -1,9 +1,13 @@
+/**
+ * @file	Extends an sap.m.Panel, removing padding.
+ */
+ 
 sap.ui.define([
 	"sap/m/Panel"
 ], function (Panel) {
 	"use strict";
 
-	return Panel.extend("regesta.regestalibrary.controls.VisibilityPanel", {
+	return Panel.extend("regesta.regestalibrary.controls.Panel", {
 		renderer: function (rm, visibilityPanel) {
 			// REDEFINITIONS >>
 			this.startPanel = function () {

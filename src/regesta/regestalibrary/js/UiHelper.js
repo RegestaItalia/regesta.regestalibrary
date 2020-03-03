@@ -1,3 +1,7 @@
+/**
+ * @file	Ui-related helper functions.
+ */
+
 sap.ui.define([
 	"sap/m/ButtonType",
 	"regesta/regestalibrary/js/JsHelper",
