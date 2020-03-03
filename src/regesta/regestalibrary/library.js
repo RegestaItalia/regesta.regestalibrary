@@ -11,16 +11,9 @@ sap.ui.define(["jquery.sap.global",
 	function ( /*jQuery*/ ) {
 
 		"use strict";
-
-		/**
-		 * regesta custom library for user controls and functions
-		 *
-		 * @namespace
-		 * @name regesta.regestalibrary
-		 * @author SAP SE
-		 * @version ${version}
-		 * @public
-		 */
+		
+		/** @namespace regesta.regestalibrary.control */
+		/** @namespace regesta.regestalibrary.enum */
 
 		// delegate further initialization of this library to the Core
 		sap.ui.getCore().initLibrary({

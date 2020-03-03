@@ -1,5 +1,7 @@
 /**
- * @file	Custom integer type with handling of blank values. It's an extension of the standard sap.ui.model.type.Integer type.
+ * Custom integer type with handling of blank values. It's an extension of the standard sap.ui.model.type.Integer type.
+ * 
+ * @module	Integer
  */
 
 sap.ui.define([

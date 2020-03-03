@@ -1,6 +1,8 @@
 /**
  * Enum for time unit of measure.
- * @enum {string}
+ * 
+ * @member TimeUom
+ * @memberof regesta.regestalibrary.enum
  */
 sap.ui.define({
 	/** Time uom: seconds. */

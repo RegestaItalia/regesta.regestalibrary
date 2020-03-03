@@ -1,9 +1,11 @@
 /**
  * Enum for dialog action.
- * @enum {string}
+ * 
+ * @member{string} DialogAction
+ * @memberof regesta.regestalibrary.enum
  */
 sap.ui.define({
-	/** Preset for accept action: emphasized button with "Yes" text and "accept" icon. */
+	/** @property	{string}	Accept	Emphasized button with "Yes" text and "accept" icon */
 	Accept: "Accept",
 
 	/** Preset for reject action: default button with "No" text and "decline" icon. */

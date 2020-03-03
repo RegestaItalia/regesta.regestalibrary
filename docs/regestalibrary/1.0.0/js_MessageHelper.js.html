@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>js/MessageHelper.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Float.html">Float</a></li><li><a href="module-Integer.html">Integer</a></li><li><a href="module-JsHelper.html">JsHelper</a><ul class='methods'><li data-type='method'><a href="module-JsHelper.html#~checkParameters">checkParameters</a></li><li data-type='method'><a href="module-JsHelper.html#~createObjectByPath">createObjectByPath</a></li><li data-type='method'><a href="module-JsHelper.html#~getObjectByPath">getObjectByPath</a></li><li data-type='method'><a href="module-JsHelper.html#~getObjectPropertyByIndex">getObjectPropertyByIndex</a></li><li data-type='method'><a href="module-JsHelper.html#~parseFormattedNumber">parseFormattedNumber</a></li><li data-type='method'><a href="module-JsHelper.html#~parseXml">parseXml</a></li><li data-type='method'><a href="module-JsHelper.html#~replaceByIndex">replaceByIndex</a></li><li data-type='method'><a href="module-JsHelper.html#~typeOf">typeOf</a></li></ul></li><li><a href="module-MessageHelper.html">MessageHelper</a><ul class='methods'><li data-type='method'><a href="module-MessageHelper.html#~addErrorMessages">addErrorMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~addInformationMessages">addInformationMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~addMessages">addMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~addSuccessMessages">addSuccessMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~addWarningMessages">addWarningMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~closeMessages">closeMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getErrorMessages">getErrorMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getInformationMessages">getInformationMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getMessages">getMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getSuccessMessages">getSuccessMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getUntypedMessages">getUntypedMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getWarningMessages">getWarningMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~registerView">registerView</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeErrorMessages">removeErrorMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeInformationMessages">removeInformationMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeMessages">removeMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeSuccessMessages">removeSuccessMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeUntypedMessages">removeUntypedMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeWarningMessages">removeWarningMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showErrorMessages">showErrorMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showInformationMessages">showInformationMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showMessages">showMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showSuccessMessages">showSuccessMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showUntypedMessages">showUntypedMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showWarningMessages">showWarningMessages</a></li></ul></li><li><a href="module-ModelHelper.html">ModelHelper</a><ul class='methods'><li data-type='method'><a href="module-ModelHelper.html#~ajax">ajax</a></li><li data-type='method'><a href="module-ModelHelper.html#~ajaxAsync">ajaxAsync</a></li><li data-type='method'><a href="module-ModelHelper.html#~callFunction">callFunction</a></li><li data-type='method'><a href="module-ModelHelper.html#~callFunctionAsync">callFunctionAsync</a></li><li data-type='method'><a href="module-ModelHelper.html#~create">create</a></li><li data-type='method'><a href="module-ModelHelper.html#~createAsync">createAsync</a></li><li data-type='method'><a href="module-ModelHelper.html#~formalizePostData">formalizePostData</a></li><li data-type='method'><a href="module-ModelHelper.html#~formatResponseMessage">formatResponseMessage</a></li><li data-type='method'><a href="module-ModelHelper.html#~getDefaultModel">getDefaultModel</a></li><li data-type='method'><a href="module-ModelHelper.html#~getEntityMetadata">getEntityMetadata</a></li><li data-type='method'><a href="module-ModelHelper.html#~getEntitySetEntityMetadata">getEntitySetEntityMetadata</a></li><li data-type='method'><a href="module-ModelHelper.html#~getEntitySetMetadata">getEntitySetMetadata</a></li><li data-type='method'><a href="module-ModelHelper.html#~getFunctionImportMetadata">getFunctionImportMetadata</a></li><li data-type='method'><a href="module-ModelHelper.html#~getI18nModel">getI18nModel</a></li><li data-type='method'><a href="module-ModelHelper.html#~getLocalModel">getLocalModel</a></li><li data-type='method'><a href="module-ModelHelper.html#~getModel">getModel</a></li><li data-type='method'><a href="module-ModelHelper.html#~httpError">httpError</a></li><li data-type='method'><a href="module-ModelHelper.html#~parseResponse">parseResponse</a></li><li data-type='method'><a href="module-ModelHelper.html#~read">read</a></li><li data-type='method'><a href="module-ModelHelper.html#~readAsync">readAsync</a></li><li data-type='method'><a href="module-ModelHelper.html#~remove">remove</a></li><li data-type='method'><a href="module-ModelHelper.html#~removeAsync">removeAsync</a></li><li data-type='method'><a href="module-ModelHelper.html#~setBindedProperty">setBindedProperty</a></li><li data-type='method'><a href="module-ModelHelper.html#~update">update</a></li><li data-type='method'><a href="module-ModelHelper.html#~updateAsync">updateAsync</a></li></ul></li><li><a href="module-NavigationHelper.html">NavigationHelper</a><ul class='methods'><li data-type='method'><a href="module-NavigationHelper.html#~afterNavigation">afterNavigation</a></li><li data-type='method'><a href="module-NavigationHelper.html#~getRouter">getRouter</a></li><li data-type='method'><a href="module-NavigationHelper.html#~navigate">navigate</a></li><li data-type='method'><a href="module-NavigationHelper.html#~navigateExternal">navigateExternal</a></li><li data-type='method'><a href="module-NavigationHelper.html#~navigateHierarchy">navigateHierarchy</a></li><li data-type='method'><a href="module-NavigationHelper.html#~navigateToLaunchpad">navigateToLaunchpad</a></li><li data-type='method'><a href="module-NavigationHelper.html#~overrideShellBack">overrideShellBack</a></li></ul></li><li><a href="module-UiHelper.html">UiHelper</a><ul class='methods'><li data-type='method'><a href="module-UiHelper.html#~closeDialog">closeDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~enableRowSelection">enableRowSelection</a></li><li data-type='method'><a href="module-UiHelper.html#~focusInput">focusInput</a></li><li data-type='method'><a href="module-UiHelper.html#~fullScreen">fullScreen</a></li><li data-type='method'><a href="module-UiHelper.html#~getAppName">getAppName</a></li><li data-type='method'><a href="module-UiHelper.html#~getAppVersion">getAppVersion</a></li><li data-type='method'><a href="module-UiHelper.html#~getContentDensity">getContentDensity</a></li><li data-type='method'><a href="module-UiHelper.html#~getCurrentLanguage">getCurrentLanguage</a></li><li data-type='method'><a href="module-UiHelper.html#~getCustomData">getCustomData</a></li><li data-type='method'><a href="module-UiHelper.html#~getDialog">getDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~getElementsByPartialId">getElementsByPartialId</a></li><li data-type='method'><a href="module-UiHelper.html#~getFieldGroupId">getFieldGroupId</a></li><li data-type='method'><a href="module-UiHelper.html#~getFocusedElement">getFocusedElement</a></li><li data-type='method'><a href="module-UiHelper.html#~getInputByName">getInputByName</a></li><li data-type='method'><a href="module-UiHelper.html#~getInputsByFieldGroupId">getInputsByFieldGroupId</a></li><li data-type='method'><a href="module-UiHelper.html#~getLibraryVersion">getLibraryVersion</a></li><li data-type='method'><a href="module-UiHelper.html#~getNextField">getNextField</a></li><li data-type='method'><a href="module-UiHelper.html#~getParentOfType">getParentOfType</a></li><li data-type='method'><a href="module-UiHelper.html#~getStartupParameters">getStartupParameters</a></li><li data-type='method'><a href="module-UiHelper.html#~getUi5ByDom">getUi5ByDom</a></li><li data-type='method'><a href="module-UiHelper.html#~getUrlParameters">getUrlParameters</a></li><li data-type='method'><a href="module-UiHelper.html#~getViewName">getViewName</a></li><li data-type='method'><a href="module-UiHelper.html#~reload">reload</a></li><li data-type='method'><a href="module-UiHelper.html#~setUrlParameterss">setUrlParameterss</a></li><li data-type='method'><a href="module-UiHelper.html#~showBusy">showBusy</a></li><li data-type='method'><a href="module-UiHelper.html#~showDialog">showDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~showErrorDialog">showErrorDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~showInformationDialog">showInformationDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~showQuestionDialog">showQuestionDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~showSuccessDialog">showSuccessDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~showWarningDialog">showWarningDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~translateFilterData">translateFilterData</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="regesta.regestalibrary.control.html">control</a></li><li><a href="regesta.regestalibrary.enum.html">enum</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Abort">Abort</a></li><li><a href="global.html#Accept">Accept</a></li><li><a href="global.html#Back">Back</a></li><li><a href="global.html#Close">Close</a></li><li><a href="global.html#Confirm">Confirm</a></li><li><a href="global.html#Day">Day</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#First">First</a></li><li><a href="global.html#Forward">Forward</a></li><li><a href="global.html#Generic">Generic</a></li><li><a href="global.html#Hour">Hour</a></li><li><a href="global.html#Information">Information</a></li><li><a href="global.html#Last">Last</a></li><li><a href="global.html#Minute">Minute</a></li><li><a href="global.html#Month">Month</a></li><li><a href="global.html#Question">Question</a></li><li><a href="global.html#Reject">Reject</a></li><li><a href="global.html#Second">Second</a></li><li><a href="global.html#Success">Success</a></li><li><a href="global.html#Warning">Warning</a></li><li><a href="global.html#Year">Year</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">js/MessageHelper.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** 
+ * MessageManager related helper functions.
+ * 
+ * @module MessageHelper
+*/
+
+sap.ui.define([
+	"regesta/regestalibrary/js/JsHelper",
+	"regesta/regestalibrary/js/UiHelper",
+	"sap/ui/core/MessageType",
+	"sap/ui/core/message/Message",
+	"sap/ui/core/ValueState"
+], function (JsHelper, UiHelper, MessageType, Message, ValueState) {
+	"use strict";
+
+	return {
+		/**
+		 * Shorthand: calls addMessages for adding one or more error messages.
+		 */
+		addErrorMessages: function (options) {
+			options = options || {};
+
+			if (JsHelper.typeOf(options) === "object") {
+				options.type = MessageType.Error;
+			} else {
+				options.forEach(function (item) {
+					item.type = MessageType.Error;
+				});
+			}
+
+			this.addMessages(options);
+		},
+		/**
+		 * Shorthand: calls addMessages for adding one or more information messages.
+		 */
+		addInformationMessages: function (options) {
+			options = options || {};
+
+			if (JsHelper.typeOf(options) === "object") {
+				options.type = MessageType.Information;
+			} else {
+				options.forEach(function (item) {
+					item.type = MessageType.Information;
+				});
+			}
+
+			this.addMessages(options);
+		},
+		/**
+		 * Adds one or more message to the messageManager.
+		 * 
+		 * @param	{object|array}							[options]									An object or an array of objects defining the options for creating the messages.
+		 * @param	{string}								options.id									The message id: will be generated if no id is set
+		 * @param	{string}								options.message 							The message text
+		 * @param	{string}								options.description 						The message description
+		 * @param	{string}								options.descriptionUrl						The message description url to get a more detailed message
+		 * @param	{string}								options.additionalText						The message additionalText
+		 * @param	{sap.ui.core.MessageType}				options.type=sap.ui.core.MessageType.None	The message type
+		 * @param	{string}								options.code								The message code
+		 * @param	{boolean}								options.technical							Defines if the message is set as technical message
+		 * @param	{object}								options.technicalDetails					An object containg technical details for a message
+		 * @param	{sap.ui.core.message.MessageProcessor}	options.processor							The processor of the message
+		 * @param	{string}								options.target								The message target: The syntax is MessageProcessor dependent. Read the documentation of the respective MessageProcessor.
+		 * @param	{boolean}								options.persistent							Sets message persistent: If persistent is set true the message lifecycle is controlled by the application
+		 * @param	{int}									options.date=Date.now()						Sets message date which can be used to remove old messages. Number of milliseconds elapsed since 1 January 1970 00:00:00 UTC
+		 * @param	{string}								options.fullTarget							Defines more detailed information about the message target. This property is currently only used by the ODataMessageParser.
+		 */
+		addMessages: function (options) {
+			JsHelper.checkParameters("addMessages", [{
+				name: "options",
+				value: options,
+				expected: ["object", "array"]
+			}]);
+
+			var core = sap.ui.getCore();
+			var messageManager = core.getMessageManager();
+
+			if (JsHelper.typeOf(options) === "object") {
+				options = [options];
+			}
+
+			options.forEach(function (option) {
+				var message = new Message({
+					id: option.id,
+					message: JsHelper.typeOf(option.message) === "object" ? {
+						path: option.message.path,
+						model: option.message.model
+					} : option.message,
+					description: option.description,
+					descriptionUrl: option.descriptionUrl,
+					additionalText: option.additionalText,
+					type: option.type,
+					code: option.code,
+					technical: option.technical,
+					technicalDetails: option.technicalDetails,
+					processor: option.processor,
+					target: option.target,
+					persistent: option.persistent,
+					date: option.date,
+					fullTarget: option.fullTarget
+				});
+
+				messageManager.addMessages(message); // addMessages(arrayOfMessages) doesn't allow adding multiple messages without target
+			});
+		},
+		/**
+		 * Shorthand: calls addMessages for adding one or more success messages.
+		 */
+		addSuccessMessages: function (options) {
+			options = options || {};
+
+			if (JsHelper.typeOf(options) === "object") {
+				options.type = MessageType.Success;
+			} else {
+				options.forEach(function (item) {
+					item.type = MessageType.Success;
+				});
+			}
+
+			this.addMessages(options);
+		},
+		/**
+		 * Shorthand: calls addMessages for adding one or more warning messages.
+		 */
+		addWarningMessages: function (options) {
+			options = options || {};
+
+			if (JsHelper.typeOf(options) === "object") {
+				options.type = MessageType.Warning;
+			} else {
+				options.forEach(function (item) {
+					item.type = MessageType.Warning;
+				});
+			}
+
+			this.addMessages(options);
+		},
+		/**
+		 * Close messages dialog.
+		 */
+		closeMessages: function () {
+			UiHelper.closeDialog("messagesDialog");
+		},
+		/**
+		 * Shorthand: calls getMessages for getting all messages of type sap.ui.core.MessageType.Error.
+		 */
+		getErrorMessages: function (options) {
+			options = options || {};
+			options.types = MessageType.Error;
+
+			var messages = this.getMessages(options);
+
+			return messages;
+		},
+		/**
+		 * Shorthand: calls getMessages for getting all messages of type sap.ui.core.MessageType.Information.
+		 */
+		getInformationMessages: function (options) {
+			options = options || {};
+			options.types = MessageType.Information;
+
+			var messages = this.getMessages(options);
+
+			return messages;
+		},
+		/**
+		 * Returns the messages contained in the messageManager model.
+		 *
+		 * @param	{object}											options							Additional options.
+		 * @param	{string|string[]}									options.targets					An array of targets for filtering messages, empty array to return only messages that don't have target, null or undefined to avoid filtering.
+		 * @param	{boolean}											options.excludeTechnical=true	A boolean to exclude message technical (e.g. generated by the UI5 framework) messages.
+		 * @param	{sap.ui.core.MessageType|sap.ui.core.MessageType[]} options.types					An array of messageTypes for filtering messages, null or undefined to avoid filtering.
+		 * @param	{boolean}											options.excludeNoText=true		A boolean to exclude message that have no text.
+		 * 
+		 * @returns {array} 																			An array of sap.ui.core.message.Message.
+		 */
+		getMessages: function (options) {
+			var core = sap.ui.getCore();
+			var messageManager = core.getMessageManager();
+			var messageModel = messageManager.getMessageModel();
+			var messages = messageModel.getProperty("/");
+
+			options = options || {};
+			options.excludeTechnical = options.excludeTechnical ? options.excludeTechnical : options.excludeTechnical !== false;
+			options.excludeNoText = options.excludeNoText ? options.excludeNoText : options.excludeNoText !== false;
+
+			if (options.excludeNoText) {
+				messages = messages.filter(function (message) {
+					return message.getMessage();
+				});
+			}
+			if (options.targets !== null &amp;&amp; options.targets !== undefined) {
+				if (JsHelper.typeOf(options.targets) !== "array") {
+					options.targets = [options.targets];
+				}
+
+				messages = messages.filter(function (message) {
+					return options.targets.length === 0 ? !message.getTarget() : options.targets.includes(message.getTarget());
+				});
+			}
+			if (options.excludeTechnical) {
+				messages = messages.filter(function (message) {
+					return !message.getTechnical();
+				});
+			}
+			if (options.types !== null &amp;&amp; options.types !== undefined) {
+				if (JsHelper.typeOf(options.types) !== "array") {
+					options.types = [options.types];
+				}
+
+				messages = messages.filter(function (message) {
+					return options.types.includes(message.getType());
+				});
+			}
+
+			return messages;
+		},
+		/**
+		 * Shorthand: calls getMessages for getting all messages of type sap.ui.core.MessageType.Success.
+		 */
+		getSuccessMessages: function (options) {
+			options = options || {};
+			options.types = MessageType.Success;
+
+			var messages = this.getMessages(options);
+
+			return messages;
+		},
+		/**
+		 * Shorthand: calls getMessages for getting all messages of type sap.ui.core.MessageType.None.
+		 */
+		getUntypedMessages: function (options) {
+			options = options || {};
+			options.types = MessageType.None;
+
+			var messages = this.getMessages(options);
+
+			return messages;
+		},
+		/**
+		 * Shorthand: calls getMessages for getting all messages of type sap.ui.core.MessageType.Warning.
+		 */
+		getWarningMessages: function (options) {
+			options = options || {};
+			options.types = MessageType.Warning;
+
+			var messages = this.getMessages(options);
+
+			return messages;
+		},
+		/**
+		 * Registers given view to the messageManager and sets a global model binded to its messages.
+		 * 
+		 * @param {sap.ui.core.mvc.Controller) context The controller of view to register.
+		 */
+		registerView: function (context) {
+			JsHelper.checkParameters("registerView", [{
+				name: "context",
+				value: context,
+				expected: ["sap.ui.core.mvc.Controller"]
+			}]);
+
+			var core = sap.ui.getCore();
+			var messageManager = core.getMessageManager();
+
+			messageManager.registerObject(context.getView(), true);
+		},
+		/**
+		 * Shorthand: calls removeMessages to remove error messages from messageManager.
+		 */
+		removeErrorMessages: function (options) {
+			options = options || {};
+			options.types = MessageType.Error;
+
+			this.removeMessages(options);
+		},
+		/**
+		 * Shorthand: calls removeMessages to remove information messages from messageManager.
+		 */
+		removeInformationMessages: function (options) {
+			options = options || {};
+			options.types = MessageType.Information;
+
+			this.removeMessages(options);
+		},
+		/**
+		 * Removes messages from messageManager.
+		 * 
+		 * @param	{object}											[options]						Additional options.
+		 * @param	{string|string[]}									options.targets					An array of targets for deleting messages, empty array to delete only messages that don't have target, null or undefined to delete all messages.
+		 * @param	{boolean}											options.excludeTechnical=true	A boolean to exclude message technical (e.g. generated by the UI5 framework) messages.
+		 * @param	{sap.ui.core.MessageType|sap.ui.core.MessageType[]} options.types					An array of messageTypes for deleting messages, null or undefined to delete all messages.
+		 * @param	{boolean}											options.excludeNoText=true		A boolean to exclude message that have no text.
+		 */
+		removeMessages: function (options) {
+			var core = sap.ui.getCore();
+			var messageManager = core.getMessageManager();
+			var messages = this.getMessages(options);
+
+			messageManager.removeMessages(messages);
+		},
+		/**
+		 * Shorthand: calls removeMessages to remove success messages from messageManager.
+		 */
+		removeSuccessMessages: function (options) {
+			options = options || {};
+			options.types = MessageType.Success;
+
+			this.removeMessages(options);
+		},
+		/**
+		 * Shorthand: calls removeMessages to remove untyped messages from messageManager.
+		 */
+		removeUntypedMessages: function (options) {
+			options = options || {};
+			options.types = MessageType.None;
+
+			this.removeMessages(options);
+		},
+		/**
+		 * Shorthand: calls removeMessages to remove warning messages from messageManager.
+		 */
+		removeWarningMessages: function (options) {
+			options = options || {};
+			options.types = MessageType.Warning;
+
+			this.removeMessages(options);
+		},
+		/**
+		 * Shorthand: Calls showMessages for displaying a list of error messages.
+		 */
+		showErrorMessages: function (context, options, dialogOptions) {
+			options = options || {};
+			options.types = MessageType.Error;
+
+			this.showMessages(context, options, dialogOptions);
+		},
+		/**
+		 * Shorthand: Calls showMessages for displaying a list of information messages.
+		 */
+		showInformationMessages: function (context, options, dialogOptions) {
+			options = options || {};
+			options.types = MessageType.Information;
+
+			this.showMessages(context, options, dialogOptions);
+		},
+		/**
+		 * Displays a dialog containing the list of messageManager messages.
+		 * 
+		 * @param	{sap.ui.core.mvc.Controller)	context							The controller for the dialog.
+		 * @param	{object}						[options]						Optional parameters.
+		 * @param	{array}							options.targets 				An array of targets for filtering the messages, empty string ("") to delete only messages that don't have target, null or undefined to avoid filtering.
+		 * @param	{boolean}						options.excludeTechnical=true	A boolean to exclude message technical (e.g. generated by the UI5 framework) messages.
+		 * @param	{string}						options.type					An array of messageTypes for deleting messages, null or undefined to avoid filtering.
+		 * @param	{boolean}						options.excludeNoText=true		A boolean to exclude message that have no text.
+		 * @param	{object}						[dialogOptions]					Optional options for the dialog to display (refrer to UiHelper.dialog for the complete list of parameters).
+		 */
+		showMessages: function (context, options, dialogOptions) { // eslint-disable-line complexity
+			JsHelper.checkParameters("showMessages", [{
+				name: "context",
+				value: context,
+				expected: ["sap.ui.core.mvc.Controller"]
+			}]);
+
+			options = options || {};
+
+			dialogOptions = dialogOptions || {};
+
+			var errorMessages = !options.types || options.types === MessageType.Error || options.types.includes(MessageType.Error) ? this.getErrorMessages({
+				targets: options.targets,
+				technical: options.technical
+			}) : [];
+			var warningMessages = !options.types || options.types === MessageType.Warning || options.types.includes(MessageType.Warning) ? this.getWarningMessages({
+				targets: options.targets,
+				technical: options.technical
+			}) : [];
+			var successMessages = !options.types || options.types === MessageType.Success || options.types.includes(MessageType.Success) ? this.getSuccessMessages({
+				targets: options.targets,
+				technical: options.technical
+			}) : [];
+			var informationMessages = !options.types || options.types === MessageType.Information || options.types.includes(MessageType.Information) ?
+				this.getInformationMessages({
+					targets: options.targets,
+					technical: options.technical
+				}) : [];
+			var untypedMessages = !options.types || options.types === MessageType.None || options.types.includes(MessageType.None) ? this.getUntypedMessages({
+				targets: options.targets,
+				technical: options.technical
+			}) : [];
+			var messages = errorMessages.concat(warningMessages, successMessages, informationMessages, untypedMessages);
+
+			if (errorMessages.length > 0 &amp;&amp; !dialogOptions.type) {
+				dialogOptions.type = ValueState.Error;
+			} else if (warningMessages.length > 0 &amp;&amp; !dialogOptions.type) {
+				dialogOptions.type = ValueState.Warning;
+			} else if (successMessages.length > 0 &amp;&amp; !dialogOptions.type) {
+				dialogOptions.type = ValueState.Success;
+			} else if (informationMessages.length > 0 &amp;&amp; !dialogOptions.type) {
+				dialogOptions.type = ValueState.Information;
+			}
+
+			if (messages.length === 0) {
+				return;
+			}
+
+			UiHelper.showDialog(context, new sap.m.List({
+				showSeparators: "None",
+				items: {
+					path: "/",
+					template: new sap.m.StandardListItem({
+						title: {
+							path: "message"
+						},
+						highlight: {
+							path: "type",
+							formatter: function (type) {
+								switch (type) {
+								case MessageType.Error:
+									return sap.ui.core.ValueState.Error;
+								case MessageType.Warning:
+									return sap.ui.core.ValueState.Warning;
+								case MessageType.Information:
+									return sap.ui.core.ValueState.Information;
+								case MessageType.Success:
+									return sap.ui.core.ValueState.Success;
+								default:
+									return sap.ui.core.ValueState.None;
+								}
+							}
+						}
+					})
+				}
+			}).setModel(new sap.ui.model.json.JSONModel(messages)), dialogOptions);
+		},
+		/**
+		 * Shorthand: Calls showMessages for displaying a list of success messages.
+		 */
+		showSuccessMessages: function (context, options, dialogOptions) {
+			options = options || {};
+			options.types = MessageType.Success;
+
+			this.showMessages(context, options, dialogOptions);
+		},
+		/**
+		 * Shorthand: Calls showMessages for displaying a list of untyped messages.
+		 */
+		showUntypedMessages: function (context, options, dialogOptions) {
+			options = options || {};
+			options.types = MessageType.Untyped;
+
+			this.showMessages(context, options, dialogOptions);
+		},
+		/**
+		 * Shorthand: Calls showMessages for displaying a list of warning messages.
+		 */
+		showWarningMessages: function (context, options, dialogOptions) {
+			options = options || {};
+			options.types = MessageType.Warning;
+
+			this.showMessages(context, options, dialogOptions);
+		}
+	};
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Mar 03 2020 18:21:12 GMT+0200 (IST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

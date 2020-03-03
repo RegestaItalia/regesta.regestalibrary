@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>js/JsHelper.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Float.html">Float</a></li><li><a href="module-Integer.html">Integer</a></li><li><a href="module-JsHelper.html">JsHelper</a><ul class='methods'><li data-type='method'><a href="module-JsHelper.html#~checkParameters">checkParameters</a></li><li data-type='method'><a href="module-JsHelper.html#~createObjectByPath">createObjectByPath</a></li><li data-type='method'><a href="module-JsHelper.html#~getObjectByPath">getObjectByPath</a></li><li data-type='method'><a href="module-JsHelper.html#~getObjectPropertyByIndex">getObjectPropertyByIndex</a></li><li data-type='method'><a href="module-JsHelper.html#~parseFormattedNumber">parseFormattedNumber</a></li><li data-type='method'><a href="module-JsHelper.html#~parseXml">parseXml</a></li><li data-type='method'><a href="module-JsHelper.html#~replaceByIndex">replaceByIndex</a></li><li data-type='method'><a href="module-JsHelper.html#~typeOf">typeOf</a></li></ul></li><li><a href="module-MessageHelper.html">MessageHelper</a><ul class='methods'><li data-type='method'><a href="module-MessageHelper.html#~addErrorMessages">addErrorMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~addInformationMessages">addInformationMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~addMessages">addMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~addSuccessMessages">addSuccessMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~addWarningMessages">addWarningMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~closeMessages">closeMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getErrorMessages">getErrorMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getInformationMessages">getInformationMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getMessages">getMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getSuccessMessages">getSuccessMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getUntypedMessages">getUntypedMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~getWarningMessages">getWarningMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~registerView">registerView</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeErrorMessages">removeErrorMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeInformationMessages">removeInformationMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeMessages">removeMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeSuccessMessages">removeSuccessMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeUntypedMessages">removeUntypedMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~removeWarningMessages">removeWarningMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showErrorMessages">showErrorMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showInformationMessages">showInformationMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showMessages">showMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showSuccessMessages">showSuccessMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showUntypedMessages">showUntypedMessages</a></li><li data-type='method'><a href="module-MessageHelper.html#~showWarningMessages">showWarningMessages</a></li></ul></li><li><a href="module-ModelHelper.html">ModelHelper</a><ul class='methods'><li data-type='method'><a href="module-ModelHelper.html#~ajax">ajax</a></li><li data-type='method'><a href="module-ModelHelper.html#~ajaxAsync">ajaxAsync</a></li><li data-type='method'><a href="module-ModelHelper.html#~callFunction">callFunction</a></li><li data-type='method'><a href="module-ModelHelper.html#~callFunctionAsync">callFunctionAsync</a></li><li data-type='method'><a href="module-ModelHelper.html#~create">create</a></li><li data-type='method'><a href="module-ModelHelper.html#~createAsync">createAsync</a></li><li data-type='method'><a href="module-ModelHelper.html#~formalizePostData">formalizePostData</a></li><li data-type='method'><a href="module-ModelHelper.html#~formatResponseMessage">formatResponseMessage</a></li><li data-type='method'><a href="module-ModelHelper.html#~getDefaultModel">getDefaultModel</a></li><li data-type='method'><a href="module-ModelHelper.html#~getEntityMetadata">getEntityMetadata</a></li><li data-type='method'><a href="module-ModelHelper.html#~getEntitySetEntityMetadata">getEntitySetEntityMetadata</a></li><li data-type='method'><a href="module-ModelHelper.html#~getEntitySetMetadata">getEntitySetMetadata</a></li><li data-type='method'><a href="module-ModelHelper.html#~getFunctionImportMetadata">getFunctionImportMetadata</a></li><li data-type='method'><a href="module-ModelHelper.html#~getI18nModel">getI18nModel</a></li><li data-type='method'><a href="module-ModelHelper.html#~getLocalModel">getLocalModel</a></li><li data-type='method'><a href="module-ModelHelper.html#~getModel">getModel</a></li><li data-type='method'><a href="module-ModelHelper.html#~httpError">httpError</a></li><li data-type='method'><a href="module-ModelHelper.html#~parseResponse">parseResponse</a></li><li data-type='method'><a href="module-ModelHelper.html#~read">read</a></li><li data-type='method'><a href="module-ModelHelper.html#~readAsync">readAsync</a></li><li data-type='method'><a href="module-ModelHelper.html#~remove">remove</a></li><li data-type='method'><a href="module-ModelHelper.html#~removeAsync">removeAsync</a></li><li data-type='method'><a href="module-ModelHelper.html#~setBindedProperty">setBindedProperty</a></li><li data-type='method'><a href="module-ModelHelper.html#~update">update</a></li><li data-type='method'><a href="module-ModelHelper.html#~updateAsync">updateAsync</a></li></ul></li><li><a href="module-NavigationHelper.html">NavigationHelper</a><ul class='methods'><li data-type='method'><a href="module-NavigationHelper.html#~afterNavigation">afterNavigation</a></li><li data-type='method'><a href="module-NavigationHelper.html#~getRouter">getRouter</a></li><li data-type='method'><a href="module-NavigationHelper.html#~navigate">navigate</a></li><li data-type='method'><a href="module-NavigationHelper.html#~navigateExternal">navigateExternal</a></li><li data-type='method'><a href="module-NavigationHelper.html#~navigateHierarchy">navigateHierarchy</a></li><li data-type='method'><a href="module-NavigationHelper.html#~navigateToLaunchpad">navigateToLaunchpad</a></li><li data-type='method'><a href="module-NavigationHelper.html#~overrideShellBack">overrideShellBack</a></li></ul></li><li><a href="module-UiHelper.html">UiHelper</a><ul class='methods'><li data-type='method'><a href="module-UiHelper.html#~closeDialog">closeDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~enableRowSelection">enableRowSelection</a></li><li data-type='method'><a href="module-UiHelper.html#~focusInput">focusInput</a></li><li data-type='method'><a href="module-UiHelper.html#~fullScreen">fullScreen</a></li><li data-type='method'><a href="module-UiHelper.html#~getAppName">getAppName</a></li><li data-type='method'><a href="module-UiHelper.html#~getAppVersion">getAppVersion</a></li><li data-type='method'><a href="module-UiHelper.html#~getContentDensity">getContentDensity</a></li><li data-type='method'><a href="module-UiHelper.html#~getCurrentLanguage">getCurrentLanguage</a></li><li data-type='method'><a href="module-UiHelper.html#~getCustomData">getCustomData</a></li><li data-type='method'><a href="module-UiHelper.html#~getDialog">getDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~getElementsByPartialId">getElementsByPartialId</a></li><li data-type='method'><a href="module-UiHelper.html#~getFieldGroupId">getFieldGroupId</a></li><li data-type='method'><a href="module-UiHelper.html#~getFocusedElement">getFocusedElement</a></li><li data-type='method'><a href="module-UiHelper.html#~getInputByName">getInputByName</a></li><li data-type='method'><a href="module-UiHelper.html#~getInputsByFieldGroupId">getInputsByFieldGroupId</a></li><li data-type='method'><a href="module-UiHelper.html#~getLibraryVersion">getLibraryVersion</a></li><li data-type='method'><a href="module-UiHelper.html#~getNextField">getNextField</a></li><li data-type='method'><a href="module-UiHelper.html#~getParentOfType">getParentOfType</a></li><li data-type='method'><a href="module-UiHelper.html#~getStartupParameters">getStartupParameters</a></li><li data-type='method'><a href="module-UiHelper.html#~getUi5ByDom">getUi5ByDom</a></li><li data-type='method'><a href="module-UiHelper.html#~getUrlParameters">getUrlParameters</a></li><li data-type='method'><a href="module-UiHelper.html#~getViewName">getViewName</a></li><li data-type='method'><a href="module-UiHelper.html#~reload">reload</a></li><li data-type='method'><a href="module-UiHelper.html#~setUrlParameterss">setUrlParameterss</a></li><li data-type='method'><a href="module-UiHelper.html#~showBusy">showBusy</a></li><li data-type='method'><a href="module-UiHelper.html#~showDialog">showDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~showErrorDialog">showErrorDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~showInformationDialog">showInformationDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~showQuestionDialog">showQuestionDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~showSuccessDialog">showSuccessDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~showWarningDialog">showWarningDialog</a></li><li data-type='method'><a href="module-UiHelper.html#~translateFilterData">translateFilterData</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="regesta.regestalibrary.control.html">control</a></li><li><a href="regesta.regestalibrary.enum.html">enum</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Abort">Abort</a></li><li><a href="global.html#Accept">Accept</a></li><li><a href="global.html#Back">Back</a></li><li><a href="global.html#Close">Close</a></li><li><a href="global.html#Confirm">Confirm</a></li><li><a href="global.html#Day">Day</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#First">First</a></li><li><a href="global.html#Forward">Forward</a></li><li><a href="global.html#Generic">Generic</a></li><li><a href="global.html#Hour">Hour</a></li><li><a href="global.html#Information">Information</a></li><li><a href="global.html#Last">Last</a></li><li><a href="global.html#Minute">Minute</a></li><li><a href="global.html#Month">Month</a></li><li><a href="global.html#Question">Question</a></li><li><a href="global.html#Reject">Reject</a></li><li><a href="global.html#Second">Second</a></li><li><a href="global.html#Success">Success</a></li><li><a href="global.html#Warning">Warning</a></li><li><a href="global.html#Year">Year</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">js/JsHelper.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** 
+ * Basic helper functions.
+ * 
+ * @module JsHelper
+*/
+
+sap.ui.define([], function () {
+	"use strict";
+
+	return {
+		/** 
+		 * Checks an array of mandatory parameters and throws an exception if a specified parameter is initial or has wrong type.
+		 * 
+		 * @inner
+		 * 
+		 * @param	{string}	functionName		The name of the function from which this is called (for logging purposes).
+		 * @param	{array} 	parameters			An array of parameters to check. Each parameter have to be structured as follows:
+		 * @param	{string}	parameters.name 	The name of the parameter.
+		 * @param	{*} 		parameters.value	The value of the parameter.
+		 * @param	{array} 	parameters.expected An array of possible types (as strings) of the parameter.
+		 * 
+		 * @throws									Will throw an error if one of the parameters is blank or of the wrong type.
+		 */
+		checkParameters: function (functionName, parameters) {
+			parameters.forEach(function (parameter) {
+				var isParameterNullOrUndefined = parameter.value === null || parameter.value === undefined;
+				var isParameterOfWrongType = !parameter.expected.find(function (type) {
+					return type === this.typeOf(parameter.value) || parameter.value &amp;&amp; parameter.value.getMetadata &amp;&amp; parameter.value.isA(type);
+				}.bind(this));
+				var errorMessage = "";
+
+				if (isParameterNullOrUndefined) {
+					errorMessage = this.replaceByIndex("@ {0}: mandatory parameter \"{1}\" not provided.", [
+						functionName,
+						parameter.name
+					]);
+				} else if (isParameterOfWrongType) {
+					errorMessage = this.replaceByIndex(
+						"@ {0}: mandatory parameter \"{1}\" is of wrong type: \"{2}\" expected, \"{3}\" provided.", [
+							functionName,
+							parameter.name,
+							parameter.expected.join("|"),
+							this.typeOf(parameter.value)
+						]);
+				}
+
+				if (errorMessage) {
+					throw new Error(errorMessage);
+				}
+			}.bind(this));
+		},
+		/**
+		 * Creates an object basing from the given path.
+		 * 
+		 * @param	{string}	path			The path to translate.
+		 * @param	{*}			[value]			The value tp assign at the end of translation.
+		 * @param	{string}	[separator]=/	The character to use as separator for splitting the path.
+		 * 
+		 * @returns	{object}					The created object.
+		 */
+		createObjectByPath: function (path, value, separator) {
+			this.checkParameters("createObjectByPath", [{
+				name: "path",
+				value: path,
+				expected: ["string"]
+			}]);
+
+			var pathParts = path.split(separator || "/").filter(function (x) {
+				return !!x;
+			});
+			var nestedData = pathParts.reduceRight(function (acc, item) {
+				return Object.defineProperty({}, item, {
+					value: acc,
+					writable: true,
+					enumerable: true,
+					configurable: true
+				});
+			}, value === undefined ? {} : value);
+
+			return nestedData;
+		},
+		/**
+		 * Returns an object by its path.
+		 * 
+		 * @param	{string}	path			The path of the object (e.g. sap.ui.model.type.Float).
+		 * @param	{object}	[separor]=/		The character to use as separator for splitting the path.
+		 * @param	{object}	[scope]=window	The scope from which begin the research.
+		 * 
+		 * @returns	{object}					The founded object.
+		 */
+		getObjectByPath: function (path, separator, scope) {
+			this.checkParameters("getObjectByPath", [{
+				name: "path",
+				value: path,
+				expected: ["string"]
+			}]);
+
+			var parts = path.split(separator || "/");
+
+			scope = scope || window;
+
+			for (var i = 0; i &lt; parts.length; ++i) {
+				scope = scope[parts[i]];
+			}
+
+			return scope;
+		},
+		/**
+		 * Returns an object property by its index.
+		 * 
+		 * @param	{object}	object		The Object containing the property.
+		 * @param	{int}		[index]=0	The index of the property.
+		 * 
+		 * @returns {value} 				The value of the property.
+		 */
+		getObjectPropertyByIndex: function (object, index) {
+			this.checkParameters("getPropertyByIndex", [{
+				name: "object",
+				value: object,
+				expected: ["object"]
+			}]);
+
+			index = index || 0;
+
+			var objectKeys = Object.keys(object);
+
+			return object[objectKeys[index]];
+		},
+		/** 
+		 * Parses a formatted float or integer (e.g 1.234,5).
+		 * 
+		 * @param	{string|number}	value	The number to parse.
+		 * 
+		 * @returns {number}				The parsed number.
+		 */
+		parseFormattedNumber: function (value) {
+			this.checkParameters("parseFormattedNumber", [{
+				name: "value",
+				value: value,
+				expected: ["string", "number"]
+			}]);
+
+			var type = this.typeOf(value);
+			var parser = new sap.ui.model.type.Float();
+
+			return type === "string" ? parser.parseValue(value, "string") : value;
+		},
+		/** 
+		 * Parses an XML string, optionally returning the value of a specified node.
+		 * 
+		 * @param	{string}	xml			The XML string to parse. 
+		 * @param	{string}	nodeName	The tag to be red.
+		 * 
+		 * @returns {string}				The value of the node with specified nodeName.
+		 */
+		parseXml: function (xml, nodeName) {
+			this.checkParameters("xml", [{
+				name: "xml",
+				value: xml,
+				expected: ["string"]
+			}, {
+				name: "nodeName",
+				value: nodeName,
+				expected: ["string"]
+			}]);
+
+			var parsed = new DOMParser().parseFromString(xml, "text/xml");
+
+			parsed = (parsed.querySelector(nodeName) || parsed.querySelector("h1") || {}).innerHTML;
+
+			return parsed;
+		},
+		/**
+		 * Replaces string placeholders (e.g. {0}, {1}, ...{n}) with array values in the same positions.
+		 * 
+		 * @param	{string}	templateString	The template string.
+		 * @param	{array}		values			The array of values to replace placeholders.
+		 * 
+		 * @returns {string}					The completed string.
+		 */
+		replaceByIndex: function (templateString, values) {
+			this.checkParameters("replaceByIndex", [{
+				name: "templateString",
+				value: templateString,
+				expected: ["string"]
+			}, {
+				name: "values",
+				value: values,
+				expected: ["array"]
+			}]);
+
+			values.forEach(function (value, i) {
+				var placeHolder = "{" + i + "}";
+
+				if (templateString.indexOf(placeHolder) > -1) {
+					templateString = templateString.replace(placeHolder, value);
+				}
+			});
+
+			return templateString;
+		},
+		/** 
+		 * Checks the type of the given value.
+		 * 
+		 * @param	{*}			[value]	The value whose type needs to be found.
+		 * 
+		 * @returns	{string}			The type of the value. For UI5 controls the UI5 control type will be returned.
+		 */
+		typeOf: function (value) {
+			var type = typeof value;
+
+			if (type === "object" &amp;&amp; value !== null) {
+				if (value instanceof Array) {
+					type = "array";
+				}
+				if (value instanceof Date) {
+					type = "date";
+				}
+				if (value.getMetadata) {
+					type = value.getMetadata()._sClassName;
+				}
+			}
+
+			return type;
+		}
+	};
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Mar 03 2020 18:21:12 GMT+0200 (IST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

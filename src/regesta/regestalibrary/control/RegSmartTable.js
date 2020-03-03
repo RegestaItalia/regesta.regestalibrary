@@ -1,13 +1,15 @@
-/*!
- * ${copyright}
+/**
+ * Provides control regesta.regestalibrary.RegInput.
+ * 
+ * @member RegSmartTable
+ * @memberof regesta.regestalibrary.control
  */
-// Provides control regesta.regestalibrary.RegInput.
 sap.ui.define(["jquery.sap.global", "./../library", "sap/ui/comp/smarttable/SmartTable", "sap/m/MessageBox"],
 
 	function (jQuery, library, SmartTable, MessageBox) {
 		"use strict";
 
-		var RegSmartTable = SmartTable.extend("regesta.regestalibrary.controls.RegSmartTable", {
+		var RegSmartTable = SmartTable.extend("regesta.regestalibrary.control.RegSmartTable", {
 			metadata: {
 				library: "regesta.regestalibrary",
 				properties: {

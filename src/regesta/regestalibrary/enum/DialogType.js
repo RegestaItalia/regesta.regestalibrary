@@ -1,6 +1,8 @@
 /**
  * Enum for dialog type.
- * @enum {string}
+ * 
+ * @member DialogType
+ * @memberof regesta.regestalibrary.enum
  */
 sap.ui.define({
 	/** Preset for a resizable generic dialog with no title, no icon and close footer action. */

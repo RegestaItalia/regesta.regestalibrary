@@ -1,6 +1,8 @@
-/**
- * @file	Basic helper functions.
- */
+/** 
+ * Basic helper functions.
+ * 
+ * @module JsHelper
+*/
 
 sap.ui.define([], function () {
 	"use strict";
@@ -8,6 +10,8 @@ sap.ui.define([], function () {
 	return {
 		/** 
 		 * Checks an array of mandatory parameters and throws an exception if a specified parameter is initial or has wrong type.
+		 * 
+		 * @inner
 		 * 
 		 * @param	{string}	functionName		The name of the function from which this is called (for logging purposes).
 		 * @param	{array} 	parameters			An array of parameters to check. Each parameter have to be structured as follows:

@@ -1,6 +1,8 @@
-/**
- * @file	MessageManager-related helper functions.
- */
+/** 
+ * MessageManager related helper functions.
+ * 
+ * @module MessageHelper
+*/
 
 sap.ui.define([
 	"regesta/regestalibrary/js/JsHelper",

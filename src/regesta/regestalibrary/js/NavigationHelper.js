@@ -1,6 +1,8 @@
-/**
- * @file	Navigation-related helper functions.
- */
+/** 
+ * Navigation related helper functions.
+ * 
+ * @module NavigationHelper
+*/
 
 sap.ui.define([
 	"regesta/regestalibrary/enums/NavigationDirection",

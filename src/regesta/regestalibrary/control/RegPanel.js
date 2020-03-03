@@ -1,5 +1,8 @@
 /**
- * @file	Extends an sap.m.Panel, removing padding.
+ * Extends an sap.m.Panel, removing padding.
+ * 
+ * @member RegPanel
+ * @memberof regesta.regestalibrary.control
  */
  
 sap.ui.define([
@@ -7,7 +10,7 @@ sap.ui.define([
 ], function (Panel) {
 	"use strict";
 
-	return Panel.extend("regesta.regestalibrary.controls.Panel", {
+	return Panel.extend("regesta.regestalibrary.control.RegPanel", {
 		renderer: function (rm, visibilityPanel) {
 			// REDEFINITIONS >>
 			this.startPanel = function () {

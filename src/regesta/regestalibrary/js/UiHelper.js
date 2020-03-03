@@ -1,6 +1,8 @@
-/**
- * @file	Ui-related helper functions.
- */
+/** 
+ * Ui related helper functions.
+ * 
+ * @module UiHelper
+*/
 
 sap.ui.define([
 	"sap/m/ButtonType",

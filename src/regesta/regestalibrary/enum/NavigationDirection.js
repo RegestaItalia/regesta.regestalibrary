@@ -1,6 +1,8 @@
 /**
  * Enum for navigation direction.
- * @enum {string}
+ * 
+ * @member NavigationDirection
+ * @memberof regesta.regestalibrary.enum
  */
 sap.ui.define({
 	/** Navigation direction: forward (next route). */

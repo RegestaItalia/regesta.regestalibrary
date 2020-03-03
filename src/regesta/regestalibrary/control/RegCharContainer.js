@@ -1,7 +1,9 @@
-/*!
- * ${copyright}
+/** 
+ * Provides control regesta.regestalibrary.RegCharContainer.
+ * 
+ * @member RegCharContainer
+ * @memberof regesta.regestalibrary.control
  */
-// Provides control regesta.regestalibrary.RegCharContainer.
 sap.ui.define(["jquery.sap.global",
 		"./../library",
 		"sap/ui/core/Control",
@@ -13,7 +15,7 @@ sap.ui.define(["jquery.sap.global",
 	function (jQuery, library, Control, Table, Column, BindingUtils) {
 		"use strict";
 
-		var RegCharContainer = Control.extend("regesta.regestalibrary.controls.RegCharContainer", {
+		var RegCharContainer = Control.extend("regesta.regestalibrary.control.RegCharContainer", {
 			metadata: {
 				library: "regesta.regestalibrary",
 
