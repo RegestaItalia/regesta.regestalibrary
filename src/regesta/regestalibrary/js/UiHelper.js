@@ -1,7 +1,9 @@
 /** 
  * Ui related helper functions.
  * 
- * @module UiHelper
+ * @class regesta.regestalibrary.helper.UiHelper
+ * @memberof regesta.regestalibrary.helper
+ * @hideconstructor
 */
 
 sap.ui.define([
@@ -97,28 +99,10 @@ sap.ui.define([
 	var dialogs = {};
 
 	return {
-		/**
-		 * Closes a dialog (if it exist).
-		 * 
-		 * @param	{string}	dialogName	The name of the dialog.
-		 */
-		closeDialog: function (name) {
-			JsHelper.checkParameters("closeDialog", [{
-				name: "name",
-				value: name,
-				expected: ["string"]
-			}]);
-
-			var dialog = this.getDialog(name);
-
-			if (!dialog) {
-				return;
-			}
-
-			dialog.close();
-		},
 		/** 
 		 * Enables or disables the selectability of a responsiveTable.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @param	{sap.m.ColumnListItem}	row 		The row to enable / disable.
 		 * @param	{boolean}				[enable]	Indicates whether to enable or not the selectability of the row.
@@ -169,6 +153,8 @@ sap.ui.define([
 		/** 
 		 * Focuses the given input, selecting all of its content.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{sap.m.InputBase}	input	The input to focus.
 		 */
 		focusInput: function (input) {
@@ -189,6 +175,8 @@ sap.ui.define([
 		},
 		/**
 		 * Sets the current application to go fullscreen.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 */
 		fullScreen: function () {
 			var className = "sapUShellApplicationContainerLimitedWidth";
@@ -210,6 +198,8 @@ sap.ui.define([
 		/**
 		 * Returns current application's name without indication of the namespace (e.g. "appname" instead of "namespace/appname").
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{sap.ui.core.mvc.Controller|sap.ui.core.Component}	context 	The application's component or a view's controller.
 		 * 
 		 * @returns {string}														The name of the application.
@@ -228,6 +218,8 @@ sap.ui.define([
 		/** 
 		 * Returns current application's version.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{sap.ui.core.mvc.Controller|sap.ui.core.Component}	context 	The application's component or a view's controller.
 		 * 
 		 * @returns {string}														The version of the application.
@@ -245,6 +237,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Gets the content density used within the view of the provided controller.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context	The view's controller.
 		 * 
@@ -269,6 +263,8 @@ sap.ui.define([
 		/** 
 		 * Returns the current language of the application.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @returns 	{string}	The language of the application.
 		 */
 		getCurrentLanguage: function () {
@@ -276,6 +272,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Returns the value of a control's customData.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @param	{sap.ui.core.Control}	control 	The control containing the customData.
 		 * @param	{string}				key 		The key of the customData to find.
@@ -292,6 +290,8 @@ sap.ui.define([
 		},
 		/**
 		 * Returns a dialog.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @param	{string}		name	The name of the dialog.
 		 *	
@@ -310,6 +310,8 @@ sap.ui.define([
 		},
 		/**
 		 * Gets DOM elements by UI5 control's partial id.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @parameter	{string}	partialId	The id of the element.
 		 * 
@@ -330,6 +332,8 @@ sap.ui.define([
 		/**
 		 * Returns the first fieldGroupId of an element.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context 	The view's controller.
 		 * @param	{sap.ui.core.Element}			element 	The element of which get the fieldGroupId.
 		 * 
@@ -349,6 +353,8 @@ sap.ui.define([
 		/**
 		 * Returns the focused element.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{sap.ui.core.Controller}	context 	The view's controller.
 		 * 
 		 * @returns {sap.ui.core.Element}					Currently focused element.
@@ -367,6 +373,8 @@ sap.ui.define([
 		},
 		/**
 		 * Searches for the first input which name equal given one and returns it.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @param	{sap.ui.core.Controller}	context 	The view's controller.
 		 * @param	{string}					name		The name of the input.
@@ -396,6 +404,8 @@ sap.ui.define([
 		/**
 		 * Returns the collection of inputs belonging to a fieldGroup.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context 		The view's controller.
 		 * @param	{string}						fieldGroupId	The name of the fieldGroup.
 		 * 
@@ -421,6 +431,8 @@ sap.ui.define([
 		/** 
 		 * Returns the version of a specified loaded library.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{string}	name	The name of the library.
 		 * 
 		 * @returns {string}			The version of the specified library.
@@ -436,6 +448,8 @@ sap.ui.define([
 		},
 		/**
 		 * Searches for inputs which have the same fieldGroupId of the given input and returns the subsequent one.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context 		The view's controller.
 		 * @param	{sap.ui.core.Control}			currentField	The control of which find next one.
@@ -469,6 +483,8 @@ sap.ui.define([
 		/** 
 		 * Goes up the control tree to find given control's parent of specified type.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{sap.ui.core.control}	child		The inner child control.
 		 * @param	{string}				targetType	The type of the parent to find.
 		 * 
@@ -494,6 +510,8 @@ sap.ui.define([
 		/**
 		 * Returns current application's startup parameters.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{sap.ui.core.mvc.Controller|sap.ui.core.Component}	context 	The application's component or a view's controller.
 		 * 
 		 * @returns {array} 														Application's startup parameters.
@@ -512,6 +530,8 @@ sap.ui.define([
 		/**
 		 * Returns the UI5 control corresponding to a DOM element.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{domElement}			domElement	The DOM element that's supposed to be an UI5 control.
 		 * 
 		 * @returns {sap.ui.core.control}				The UI5 control.
@@ -529,6 +549,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Returns an object whose properties corresponds to each parameter present in the search section of the current url.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @returns 	{object}	The parameters object.
 		 */
@@ -552,6 +574,8 @@ sap.ui.define([
 		/** 
 		 * Returns a view's name without indication of the namespace (e.g. "subfolder/View" instead of "namespace/appname/view/subfolder/View").
 		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
+		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context 	The view's controller.
 		 * 
 		 * @returns {string}									The name of the given controller's view.
@@ -572,6 +596,8 @@ sap.ui.define([
 		},
 		/**
 		 * Reloads the application to its main view.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 */
 		reload: function () {
 			this.showBusy();
@@ -580,6 +606,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Sets additional parameters in the search segment of the current url.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @param	{object}	parametersToAdd	An object representation (key/value) of the paramters to be added.
 		 */
@@ -618,6 +646,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Sets/unsets busy states, using a counter to keep track of control's busy states (e.g. for subsequent http calls).
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @param	{sap.ui.model.PropertyBinding}			[bindings]		An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.
 		 * @param	{boolean}								[unset = false]	Defines whether to decrement busy counter.
@@ -677,6 +707,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls showDialog to create an error dialog.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 */
 		showErrorDialog: function (context, content, options) {
 			options = options || {};
@@ -688,6 +720,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls showDialog to create an information dialog.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 */
 		showInformationDialog: function (context, content, options) {
 			options = options || {};
@@ -699,6 +733,8 @@ sap.ui.define([
 		},
 		/**
 		 * Builds a sap.m.Dialog with presets.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @param {sap.ui.base.managedObject|sap.ui.core.mvc.Controller} context The context for the dialog.
 		 * @param {string|sap.ui.core.Control} content The content for the dialog. It could be a message, a fragment path or a sap.ui.core.Control.
@@ -967,6 +1003,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls showDialog to create a question dialog.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 */
 		showQuestionDialog: function (context, content, options) {
 			options = options || {};
@@ -978,6 +1016,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls showDialog to create a success dialog.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 */
 		showSuccessDialog: function (context, content, options) {
 			options = options || {};
@@ -989,6 +1029,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls showDialog to create a warning dialog.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 */
 		showWarningDialog: function (context, content, options) {
 			options = options || {};
@@ -1000,6 +1042,8 @@ sap.ui.define([
 		},
 		/**
 		 * Convert smartFilterBar filterData into an array of sap.ui.model.Filter objects.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
 		 * @param	{object}	filterData	The object containing the filterbar's filter data.
 		 * 

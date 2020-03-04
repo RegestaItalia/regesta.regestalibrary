@@ -1,7 +1,7 @@
 /**
  * Provides control regesta.regestalibrary.RegInput.
  * 
- * @member RegSmartTable
+ * @member regesta.regestalibrary.control.RegSmartTable
  * @memberof regesta.regestalibrary.control
  */
 sap.ui.define(["jquery.sap.global", "./../library", "sap/ui/comp/smarttable/SmartTable", "sap/m/MessageBox"],

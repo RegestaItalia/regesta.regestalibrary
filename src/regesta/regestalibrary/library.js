@@ -14,6 +14,8 @@ sap.ui.define(["jquery.sap.global",
 		
 		/** @namespace regesta.regestalibrary.control */
 		/** @namespace regesta.regestalibrary.enum */
+		/** @namespace regesta.regestalibrary.helper */
+		/** @namespace regesta.regestalibrary.type */
 
 		// delegate further initialization of this library to the Core
 		sap.ui.getCore().initLibrary({

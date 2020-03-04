@@ -1,7 +1,7 @@
 /**
  * Provides control regesta.regestalibrary.RegCharItem.
  * 
- * @member RegCharItem
+ * @member regesta.regestalibrary.control.RegCharItem
  * @memberof regesta.regestalibrary.control
  */
 

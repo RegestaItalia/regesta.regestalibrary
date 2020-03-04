@@ -1,7 +1,9 @@
 /** 
  * Basic helper functions.
  * 
- * @module JsHelper
+ * @class regesta.regestalibrary.helper.JsHelper
+ * @memberof regesta.regestalibrary.helper
+ * @hideconstructor
 */
 
 sap.ui.define([], function () {
@@ -11,7 +13,7 @@ sap.ui.define([], function () {
 		/** 
 		 * Checks an array of mandatory parameters and throws an exception if a specified parameter is initial or has wrong type.
 		 * 
-		 * @inner
+		 * @memberof regesta.regestalibrary.helper.JsHelper
 		 * 
 		 * @param	{string}	functionName		The name of the function from which this is called (for logging purposes).
 		 * @param	{array} 	parameters			An array of parameters to check. Each parameter have to be structured as follows:
@@ -52,6 +54,8 @@ sap.ui.define([], function () {
 		/**
 		 * Creates an object basing from the given path.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.JsHelper
+		 * 
 		 * @param	{string}	path			The path to translate.
 		 * @param	{*}			[value]			The value tp assign at the end of translation.
 		 * @param	{string}	[separator]=/	The character to use as separator for splitting the path.
@@ -82,8 +86,10 @@ sap.ui.define([], function () {
 		/**
 		 * Returns an object by its path.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.JsHelper
+		 * 
 		 * @param	{string}	path			The path of the object (e.g. sap.ui.model.type.Float).
-		 * @param	{object}	[separor]=/		The character to use as separator for splitting the path.
+		 * @param	{object}	[separator]=/		The character to use as separator for splitting the path.
 		 * @param	{object}	[scope]=window	The scope from which begin the research.
 		 * 
 		 * @returns	{object}					The founded object.
@@ -108,6 +114,8 @@ sap.ui.define([], function () {
 		/**
 		 * Returns an object property by its index.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.JsHelper
+		 * 
 		 * @param	{object}	object		The Object containing the property.
 		 * @param	{int}		[index]=0	The index of the property.
 		 * 
@@ -129,6 +137,8 @@ sap.ui.define([], function () {
 		/** 
 		 * Parses a formatted float or integer (e.g 1.234,5).
 		 * 
+		 * @memberof regesta.regestalibrary.helper.JsHelper
+		 * 
 		 * @param	{string|number}	value	The number to parse.
 		 * 
 		 * @returns {number}				The parsed number.
@@ -147,6 +157,8 @@ sap.ui.define([], function () {
 		},
 		/** 
 		 * Parses an XML string, optionally returning the value of a specified node.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.JsHelper
 		 * 
 		 * @param	{string}	xml			The XML string to parse. 
 		 * @param	{string}	nodeName	The tag to be red.
@@ -172,6 +184,8 @@ sap.ui.define([], function () {
 		},
 		/**
 		 * Replaces string placeholders (e.g. {0}, {1}, ...{n}) with array values in the same positions.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.JsHelper
 		 * 
 		 * @param	{string}	templateString	The template string.
 		 * @param	{array}		values			The array of values to replace placeholders.
@@ -201,6 +215,8 @@ sap.ui.define([], function () {
 		},
 		/** 
 		 * Checks the type of the given value.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.JsHelper
 		 * 
 		 * @param	{*}			[value]	The value whose type needs to be found.
 		 * 

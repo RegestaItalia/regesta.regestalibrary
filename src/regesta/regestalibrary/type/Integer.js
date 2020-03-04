@@ -1,7 +1,8 @@
 /**
  * Custom integer type with handling of blank values. It's an extension of the standard sap.ui.model.type.Integer type.
  * 
- * @module	Integer
+ * @member	regesta.regestalibrary.type.Integer
+ * @memberof regesta.regestalibrary.type
  */
 
 sap.ui.define([

@@ -1,7 +1,9 @@
 /** 
  * MessageManager related helper functions.
  * 
- * @module MessageHelper
+ * @class regesta.regestalibrary.helper.MessageHelper
+ * @memberof regesta.regestalibrary.helper
+ * @hideconstructor
 */
 
 sap.ui.define([
@@ -16,6 +18,8 @@ sap.ui.define([
 	return {
 		/**
 		 * Shorthand: calls addMessages for adding one or more error messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		addErrorMessages: function (options) {
 			options = options || {};
@@ -32,6 +36,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls addMessages for adding one or more information messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		addInformationMessages: function (options) {
 			options = options || {};
@@ -48,6 +54,8 @@ sap.ui.define([
 		},
 		/**
 		 * Adds one or more message to the messageManager.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 * 
 		 * @param	{object|array}							[options]									An object or an array of objects defining the options for creating the messages.
 		 * @param	{string}								options.id									The message id: will be generated if no id is set
@@ -105,6 +113,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls addMessages for adding one or more success messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		addSuccessMessages: function (options) {
 			options = options || {};
@@ -121,6 +131,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls addMessages for adding one or more warning messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		addWarningMessages: function (options) {
 			options = options || {};
@@ -136,13 +148,9 @@ sap.ui.define([
 			this.addMessages(options);
 		},
 		/**
-		 * Close messages dialog.
-		 */
-		closeMessages: function () {
-			UiHelper.closeDialog("messagesDialog");
-		},
-		/**
 		 * Shorthand: calls getMessages for getting all messages of type sap.ui.core.MessageType.Error.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		getErrorMessages: function (options) {
 			options = options || {};
@@ -154,6 +162,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls getMessages for getting all messages of type sap.ui.core.MessageType.Information.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		getInformationMessages: function (options) {
 			options = options || {};
@@ -165,6 +175,8 @@ sap.ui.define([
 		},
 		/**
 		 * Returns the messages contained in the messageManager model.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 *
 		 * @param	{object}											options							Additional options.
 		 * @param	{string|string[]}									options.targets					An array of targets for filtering messages, empty array to return only messages that don't have target, null or undefined to avoid filtering.
@@ -217,6 +229,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls getMessages for getting all messages of type sap.ui.core.MessageType.Success.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		getSuccessMessages: function (options) {
 			options = options || {};
@@ -228,6 +242,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls getMessages for getting all messages of type sap.ui.core.MessageType.None.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		getUntypedMessages: function (options) {
 			options = options || {};
@@ -239,6 +255,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls getMessages for getting all messages of type sap.ui.core.MessageType.Warning.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		getWarningMessages: function (options) {
 			options = options || {};
@@ -250,6 +268,8 @@ sap.ui.define([
 		},
 		/**
 		 * Registers given view to the messageManager and sets a global model binded to its messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 * 
 		 * @param {sap.ui.core.mvc.Controller) context The controller of view to register.
 		 */
@@ -267,6 +287,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls removeMessages to remove error messages from messageManager.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		removeErrorMessages: function (options) {
 			options = options || {};
@@ -276,6 +298,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls removeMessages to remove information messages from messageManager.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		removeInformationMessages: function (options) {
 			options = options || {};
@@ -285,6 +309,8 @@ sap.ui.define([
 		},
 		/**
 		 * Removes messages from messageManager.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 * 
 		 * @param	{object}											[options]						Additional options.
 		 * @param	{string|string[]}									options.targets					An array of targets for deleting messages, empty array to delete only messages that don't have target, null or undefined to delete all messages.
@@ -301,6 +327,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls removeMessages to remove success messages from messageManager.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		removeSuccessMessages: function (options) {
 			options = options || {};
@@ -310,6 +338,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls removeMessages to remove untyped messages from messageManager.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		removeUntypedMessages: function (options) {
 			options = options || {};
@@ -319,6 +349,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls removeMessages to remove warning messages from messageManager.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		removeWarningMessages: function (options) {
 			options = options || {};
@@ -328,6 +360,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: Calls showMessages for displaying a list of error messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		showErrorMessages: function (context, options, dialogOptions) {
 			options = options || {};
@@ -337,6 +371,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: Calls showMessages for displaying a list of information messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		showInformationMessages: function (context, options, dialogOptions) {
 			options = options || {};
@@ -346,6 +382,8 @@ sap.ui.define([
 		},
 		/**
 		 * Displays a dialog containing the list of messageManager messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 * 
 		 * @param	{sap.ui.core.mvc.Controller)	context							The controller for the dialog.
 		 * @param	{object}						[options]						Optional parameters.
@@ -434,6 +472,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: Calls showMessages for displaying a list of success messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		showSuccessMessages: function (context, options, dialogOptions) {
 			options = options || {};
@@ -443,6 +483,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: Calls showMessages for displaying a list of untyped messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		showUntypedMessages: function (context, options, dialogOptions) {
 			options = options || {};
@@ -452,6 +494,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: Calls showMessages for displaying a list of warning messages.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 */
 		showWarningMessages: function (context, options, dialogOptions) {
 			options = options || {};

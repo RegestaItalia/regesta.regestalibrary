@@ -1,25 +1,21 @@
 /**
  * Enum for dialog type.
  * 
- * @member DialogType
+ * @member regesta.regestalibrary.enum.DialogType
  * @memberof regesta.regestalibrary.enum
+ * 
+ * @property	{string}	Error			An error message dialog.
+ * @property	{string}	Generic			A generic dialog.
+ * @property	{string}	Information		An information message dialog.
+ * @property	{string}	Question		A question message dialog.
+ * @property	{string}	Success			A success message dialog.
+ * @property	{string}	Warning			A warning message dialog.
  */
 sap.ui.define({
-	/** Preset for a resizable generic dialog with no title, no icon and close footer action. */
+	Error: "Error",
 	Generic: "Generic",
-
-	/** Preset for a non-resizable information message dialog with "Message" title, "message-information" icon and close footer action. */
 	Information: "Information",
-
-	/** Preset for a non-resizable question message dialog with "Question" title, "question-mark" icon and accept/reject footer action. */
 	Question: "Question",
-
-	/** Preset for a non-resizable success message dialog with "Success" title, "message-success" icon and close footer action. */
 	Success: "Success",
-
-	/** Preset for a non-resizable warning message dialog with "Warning" title, "message-warning" icon and close footer action. */
-	Warning: "Warning",
-
-	/** Preset for a non-resizable error message dialog with "Error" title, "message-error" icon and close footer action. */
-	Error: "Error"
+	Warning: "Warning"
 });

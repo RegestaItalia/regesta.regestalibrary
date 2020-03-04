@@ -1,7 +1,9 @@
 /** 
  * Model related helper functions.
  * 
- * @module ModelHelper
+ * @class regesta.regestalibrary.helper.ModelHelper
+ * @memberof regesta.regestalibrary.helper
+ * @hideconstructor
 */
 
 sap.ui.define([
@@ -35,6 +37,8 @@ sap.ui.define([
 	return {
 		/** 
 		 * Executes an ajax call.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n		The i18n model for parsing the response.
 		 * @param	{string}								url			The url to call.
@@ -142,6 +146,8 @@ sap.ui.define([
 		/** 
 		 * Wraps an ajax call into a promise.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
+		 * 
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n		The i18n model for parsing the response.
 		 * @param	{string}								url			The url to call.
 		 * @param	{object}								options		Additional options for the http call. Refer to {@link http://api.jquery.com/jquery.ajax/} to see the full option list (success and resolve won't be considered).
@@ -160,6 +166,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Triggers a request to a function import of the specified odata service.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}		model					The odata model of the service to call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n					The i18n model for parsing the response.
@@ -253,6 +261,8 @@ sap.ui.define([
 		/** 
 		 * Wraps a function import call into a promise.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
+		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}		model					The odata model of the service to call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n					The i18n model for parsing the response.
 		 * @param	{string}								url						The (relative) url of the function import.
@@ -275,6 +285,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Triggers a create request to the specified odata service.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}		model					The odata model of the service to call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n					The i18n model for parsing the response.
@@ -370,6 +382,8 @@ sap.ui.define([
 		/** 
 		 * Wraps a create request into a promise.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
+		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}		model					The odata model of the service to call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n					The i18n model for parsing the response.
 		 * @param	{string}								url						The entity to which the new entry should belong.
@@ -393,6 +407,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Formalize an object properties basing on the metadata defining an odata entity, in order to be used for a create/update odata request.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{object}	postData		The data to be formalized.
 		 * @param	{object}	metadata		The metadata of the entity to be created/updated or the functionImport to be called.
@@ -443,6 +459,8 @@ sap.ui.define([
 		 * Formats a response message. Use "|" to separate message parameters (e.g. message|p1|p2|..pn).
 		 * Parameter type and formatOptions can be specified respectively with &type=... and &formatOptions=... 
 		 * (e.g. message|p1&type=sap.ui.model.Integer|p2&type=sap.ui.model.type.Float&formatOptions={"decimals":3}).
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{string}								responseMessage	The message to be formatted.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n			The i18n model for parsing the message.
@@ -502,6 +520,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls getModel and returns the context's default model.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 */
 		getDefaultModel: function (context) {
 			var model = this.getModel(context);
@@ -510,6 +530,8 @@ sap.ui.define([
 		},
 		/**
 		 * Returns the metadata of the given entityName.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}	model		The odata model of the service to call.
 		 * @param	{string}							entityName	The entity of which searching the metadata.
@@ -536,6 +558,8 @@ sap.ui.define([
 		},
 		/**
 		 * Returns the entity metadata of the given entitySet name.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}	model			The odata model of the service to call.
 		 * @param	{string}							entitySetName	The entity of which searching the metadata.
@@ -564,6 +588,8 @@ sap.ui.define([
 		/**
 		 * Returns the metadata of the given entitySet name.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
+		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}	model			The odata model of the service to call.
 		 * @param	{string}							entitySetName	The entity of which searching the metadata.
 		 * 
@@ -590,6 +616,8 @@ sap.ui.define([
 		/**
 		 * Returns the metadata of the functionImport with the given name.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
+		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}	model				The odata model of the service to call.
 		 * @param	{string}							functionImportName	The entity of which searching the metadata.
 		 * 
@@ -615,6 +643,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls getModel and returns the context's 1i8n model.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 */
 		getI18nModel: function (context) {
 			var model = this.getModel(context, "i18n");
@@ -623,6 +653,8 @@ sap.ui.define([
 		},
 		/**
 		 * Shorthand: calls getModel and returns the context's local model.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 */
 		getLocalModel: function (context) {
 			var model = this.getModel(context, "local");
@@ -631,6 +663,8 @@ sap.ui.define([
 		},
 		/**
 		 * Returns the model with the given name.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context The context in which searching the model.
 		 * @param	{string}						name	The name of the model.
@@ -651,6 +685,8 @@ sap.ui.define([
 		/** 
 		 * Extracts the exception message from an HTTP request's error response. 
 		 * If the message in the response is translatable (and therefore coincide with the key of an entry in the i18n file), the error will be considered as a "business error", otherwise a "technical error".
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{httpError}								response	The object containing additional informations of an erroneous HTTP call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n		The i18n model for parsing the response.
@@ -686,6 +722,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Extracts statusCode, statusText and message from an HTTP resuest's response.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{object}	response	The response.
 		 * 
@@ -743,6 +781,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Triggers a read request to the specified odata service.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}		model					The odata model of the service to call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n					The i18n resourceBundle for parsing the response.
@@ -831,6 +871,8 @@ sap.ui.define([
 		/** 
 		 * Wraps a read request into a promise.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
+		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}		model					The odata model of the service to call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n					The i18n model for parsing the response.
 		 * @param	{string}								url						The entity to read.
@@ -854,6 +896,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Triggers a remove request to the specified odata service.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}		model					The odata model of the service to call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n					The i18n model for parsing the response.
@@ -940,6 +984,8 @@ sap.ui.define([
 		/** 
 		 * Wraps a remove request into a promise.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
+		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}		model					The odata model of the service to call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n					The i18n model for parsing the response.
 		 * @param	{string}								url						The path of the entry to be removed.
@@ -962,6 +1008,8 @@ sap.ui.define([
 		},
 		/**
 		 * Sets a property in a model, basing on given control property's biningInfo.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.core.Control}	control		The source control.
 		 * @param	{string}				property	The control property.
@@ -987,6 +1035,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Triggers an update request to the specified odata service.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}		model					The odata model of the service to call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n					The i18n model for parsing the response.
@@ -1081,6 +1131,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Wraps an update request in a promise.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
 		 * @param	{sap.ui.model.odata.v2.ODataModel}		model					The odata model of the service to call.
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n					The i18n model for parsing the response.

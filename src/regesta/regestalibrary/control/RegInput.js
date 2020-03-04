@@ -9,7 +9,7 @@
  * Additionally, it'll be exposed a beforeRebindValueHelpTable event to allow operations before valueHelp table binding (e.g. filtering)
  * Hnadlers will be attached to parseError and liveChange to handle messages relative to this input.
  * 
- * @member RegInput
+ * @member regesta.regestalibrary.control.RegInput
  * @memberof regesta.regestalibrary.control
  * 
  * @prop	{string}	entitySet								EntitySet from which determining maxLength (if provided).

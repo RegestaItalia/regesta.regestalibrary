@@ -1,7 +1,9 @@
 /** 
  * Navigation related helper functions.
  * 
- * @module NavigationHelper
+ * @class regesta.regestalibrary.helper.NavigationHelper
+ * @memberof regesta.regestalibrary.helper
+ * @hideconstructor
 */
 
 sap.ui.define([
@@ -15,6 +17,8 @@ sap.ui.define([
 	return {
 		/**
 		 * Attaches a function to router's routeMatched/routePatternMatched or route's matched/patternMatched event.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context					The context of the router.
 		 * @param	{string}						route					The name of the route to which attach the matched / patternMatched handler.
@@ -50,6 +54,8 @@ sap.ui.define([
 		/**
 		 * Returns the application router.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.NavigationHelper
+		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context		The context of the router.
 		 * 
 		 * @returns	{sap.ui.core.routing.Router}				The router.
@@ -67,6 +73,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Executes a router navigation.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	contex							The context of the router.
 		 * @param	{string}						route							The route to which navigate.
@@ -108,6 +116,8 @@ sap.ui.define([
 		/** 
 		 * Executes an external (intent based) navigation.
 		 * 
+		 * @memberof regesta.regestalibrary.helper.NavigationHelper
+		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context				The context of the router.
 		 * @param	{string}						semanticObject		Semantic object of the target app.
 		 * @param	{string}						action				Action of the target app.
@@ -141,6 +151,8 @@ sap.ui.define([
 		},
 		/** 
 		 * Executes a router navigation basing on a navigation hierarchy. The hierarchy is an array of navigation routes, note that the route names must coincide with view names.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context					The context of the router.
 		 * @param	{array}							hierarchy				A collection of routes, sorted as the navigation sequence.
@@ -212,6 +224,8 @@ sap.ui.define([
 		},
 		/**
 		 * Executes an external navigation to the launchpad.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 */
 		navigateToLaunchpad: function () {
 			var crossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
@@ -224,6 +238,8 @@ sap.ui.define([
 		},
 		/**
 		 * Overrides shell's back button behavior, making it navigate through a navigation hierarchy.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context					The context for the router.
 		 * @param	{array}							hierarchy				A collection of routes, sorted as the navigation sequence.

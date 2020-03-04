@@ -1,7 +1,8 @@
 /**
  * Custom float type with handling of blank values. It's an extension of the standard sap.ui.model.type.Float type.
  * 
- * @module Float
+ * @member regesta.regestalibrary.type.Float
+ * @memberof regesta.regestalibrary.type
  */
 
 sap.ui.define([

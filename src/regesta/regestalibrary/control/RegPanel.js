@@ -1,7 +1,7 @@
 /**
  * Extends an sap.m.Panel, removing padding.
  * 
- * @member RegPanel
+ * @member regesta.regestalibrary.control.RegPanel
  * @memberof regesta.regestalibrary.control
  */
  

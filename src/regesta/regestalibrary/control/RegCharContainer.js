@@ -1,7 +1,7 @@
 /** 
  * Provides control regesta.regestalibrary.RegCharContainer.
  * 
- * @member RegCharContainer
+ * @member regesta.regestalibrary.control.RegCharContainer
  * @memberof regesta.regestalibrary.control
  */
 sap.ui.define(["jquery.sap.global",

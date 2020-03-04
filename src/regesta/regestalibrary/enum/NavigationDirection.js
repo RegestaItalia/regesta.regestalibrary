@@ -1,19 +1,17 @@
 /**
  * Enum for navigation direction.
  * 
- * @member NavigationDirection
+ * @member regesta.regestalibrary.enum.NavigationDirection
  * @memberof regesta.regestalibrary.enum
+ * 
+ * @property	{string}	Back		Back navigation direction (hierarchically navigates to previous route)
+ * @property	{string}	First		First navigation direction (hierarchically navigates to first route)
+ * @property	{string}	Forward		Forward navigation direction (hierarchically navigates to next route)
+ * @property	{string}	Last		Last navigation direction (hierarchically navigates to last route)
  */
 sap.ui.define({
-	/** Navigation direction: forward (next route). */
-	Forward: "Forward",
-
-	/** Navigation direction: back (previous route). */
 	Back: "Back",
-
-	/** Navigation direction: first route of the hierarchy. */
 	First: "First",
-
-	/** Navigation direction: Last route of the hierarchy. */
+	Forward: "Forward",
 	Last: "Last"
 });
