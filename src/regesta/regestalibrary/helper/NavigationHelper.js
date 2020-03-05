@@ -7,9 +7,9 @@
 */
 
 sap.ui.define([
-	"regesta/regestalibrary/enums/NavigationDirection",
-	"regesta/regestalibrary/js/JsHelper",
-	"regesta/regestalibrary/js/UiHelper",
+	"regesta/regestalibrary/enum/NavigationDirection",
+	"regesta/regestalibrary/helper/JsHelper",
+	"regesta/regestalibrary/helper/UiHelper",
 	"sap/ui/generic/app/navigation/service/NavigationHandler"
 ], function (NavigationDirection, JsHelper, UiHelper, NavigationHandler) {
 	"use strict";

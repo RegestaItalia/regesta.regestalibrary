@@ -3,7 +3,7 @@
 // 	],
 // 	function (XMLComposite) {
 // 		"use strict";
-// 		var inputWithValueHelp = XMLComposite.extend("regesta.regestalibrary.controls.InputWithValueHelp", {
+// 		var inputWithValueHelp = XMLComposite.extend("regesta.regestalibrary.control.InputWithValueHelp", {
 // 			metadata: {
 // 				properties: {
 // 					title: "string",

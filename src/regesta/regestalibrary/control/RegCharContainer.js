@@ -28,7 +28,7 @@ sap.ui.define(["jquery.sap.global",
 
 				aggregations: {
 					items: {
-						type: "regesta.regestalibrary.controls.RegCharItem",
+						type: "regesta.regestalibrary.control.RegCharItem",
 						multiple: true,
 						visibility: "public"
 					},

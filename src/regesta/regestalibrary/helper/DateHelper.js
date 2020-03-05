@@ -4,7 +4,7 @@
 
 // sap.ui.define([
 // 	"./Commons",
-// 	"regesta/regestalibrary/enums/TimeUom"
+// 	"regesta/regestalibrary/enum/TimeUom"
 // ], function () {
 // 	"use strict";
 

@@ -7,15 +7,15 @@
 */
 
 sap.ui.define([
+	"regesta/regestalibrary/enum/DialogAction",
+	"regesta/regestalibrary/enum/DialogType",
+	"regesta/regestalibrary/helper/JsHelper",
 	"sap/m/ButtonType",
-	"regesta/regestalibrary/js/JsHelper",
-	"regesta/regestalibrary/enums/DialogAction",
-	"regesta/regestalibrary/enums/DialogType",
 	"sap/m/Dialog",
 	"sap/ui/core/ValueState",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
-], function (ButtonType, JsHelper, DialogAction, DialogType, Dialog, ValueState, Filter, FilterOperator) {
+], function (DialogAction, DialogType, JsHelper, ButtonType, Dialog, ValueState, Filter, FilterOperator) {
 	"use strict";
 
 	var busyCounters = [];
@@ -29,7 +29,7 @@ sap.ui.define([
 			resizable: true
 		},
 		information: {
-			titlePath: "i18n>dialogInformation",
+			titlePath: "regestalibraryi18n>dialogInformation",
 			icon: "sap-icon://message-information",
 			state: ValueState.Information,
 			actions: ["Close"],
@@ -37,7 +37,7 @@ sap.ui.define([
 			resizable: false
 		},
 		question: {
-			titlePath: "i18n>dialogQuestion",
+			titlePath: "regestalibraryi18n>dialogQuestion",
 			icon: "sap-icon://question-mark",
 			state: ValueState.None,
 			actions: ["Accept", "Reject"],
@@ -45,7 +45,7 @@ sap.ui.define([
 			resizable: false
 		},
 		success: {
-			titlePath: "i18n>dialogSuccess",
+			titlePath: "regestalibraryi18n>dialogSuccess",
 			icon: "sap-icon://message-success",
 			state: ValueState.Success,
 			actions: ["Close"],
@@ -53,7 +53,7 @@ sap.ui.define([
 			resizable: false
 		},
 		warning: {
-			titlePath: "i18n>dialogWarning",
+			titlePath: "regestalibraryi18n>dialogWarning",
 			icon: "sap-icon://message-warning",
 			state: ValueState.Warning,
 			actions: ["Close"],
@@ -61,7 +61,7 @@ sap.ui.define([
 			resizable: false
 		},
 		error: {
-			titlePath: "i18n>dialogError",
+			titlePath: "regestalibraryi18n>dialogError",
 			icon: "sap-icon://message-error",
 			state: sap.ui.core.ValueState.Error,
 			actions: ["Close"],
@@ -71,27 +71,27 @@ sap.ui.define([
 	};
 	var dialogActionDefaults = {
 		accept: {
-			textPath: "i18n>dialogAccept",
+			textPath: "regestalibraryi18n>dialogAccept",
 			icon: "sap-icon://accept",
 			type: ButtonType.Emphasized
 		},
 		reject: {
-			textPath: "i18n>dialogReject",
+			textPath: "regestalibraryi18n>dialogReject",
 			icon: "sap-icon://decline",
 			type: ButtonType.Default
 		},
 		confirm: {
-			textPath: "i18n>dialogConfirm",
+			textPath: "regestalibraryi18n>dialogConfirm",
 			icon: "sap-icon://accept",
 			type: ButtonType.Emphasized
 		},
 		abort: {
-			textPath: "i18n>dialogAbort",
+			textPath: "regestalibraryi18n>dialogAbort",
 			icon: "sap-icon://decline",
 			type: ButtonType.Default
 		},
 		close: {
-			textPath: "i18n>dialogClose",
+			textPath: "regestalibraryi18n>dialogClose",
 			icon: "sap-icon://inspect-down",
 			type: ButtonType.Default
 		}

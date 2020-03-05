@@ -1,48 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <meta charset="utf-8">
-    <title>js/ModelHelper.js - Documentation</title>
-    
-    
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
-    <script src="scripts/nav.js" defer></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav >
-    
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="regesta.regestalibrary.helper.JsHelper.html">JsHelper</a><ul class='methods'><li data-type='method'><a href="regesta.regestalibrary.helper.JsHelper.html#.checkParameters">checkParameters</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.JsHelper.html#.createObjectByPath">createObjectByPath</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.JsHelper.html#.getObjectByPath">getObjectByPath</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.JsHelper.html#.getObjectPropertyByIndex">getObjectPropertyByIndex</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.JsHelper.html#.parseFormattedNumber">parseFormattedNumber</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.JsHelper.html#.parseXml">parseXml</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.JsHelper.html#.replaceByIndex">replaceByIndex</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.JsHelper.html#.typeOf">typeOf</a></li></ul></li><li><a href="regesta.regestalibrary.helper.MessageHelper.html">MessageHelper</a><ul class='methods'><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.addErrorMessages">addErrorMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.addInformationMessages">addInformationMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.addMessages">addMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.addSuccessMessages">addSuccessMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.addWarningMessages">addWarningMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.getErrorMessages">getErrorMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.getInformationMessages">getInformationMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.getMessages">getMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.getSuccessMessages">getSuccessMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.getUntypedMessages">getUntypedMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.getWarningMessages">getWarningMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.registerView">registerView</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.removeErrorMessages">removeErrorMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.removeInformationMessages">removeInformationMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.removeMessages">removeMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.removeSuccessMessages">removeSuccessMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.removeUntypedMessages">removeUntypedMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.removeWarningMessages">removeWarningMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.showErrorMessages">showErrorMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.showInformationMessages">showInformationMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.showMessages">showMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.showSuccessMessages">showSuccessMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.showUntypedMessages">showUntypedMessages</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.MessageHelper.html#.showWarningMessages">showWarningMessages</a></li></ul></li><li><a href="regesta.regestalibrary.helper.ModelHelper.html">ModelHelper</a><ul class='methods'><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.ajax">ajax</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.ajaxAsync">ajaxAsync</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.callFunction">callFunction</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.callFunctionAsync">callFunctionAsync</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.create">create</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.createAsync">createAsync</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.formalizePostData">formalizePostData</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.formatResponseMessage">formatResponseMessage</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.getDefaultModel">getDefaultModel</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.getEntityMetadata">getEntityMetadata</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.getEntitySetEntityMetadata">getEntitySetEntityMetadata</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.getEntitySetMetadata">getEntitySetMetadata</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.getFunctionImportMetadata">getFunctionImportMetadata</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.getI18nModel">getI18nModel</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.getLocalModel">getLocalModel</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.getModel">getModel</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.httpError">httpError</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.parseResponse">parseResponse</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.read">read</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.readAsync">readAsync</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.remove">remove</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.removeAsync">removeAsync</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.setBindedProperty">setBindedProperty</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.update">update</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.ModelHelper.html#.updateAsync">updateAsync</a></li></ul></li><li><a href="regesta.regestalibrary.helper.NavigationHelper.html">NavigationHelper</a><ul class='methods'><li data-type='method'><a href="regesta.regestalibrary.helper.NavigationHelper.html#.afterNavigation">afterNavigation</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.NavigationHelper.html#.getRouter">getRouter</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.NavigationHelper.html#.navigate">navigate</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.NavigationHelper.html#.navigateExternal">navigateExternal</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.NavigationHelper.html#.navigateHierarchy">navigateHierarchy</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.NavigationHelper.html#.navigateToLaunchpad">navigateToLaunchpad</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.NavigationHelper.html#.overrideShellBack">overrideShellBack</a></li></ul></li><li><a href="regesta.regestalibrary.helper.UiHelper.html">UiHelper</a><ul class='methods'><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.enableRowSelection">enableRowSelection</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.focusInput">focusInput</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.fullScreen">fullScreen</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getAppName">getAppName</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getAppVersion">getAppVersion</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getContentDensity">getContentDensity</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getCurrentLanguage">getCurrentLanguage</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getCustomData">getCustomData</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getDialog">getDialog</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getElementsByPartialId">getElementsByPartialId</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getFieldGroupId">getFieldGroupId</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getFocusedElement">getFocusedElement</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getInputByName">getInputByName</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getInputsByFieldGroupId">getInputsByFieldGroupId</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getLibraryVersion">getLibraryVersion</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getNextField">getNextField</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getParentOfType">getParentOfType</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getStartupParameters">getStartupParameters</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getUi5ByDom">getUi5ByDom</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getUrlParameters">getUrlParameters</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.getViewName">getViewName</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.reload">reload</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.setUrlParameterss">setUrlParameterss</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.showBusy">showBusy</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.showDialog">showDialog</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.showErrorDialog">showErrorDialog</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.showInformationDialog">showInformationDialog</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.showQuestionDialog">showQuestionDialog</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.showSuccessDialog">showSuccessDialog</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.showWarningDialog">showWarningDialog</a></li><li data-type='method'><a href="regesta.regestalibrary.helper.UiHelper.html#.translateFilterData">translateFilterData</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="regesta.regestalibrary.control.html">control</a></li><li><a href="regesta.regestalibrary.enum.html">enum</a></li><li><a href="regesta.regestalibrary.helper.html">helper</a></li><li><a href="regesta.regestalibrary.type.html">type</a></li></ul>
-</nav>
-
-<div id="main">
-    
-    <h1 class="page-title">js/ModelHelper.js</h1>
-    
-
-    
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/** 
+/** 
  * Model related helper functions.
  * 
  * @class regesta.regestalibrary.helper.ModelHelper
@@ -51,9 +7,9 @@
 */
 
 sap.ui.define([
-	"regesta/regestalibrary/js/JsHelper",
-	"regesta/regestalibrary/js/MessageHelper",
-	"regesta/regestalibrary/js/UiHelper"
+	"regesta/regestalibrary/helper/JsHelper",
+	"regesta/regestalibrary/helper/MessageHelper",
+	"regesta/regestalibrary/helper/UiHelper"
 ], function (JsHelper, MessageHelper, UiHelper) {
 	"use strict";
 
@@ -501,8 +457,8 @@ sap.ui.define([
 		},
 		/**
 		 * Formats a response message. Use "|" to separate message parameters (e.g. message|p1|p2|..pn).
-		 * Parameter type and formatOptions can be specified respectively with &amp;type=... and &amp;formatOptions=... 
-		 * (e.g. message|p1&amp;type=sap.ui.model.Integer|p2&amp;type=sap.ui.model.type.Float&amp;formatOptions={"decimals":3}).
+		 * Parameter type and formatOptions can be specified respectively with &type=... and &formatOptions=... 
+		 * (e.g. message|p1&type=sap.ui.model.Integer|p2&type=sap.ui.model.type.Float&formatOptions={"decimals":3}).
 		 * 
 		 * @memberof regesta.regestalibrary.helper.ModelHelper
 		 * 
@@ -526,11 +482,11 @@ sap.ui.define([
 			var parameters = responseMessage.split("|").slice(1);
 
 			parameters = parameters.map(function (parameter) {
-				var parameterParts = parameter.split("&amp;");
+				var parameterParts = parameter.split("&");
 
 				if (parameterParts.length > 1) {
 					var value = parameterParts.find(function (parts) {
-						return !parts.includes("type") &amp;&amp; !parts.includes("formatOptions");
+						return !parts.includes("type") && !parts.includes("formatOptions");
 					});
 					var type = parameterParts.find(function (parts) {
 						return parts.includes("type");
@@ -546,7 +502,7 @@ sap.ui.define([
 						formatOptions = JSON.parse(formatOptions.replace("formatOptions=", ""));
 					}
 
-					if (type &amp;&amp; formatOptions) {
+					if (type && formatOptions) {
 						var formatter = new(JsHelper.getObjectByPath(type, "."))(formatOptions);
 
 						return formatter.formatValue(value, "string");
@@ -816,10 +772,10 @@ sap.ui.define([
 			return {
 				statusCode: status,
 				statusText: status > 0 ? response.statusText || "error" : {
-					path: "i18n>errNoResponse"
+					path: "regestalibraryi18n>errNoResponse"
 				},
 				message: status > 0 ? message || {
-					path: "i18n>errGenericError"
+					path: "regestalibraryi18n>errGenericError"
 				} : ""
 			};
 		},
@@ -1200,28 +1156,4 @@ sap.ui.define([
 				}.bind(this));
 		}
 	};
-});</code></pre>
-        </article>
-    </section>
-
-
-
-
-    
-    
-</div>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Wed Mar 04 2020 14:00:02 GMT+0200 (IST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
-</footer>
-
-<script>prettyPrint();</script>
-<script src="scripts/polyfill.js"></script>
-<script src="scripts/linenumber.js"></script>
-
-
-
-</body>
-</html>
+});

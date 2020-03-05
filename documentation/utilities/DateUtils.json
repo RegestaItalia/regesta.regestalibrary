@@ -22,7 +22,7 @@
 			"Level": 1
 		}, {
 			"Name": "uom",
-			"Type": "regesta.regestalibrary.enums.timeUoms",
+			"Type": "regesta.regestalibrary.enum.timeUoms",
 			"Default": null,
 			"Description": "Unit of measure of the time to be added",
 			"Optional": false,

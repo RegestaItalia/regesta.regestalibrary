@@ -1,6 +1,6 @@
 // sap.ui.define(["regesta/regestalibrary/utilities/BindingUtils",
 // 	"regesta/regestalibrary/utilities/DialogUtils",
-// 	"regesta/regestalibrary/enums/DialogTypes"
+// 	"regesta/regestalibrary/enum/DialogTypes"
 // ], function (BindingUtils, DialogUtils, DialogTypes) {
 // 	"use strict";
 // 	var HttpUtils = {};
