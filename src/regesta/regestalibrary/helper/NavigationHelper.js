@@ -16,7 +16,7 @@ sap.ui.define([
 
 	return {
 		/**
-		 * Attaches a function to router's routeMatched/routePatternMatched or route's matched/patternMatched event.
+		 * Attaches an handler to a route's matched/patternMatched event.
 		 * 
 		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 * 
