@@ -1,6 +1,6 @@
 sap.ui.require(
 	[
-		"regesta/regestalibrary/js/JsHelper",
+		"regesta/regestalibrary/helper/JsHelper",
 		"sap/ui/thirdparty/sinon",
 		"sap/ui/thirdparty/sinon-qunit"
 	],

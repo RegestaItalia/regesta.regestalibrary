@@ -24,9 +24,9 @@
  */
  
 sap.ui.define([
-	"regesta/regestalibrary/js/MessageHelper",
-	"regesta/regestalibrary/js/ModelHelper",
-	"regesta/regestalibrary/js/UiHelper",
+	"regesta/regestalibrary/helper/MessageHelper",
+	"regesta/regestalibrary/helper/ModelHelper",
+	"regesta/regestalibrary/helper/UiHelper",
 	"sap/m/Input",
 	"sap/ui/comp/smartfilterbar/SmartFilterBar",
 	"sap/ui/comp/smarttable/SmartTable",
