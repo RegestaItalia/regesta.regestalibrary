@@ -48,7 +48,7 @@
  * @class regesta.regestalibrary.helper.NavigationHelper
  * @memberof regesta.regestalibrary.helper
  * @hideconstructor
-*/
+ */
 
 sap.ui.define([
 	"regesta/regestalibrary/enum/NavigationDirection",
@@ -162,12 +162,13 @@ sap.ui.define([
 		 * 
 		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 * 
-		 * @param	{sap.ui.core.mvc.Controller}	context				The context of the router.
-		 * @param	{string}						semanticObject		Semantic object of the target app.
-		 * @param	{string}						action				Action of the target app.
-		 * @param	{object}						[parameters]		An object of key/value parameters to carry durig the navigation.
+		 * @param	{string}						semanticObject					Semantic object of the target app.
+		 * @param	{string}						action							Action of the target app.
+		 * @param	[options]
+		 * @param	{object}						options.parameters				An object of key/value parameters to carry durig the navigation.
+		 * @param	{function}						options.beforeNavigateCallback	A callback to be executed before navigation. It can allow or discard navigation by calling resolve or reject functions passed as parameters.
 		 */
-		navigateExternal: function (semanticObject, action, parameters) {
+		navigateExternal: function (semanticObject, action, options) {
 			JsHelper.checkParameters("navigateExternal", [{
 				name: "semanticObject",
 				value: semanticObject,
@@ -184,29 +185,36 @@ sap.ui.define([
 					semanticObject: semanticObject,
 					action: action
 				},
-				params: parameters
+				params: options.parameters
 			}));
 
-			crossAppNavigator.toExternal({
-				target: {
-					shellHash: hash
-				}
-			});
+			new Promise(function (resolve, reject) {
+					if (options.beforeNavigateCallback) {
+						options.beforeNavigateCallback(resolve, reject);
+					} else {
+						resolve();
+					}
+				})
+				.then(function () {
+					crossAppNavigator.toExternal({
+						target: {
+							shellHash: hash
+						}
+					});
+				});
 		},
 		/** 
 		 * Executes a router navigation basing on a navigation hierarchy. The hierarchy is an array of navigation routes, note that the route names must coincide with view names.
 		 * 
 		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 * 
-		 * @param	{sap.ui.core.mvc.Controller}	context					The context of the router.
-		 * @param	{array}							hierarchy				A collection of routes, sorted as the navigation sequence.
+		 * @param	{sap.ui.core.mvc.Controller}	context							The context of the router.
+		 * @param	{array}							hierarchy						A collection of routes, sorted as the navigation sequence.
 		 * @param	{object}						[options]					
 		 * @param	{string}						options.direction=Forward		The direction {@link NavigationDirection} of the navigation.
 		 * @param	{object}						options.parameters				An object of key/value parameters to carry durig the navigation.
-		 * @param	{boolean}						options.cycle=true				A boolean defining if the navigation have to cycle between the hierarchy (e.g. last route will navigate to first route)
-		 * @param	{boolean}						options.beforeNavigateCallback	A callback to be executed before navigation.
-		 *																			It can allow or discard navigation by calling resolve or reject functions passed as parameters.
-		 *																			It also can override nacigationHierarchy by resolving with the name of a route.
+		 * @param	{boolean}						options.cycle=false				A boolean defining if the navigation have to cycle between the hierarchy (e.g. last route will navigate to first route)
+		 * @param	{function}						options.beforeNavigateCallback	A callback to be executed before navigation. It can allow or discard navigation by calling resolve or reject functions passed as parameters. It can also override navigationHierarchy by resolving with the name of a route.
 		 */
 		navigateHierarchy: function (context, hierarchy, options) {
 			JsHelper.checkParameters("navToHierarchy", [{
@@ -220,7 +228,7 @@ sap.ui.define([
 			}]);
 
 			options = options || {};
-			options.cycle = options.cycle || options.cycle !== false;
+			options.cycle = options.cycle || options.cycle === false;
 			options.direction = options.direction || NavigationDirection.Forward;
 
 			var routeIndex = hierarchy.indexOf(UiHelper.getViewName(context));
@@ -270,52 +278,49 @@ sap.ui.define([
 		 * Executes an external navigation to the launchpad.
 		 * 
 		 * @memberof regesta.regestalibrary.helper.NavigationHelper
+		 * 
+		 * @param	{function}	[beforeNavigateCallback]	A callback to be executed before navigation.
 		 */
-		navigateToLaunchpad: function () {
+		navigateToLaunchpad: function (beforeNavigateCallback) {
 			var crossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
 
-			crossAppNavigator.toExternal({
-				target: {
-					semanticObject: "#"
-				}
-			});
+			new Promise(function (resolve, reject) {
+					if (beforeNavigateCallback) {
+						beforeNavigateCallback(resolve, reject);
+					} else {
+						resolve();
+					}
+				})
+				.then(function () {
+					crossAppNavigator.toExternal({
+						target: {
+							semanticObject: "#"
+						}
+					});
+				}.bind(this));
 		},
 		/**
-		 * Overrides shell's back button behavior, making it navigate through a navigation hierarchy.
+		 * Overrides shell's back button behavior, making it navigate through a navigation hierarchy (navigateHierarchy-like behavior).
 		 * 
 		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 * 
-		 * @param	{sap.ui.core.mvc.Controller}	context					The context for the router.
-		 * @param	{array}							hierarchy				A collection of routes, sorted as the navigation sequence.
-		 * @paran	{boolean}						[backToLaunchpad]=true	A boolean defining whether the back button should exit the app when pressed within the first route
+		 * @param	{sap.ui.core.mvc.Controller}	context				The context of the router.
+		 * @param	{function}						navigationFunction	The navigation function to be executed at shell's back button pression.
 		 */
-		overrideShellBack: function (context, hierarchy, backToLaunchpad) {
-			JsHelper.checkParameters("navToHierarchy", [{
+		overrideShellBack: function (context, navigationFunction) {
+			JsHelper.checkParameters("overrideShellBack", [{
 				name: "context",
 				value: context,
 				expected: ["sap.ui.core.mvc.Controller"]
 			}, {
-				name: "hierarchy",
-				value: hierarchy,
-				expected: ["array"]
+				name: "navigationFunction",
+				value: navigationFunction,
+				expected: ["function"]
 			}]);
-
-			backToLaunchpad = backToLaunchpad || backToLaunchpad !== false;
 
 			context.getOwnerComponent().getService("ShellUIService")
 				.then(function (shellService) {
-					shellService.setBackNavigation(function () {
-						var routeIndex = hierarchy.indexOf(UiHelper.getViewName(context));
-
-						if (routeIndex === 0 &amp;&amp; backToLaunchpad) {
-							this.navigateToLaunchpad();
-						} else {
-							this.navigateHierarchy(context, hierarchy, {
-								direction: NavigationDirection.Back,
-								cycle: false
-							});
-						}
-					}.bind(this));
+					shellService.setBackNavigation(navigationFunction);
 				}.bind(this));
 		}
 	};
@@ -333,7 +338,7 @@ sap.ui.define([
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Mar 24 2020 10:51:43 GMT+0200 (IST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Thu Mar 26 2020 18:57:28 GMT+0200 (IST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

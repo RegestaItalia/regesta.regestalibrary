@@ -760,7 +760,7 @@ It can allow or discard navigation by calling resolve or reject functions passed
 
     
 
-    <h4 class="name" id=".navigateExternal"><span class="type-signature">(static) </span>navigateExternal<span class="signature">(context, semanticObject, action, parameters<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".navigateExternal"><span class="type-signature">(static) </span>navigateExternal<span class="signature">(semanticObject, action, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -772,7 +772,7 @@ It can allow or discard navigation by calling resolve or reject functions passed
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper_NavigationHelper.js.html">helper/NavigationHelper.js</a>, <a href="helper_NavigationHelper.js.html#line126">line 126</a>
+        <a href="helper_NavigationHelper.js.html">helper/NavigationHelper.js</a>, <a href="helper_NavigationHelper.js.html#line127">line 127</a>
     </li></ul></dd>
     
 
@@ -852,37 +852,6 @@ It can allow or discard navigation by calling resolve or reject functions passed
 
         <tr>
             
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">sap.ui.core.mvc.Controller</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The context of the router.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>semanticObject</code></td>
             
 
@@ -945,15 +914,10 @@ It can allow or discard navigation by calling resolve or reject functions passed
 
         <tr>
             
-                <td class="name"><code>parameters</code></td>
+                <td class="name"><code>options</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
             
             </td>
 
@@ -971,7 +935,79 @@ It can allow or discard navigation by calling resolve or reject functions passed
 
             
 
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>parameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
             <td class="description last"><p>An object of key/value parameters to carry durig the navigation.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>beforeNavigateCallback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A callback to be executed before navigation. It can allow or discard navigation by calling resolve or reject functions passed as parameters.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -1013,7 +1049,7 @@ It can allow or discard navigation by calling resolve or reject functions passed
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper_NavigationHelper.js.html">helper/NavigationHelper.js</a>, <a href="helper_NavigationHelper.js.html#line167">line 167</a>
+        <a href="helper_NavigationHelper.js.html">helper/NavigationHelper.js</a>, <a href="helper_NavigationHelper.js.html#line175">line 175</a>
     </li></ul></dd>
     
 
@@ -1282,7 +1318,7 @@ It can allow or discard navigation by calling resolve or reject functions passed
             
                 <td class="default">
                 
-                    <code>true</code>
+                    <code>false</code>
                 
                 </td>
             
@@ -1300,7 +1336,7 @@ It can allow or discard navigation by calling resolve or reject functions passed
             <td class="type">
             
                 
-<span class="param-type">boolean</span>
+<span class="param-type">function</span>
 
 
             
@@ -1314,9 +1350,7 @@ It can allow or discard navigation by calling resolve or reject functions passed
                 </td>
             
 
-            <td class="description last"><p>A callback to be executed before navigation.
-It can allow or discard navigation by calling resolve or reject functions passed as parameters.
-It also can override nacigationHierarchy by resolving with the name of a route.</p></td>
+            <td class="description last"><p>A callback to be executed before navigation. It can allow or discard navigation by calling resolve or reject functions passed as parameters. It can also override navigationHierarchy by resolving with the name of a route.</p></td>
         </tr>
 
     
@@ -1353,7 +1387,7 @@ It also can override nacigationHierarchy by resolving with the name of a route.<
 
     
 
-    <h4 class="name" id=".navigateToLaunchpad"><span class="type-signature">(static) </span>navigateToLaunchpad<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".navigateToLaunchpad"><span class="type-signature">(static) </span>navigateToLaunchpad<span class="signature">(beforeNavigateCallback<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -1365,7 +1399,7 @@ It also can override nacigationHierarchy by resolving with the name of a route.<
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper_NavigationHelper.js.html">helper/NavigationHelper.js</a>, <a href="helper_NavigationHelper.js.html#line230">line 230</a>
+        <a href="helper_NavigationHelper.js.html">helper/NavigationHelper.js</a>, <a href="helper_NavigationHelper.js.html#line240">line 240</a>
     </li></ul></dd>
     
 
@@ -1418,6 +1452,67 @@ It also can override nacigationHierarchy by resolving with the name of a route.<
 
 
 
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>beforeNavigateCallback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>A callback to be executed before navigation.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
 
 
 
@@ -1440,7 +1535,7 @@ It also can override nacigationHierarchy by resolving with the name of a route.<
 
     
 
-    <h4 class="name" id=".overrideShellBack"><span class="type-signature">(static) </span>overrideShellBack<span class="signature">(context, hierarchy)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".overrideShellBack"><span class="type-signature">(static) </span>overrideShellBack<span class="signature">(context, navigationFunction)</span><span class="type-signature"></span></h4>
 
     
 
@@ -1452,7 +1547,7 @@ It also can override nacigationHierarchy by resolving with the name of a route.<
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper_NavigationHelper.js.html">helper/NavigationHelper.js</a>, <a href="helper_NavigationHelper.js.html#line248">line 248</a>
+        <a href="helper_NavigationHelper.js.html">helper/NavigationHelper.js</a>, <a href="helper_NavigationHelper.js.html#line266">line 266</a>
     </li></ul></dd>
     
 
@@ -1492,7 +1587,7 @@ It also can override nacigationHierarchy by resolving with the name of a route.<
 
 
 <div class="description usertext">
-    <p>Overrides shell's back button behavior, making it navigate through a navigation hierarchy.</p>
+    <p>Overrides shell's back button behavior, making it navigate through a navigation hierarchy (navigateHierarchy-like behavior).</p>
 </div>
 
 
@@ -1546,20 +1641,20 @@ It also can override nacigationHierarchy by resolving with the name of a route.<
 
             
 
-            <td class="description last"><p>The context for the router.</p></td>
+            <td class="description last"><p>The context of the router.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>hierarchy</code></td>
+                <td class="name"><code>navigationFunction</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">function</span>
 
 
             
@@ -1569,7 +1664,7 @@ It also can override nacigationHierarchy by resolving with the name of a route.<
 
             
 
-            <td class="description last"><p>A collection of routes, sorted as the navigation sequence.</p></td>
+            <td class="description last"><p>The navigation function to be executed at shell's back button pression.</p></td>
         </tr>
 
     
@@ -1614,7 +1709,7 @@ It also can override nacigationHierarchy by resolving with the name of a route.<
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Mar 24 2020 10:51:44 GMT+0200 (IST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Thu Mar 26 2020 18:57:28 GMT+0200 (IST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
