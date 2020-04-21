@@ -58,6 +58,8 @@ sap.ui.define([
 						_oView.addDependent(this.inlineHelpPopover);
 					} else {
 						this.inlineHelpPopover.setUi5Control(oUi5Control);
+						debugger
+						
 					}
 					this.inlineHelpPopover.openHelp();
 				}

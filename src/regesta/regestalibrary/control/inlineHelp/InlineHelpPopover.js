@@ -84,28 +84,29 @@ sap.ui.define([
 				//bAauthorizedUser = logical expression;
 				this.setProperty("_authorizedUser", bAauthorizedUser);
 			};
-
+			
+			//TODO: visibility: hidden è stata commentata per retrocompatibilità con la 1.60, si potrebbe metterla condizionata alla versione sapui5
 			return {
 				metadata: {
 					properties: {
 						_title: {
 							type: "string",
 							group: "PopoverText",
-							visibility: "protected"
+							// visibility: "hidden"
 						},
 						_popoverDescription: {
 							type: "string",
 							group: "PopoverText",
-							visibility: "protected"
+							// visibility: "hidden"
 						},
 						_popoverImage: {
 							type: "string",
 							group: "PopoverText",
-							visibility: "protected"
+							// visibility: "hidden"
 						},
 						_authorizedUser: {
 							type: "boolean",
-							visibility: "protected"
+							// visibility: "hidden"
 						},
 						ui5Control: {
 							type: "object"
