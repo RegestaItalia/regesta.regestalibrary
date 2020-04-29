@@ -1,2 +1,5 @@
+1.0.2
+	Fix parsing messaggi di errore http
+
 1.0.1
 	Correzione documentazione

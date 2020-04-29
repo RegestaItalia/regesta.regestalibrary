@@ -4,7 +4,7 @@
  * @class regesta.regestalibrary.helper.ModelHelper
  * @memberof regesta.regestalibrary.helper
  * @hideconstructor
-*/
+ */
 
 sap.ui.define([
 	"regesta/regestalibrary/helper/JsHelper",
@@ -15,11 +15,13 @@ sap.ui.define([
 
 	var createCallersMesages = function (targets, url, error) {
 		var messages = targets.reduce(function (acc, curr) {
-			acc.push({
-				message: error,
-				processor: curr.getModel(),
-				target: curr.getContext() ? curr.getContext() + "/" + curr.getPath() : curr.getPath()
-			});
+			if (curr.getModel) {
+				acc.push({
+					message: error,
+					processor: curr.getModel(),
+					target: curr.getContext() ? curr.getContext() + "/" + curr.getPath() : curr.getPath()
+				});
+			}
 
 			return acc;
 		}, []);
@@ -59,20 +61,20 @@ sap.ui.define([
 			options = options || {};
 			callers = callers || [];
 			callers = JsHelper.typeOf(callers) === "array" ? callers : [callers];
-			
+
 			options.method = options.method || "GET";
 			options.type = options.type || "GET";
 
 			var busyBindings = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("busy");
-				
+
 				acc.push(binding);
 
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("value");
-				
+
 				acc.push(binding);
 
 				return acc;
@@ -84,9 +86,11 @@ sap.ui.define([
 
 			UiHelper.showBusy(busyBindings);
 			MessageHelper.removeMessages({
-				targets: messageTargets.reduce(function(acc, curr){
-					acc.push(curr.getPath());
-					
+				targets: messageTargets.reduce(function (acc, curr) {
+					if (curr.getPath) {
+						acc.push(curr.getPath());
+					}
+
 					return acc;
 				}, [])
 			});
@@ -156,13 +160,13 @@ sap.ui.define([
 		 * @returns	{Promise}											The resulting promise.
 		 */
 		ajaxAsync: function (i18n, url, options, callers) {
-				return new Promise(function (resolve, reject) {
-						options = options || {};
-						options.success = resolve;
-						options.error = reject;
-		
-						this.ajax(i18n, url, options, callers);
-				}.bind(this));
+			return new Promise(function (resolve, reject) {
+				options = options || {};
+				options.success = resolve;
+				options.error = reject;
+
+				this.ajax(i18n, url, options, callers);
+			}.bind(this));
 		},
 		/** 
 		 * Triggers a request to a function import of the specified odata service.
@@ -200,21 +204,21 @@ sap.ui.define([
 			options = options || {};
 			callers = callers || [];
 			callers = JsHelper.typeOf(callers) === "array" ? callers : [callers];
-			
+
 			options.urlParameters = options.urlParameters || {};
-			
+
 			options.urlParameters = this.formalizePostData(options.urlParameters, functionImportMetadata);
 
 			var busyBindings = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("busy");
-				
+
 				acc.push(binding);
 
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("value");
-				
+
 				acc.push(binding);
 
 				return acc;
@@ -226,9 +230,11 @@ sap.ui.define([
 
 			UiHelper.showBusy(busyBindings);
 			MessageHelper.removeMessages({
-				targets: messageTargets.reduce(function(acc, curr){
-					acc.push(curr.getPath());
-					
+				targets: messageTargets.reduce(function (acc, curr) {
+					if (curr.getPath) {
+						acc.push(curr.getPath());
+					}
+
 					return acc;
 				}, [])
 			});
@@ -275,13 +281,13 @@ sap.ui.define([
 		 * @returns	{Promise}														The resulting promise.
 		 */
 		callFunctionAsync: function (model, i18n, url, options, callers) {
-				return new Promise(function (resolve, reject) {
-					options = options || {};
-					options.success = resolve;
-					options.error = reject;
-	
-					this.callFunction(model, i18n, url, options, callers);
-				}.bind(this));
+			return new Promise(function (resolve, reject) {
+				options = options || {};
+				options.success = resolve;
+				options.error = reject;
+
+				this.callFunction(model, i18n, url, options, callers);
+			}.bind(this));
 		},
 		/** 
 		 * Triggers a create request to the specified odata service.
@@ -329,14 +335,14 @@ sap.ui.define([
 
 			var busyBindings = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("busy");
-				
+
 				acc.push(binding);
 
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("value");
-				
+
 				acc.push(binding);
 
 				return acc;
@@ -348,9 +354,11 @@ sap.ui.define([
 
 			UiHelper.showBusy(busyBindings);
 			MessageHelper.removeMessages({
-				targets: messageTargets.reduce(function(acc, curr){
-					acc.push(curr.getPath());
-					
+				targets: messageTargets.reduce(function (acc, curr) {
+					if (curr.getPath) {
+						acc.push(curr.getPath());
+					}
+
 					return acc;
 				}, [])
 			});
@@ -397,13 +405,13 @@ sap.ui.define([
 		 * @returns	{promise}														The resulting promise.
 		 */
 		createAsync: function (model, i18n, url, newData, options, callers) {
-				return new Promise(function (resolve, reject) {
-					options = options || {};
-					options.success = resolve;
-					options.error = reject;
-	
-					this.create(model, i18n, url, newData, options, callers);
-				}.bind(this));
+			return new Promise(function (resolve, reject) {
+				options = options || {};
+				options.success = resolve;
+				options.error = reject;
+
+				this.create(model, i18n, url, newData, options, callers);
+			}.bind(this));
 		},
 		/** 
 		 * Formalize an object properties basing on the metadata defining an odata entity, in order to be used for a create/update odata request.
@@ -708,7 +716,7 @@ sap.ui.define([
 			var message;
 
 			response = this.parseResponse(response);
-			message = this.formatResponseMessage(response.message, i18n);
+			message = response.statusCode === 0 ? response.statusText : this.formatResponseMessage(response.message, i18n);
 
 			if (message === response.message) {
 				if (response.statusText === "error") {
@@ -760,23 +768,19 @@ sap.ui.define([
 					}
 				}
 			} catch (exc) {
-				throw (exc);
+				message = "";
 			}
 
 			try {
 				status = response.statusCode * 1 || response.status * 1;
 			} catch (exc) {
-				throw (exc);
+				status = -1;
 			}
 
 			return {
 				statusCode: status,
-				statusText: status > 0 ? response.statusText || "error" : {
-					path: "regestalibraryi18n>errNoResponse"
-				},
-				message: status > 0 ? message || {
-					path: "regestalibraryi18n>errGenericError"
-				} : ""
+				statusText: status > 0 ? response.statusText || "error" : "No response",
+				message: status > 0 ? message || "Generic error" : ""
 			};
 		},
 		/** 
@@ -817,14 +821,14 @@ sap.ui.define([
 
 			var busyBindings = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("busy");
-				
+
 				acc.push(binding);
 
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("value");
-				
+
 				acc.push(binding);
 
 				return acc;
@@ -836,9 +840,11 @@ sap.ui.define([
 
 			UiHelper.showBusy(busyBindings);
 			MessageHelper.removeMessages({
-				targets: messageTargets.reduce(function(acc, curr){
-					acc.push(curr.getPath());
-					
+				targets: messageTargets.reduce(function (acc, curr) {
+					if (curr.getPath) {
+						acc.push(curr.getPath());
+					}
+
 					return acc;
 				}, [])
 			});
@@ -886,13 +892,13 @@ sap.ui.define([
 		 * @returns	{Promise}														The resulting promise.
 		 */
 		readAsync: function (model, i18n, url, options, callers) {
-				return new Promise(function (resolve, reject) {
-					options = options || {};
-					options.success = resolve;
-					options.error = reject;
-	
-					this.read(model, i18n, url, options, callers);
-				}.bind(this));
+			return new Promise(function (resolve, reject) {
+				options = options || {};
+				options.success = resolve;
+				options.error = reject;
+
+				this.read(model, i18n, url, options, callers);
+			}.bind(this));
 		},
 		/** 
 		 * Triggers a remove request to the specified odata service.
@@ -931,14 +937,14 @@ sap.ui.define([
 
 			var busyBindings = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("busy");
-				
+
 				acc.push(binding);
 
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("value");
-				
+
 				acc.push(binding);
 
 				return acc;
@@ -950,9 +956,11 @@ sap.ui.define([
 
 			UiHelper.showBusy(busyBindings);
 			MessageHelper.removeMessages({
-				targets: messageTargets.reduce(function(acc, curr){
-					acc.push(curr.getPath());
-					
+				targets: messageTargets.reduce(function (acc, curr) {
+					if (curr.getPath) {
+						acc.push(curr.getPath());
+					}
+
 					return acc;
 				}, [])
 			});
@@ -998,13 +1006,13 @@ sap.ui.define([
 		 * @returns	{Promise}														The resulting promise.
 		 */
 		removeAsync: function (model, i18n, url, options, callers) {
-				return new Promise(function (resolve, reject) {
-					options = options || {};
-					options.success = resolve;
-					options.error = reject;
-	
-					this.remove(model, i18n, url, options, callers);
-				}.bind(this));
+			return new Promise(function (resolve, reject) {
+				options = options || {};
+				options.success = resolve;
+				options.error = reject;
+
+				this.remove(model, i18n, url, options, callers);
+			}.bind(this));
 		},
 		/**
 		 * Sets a property in a model, basing on given control property's biningInfo.
@@ -1079,14 +1087,14 @@ sap.ui.define([
 
 			var busyBindings = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("busy");
-				
+
 				acc.push(binding);
 
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
 				var binding = curr.getBinding("value");
-				
+
 				acc.push(binding);
 
 				return acc;
@@ -1098,9 +1106,11 @@ sap.ui.define([
 
 			UiHelper.showBusy(busyBindings);
 			MessageHelper.removeMessages({
-				targets: messageTargets.reduce(function(acc, curr){
-					acc.push(curr.getPath());
-					
+				targets: messageTargets.reduce(function (acc, curr) {
+					if (curr.getPath) {
+						acc.push(curr.getPath());
+					}
+
 					return acc;
 				}, [])
 			});
@@ -1147,13 +1157,13 @@ sap.ui.define([
 		 * @returns {Promise}														The resulting promise.
 		 */
 		updateAsync: function (model, i18n, url, newData, options, callers) {
-				return new Promise(function (resolve, reject) {
-					options = options || {};
-					options.success = resolve;
-					options.error = reject;
-	
-					this.update(model, i18n, url, newData, options, callers);
-				}.bind(this));
+			return new Promise(function (resolve, reject) {
+				options = options || {};
+				options.success = resolve;
+				options.error = reject;
+
+				this.update(model, i18n, url, newData, options, callers);
+			}.bind(this));
 		}
 	};
 });
