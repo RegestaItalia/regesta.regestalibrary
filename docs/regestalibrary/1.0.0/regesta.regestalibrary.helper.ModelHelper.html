@@ -319,7 +319,7 @@
 
     
 
-    <h4 class="name" id=".ajaxAsync"><span class="type-signature">(static) </span>ajaxAsync<span class="signature">(i18n, url, options, bindings<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".ajaxAsync"><span class="type-signature">(static) </span>ajaxAsync<span class="signature">(i18n, url, options, callers<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -504,7 +504,7 @@
 
         <tr>
             
-                <td class="name"><code>bindings</code></td>
+                <td class="name"><code>callers</code></td>
             
 
             <td class="type">
@@ -530,8 +530,7 @@
 
             
 
-            <td class="description last"><p>An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.</p>
-<p>çreturns	{Promise}											The resulting promise.</p></td>
+            <td class="description last"><p>An array of sap.ui.core.control from which determine value and busy bindings to use during the call.</p></td>
         </tr>
 
     
@@ -553,6 +552,28 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The resulting promise.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -976,7 +997,7 @@
 
     
 
-    <h4 class="name" id=".callFunctionAsync"><span class="type-signature">(static) </span>callFunctionAsync<span class="signature">(model, i18n, url, options<span class="signature-attributes">opt</span>, bindings<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id=".callFunctionAsync"><span class="type-signature">(static) </span>callFunctionAsync<span class="signature">(model, i18n, url, options<span class="signature-attributes">opt</span>, callers<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -1289,7 +1310,7 @@
 
         <tr>
             
-                <td class="name"><code>bindings</code></td>
+                <td class="name"><code>callers</code></td>
             
 
             <td class="type">
@@ -1315,7 +1336,7 @@
 
             
 
-            <td class="description last"><p>An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.</p></td>
+            <td class="description last"><p>An array of sap.ui.core.control from which determine value and busy bindings to use during the call.</p></td>
         </tr>
 
     
@@ -1813,7 +1834,7 @@
 
     
 
-    <h4 class="name" id=".createAsync"><span class="type-signature">(static) </span>createAsync<span class="signature">(model, i18n, url, newData, options<span class="signature-attributes">opt</span>, bindings<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {promise}</span></h4>
+    <h4 class="name" id=".createAsync"><span class="type-signature">(static) </span>createAsync<span class="signature">(model, i18n, url, newData, options<span class="signature-attributes">opt</span>, callers<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {promise}</span></h4>
 
     
 
@@ -2157,7 +2178,7 @@
 
         <tr>
             
-                <td class="name"><code>bindings</code></td>
+                <td class="name"><code>callers</code></td>
             
 
             <td class="type">
@@ -2183,7 +2204,7 @@
 
             
 
-            <td class="description last"><p>An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.</p></td>
+            <td class="description last"><p>An array of sap.ui.core.control from which determine value and busy bindings to use during the call.</p></td>
         </tr>
 
     
@@ -4550,7 +4571,7 @@ In case of technical error the message will be the concatenation of status code,
 
     
 
-    <h4 class="name" id=".readAsync"><span class="type-signature">(static) </span>readAsync<span class="signature">(model, i18n, url, options<span class="signature-attributes">opt</span>, bindings<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id=".readAsync"><span class="type-signature">(static) </span>readAsync<span class="signature">(model, i18n, url, options<span class="signature-attributes">opt</span>, callers<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -4886,7 +4907,7 @@ In case of technical error the message will be the concatenation of status code,
 
         <tr>
             
-                <td class="name"><code>bindings</code></td>
+                <td class="name"><code>callers</code></td>
             
 
             <td class="type">
@@ -4912,7 +4933,7 @@ In case of technical error the message will be the concatenation of status code,
 
             
 
-            <td class="description last"><p>An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.</p></td>
+            <td class="description last"><p>An array of sap.ui.core.control from which determine value and busy bindings to use during the call.</p></td>
         </tr>
 
     
@@ -5379,7 +5400,7 @@ In case of technical error the message will be the concatenation of status code,
 
     
 
-    <h4 class="name" id=".removeAsync"><span class="type-signature">(static) </span>removeAsync<span class="signature">(model, i18n, url, options<span class="signature-attributes">opt</span>, bindings<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id=".removeAsync"><span class="type-signature">(static) </span>removeAsync<span class="signature">(model, i18n, url, options<span class="signature-attributes">opt</span>, callers<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -5692,7 +5713,7 @@ In case of technical error the message will be the concatenation of status code,
 
         <tr>
             
-                <td class="name"><code>bindings</code></td>
+                <td class="name"><code>callers</code></td>
             
 
             <td class="type">
@@ -5718,7 +5739,7 @@ In case of technical error the message will be the concatenation of status code,
 
             
 
-            <td class="description last"><p>An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.</p></td>
+            <td class="description last"><p>An array of sap.ui.core.control from which determine value and busy bindings to use during the call.</p></td>
         </tr>
 
     
@@ -6426,7 +6447,7 @@ In case of technical error the message will be the concatenation of status code,
 
     
 
-    <h4 class="name" id=".updateAsync"><span class="type-signature">(static) </span>updateAsync<span class="signature">(model, i18n, url, newData, options<span class="signature-attributes">opt</span>, bindings<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id=".updateAsync"><span class="type-signature">(static) </span>updateAsync<span class="signature">(model, i18n, url, newData, options<span class="signature-attributes">opt</span>, callers<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -6770,7 +6791,7 @@ In case of technical error the message will be the concatenation of status code,
 
         <tr>
             
-                <td class="name"><code>bindings</code></td>
+                <td class="name"><code>callers</code></td>
             
 
             <td class="type">
@@ -6796,7 +6817,7 @@ In case of technical error the message will be the concatenation of status code,
 
             
 
-            <td class="description last"><p>An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.</p></td>
+            <td class="description last"><p>An array of sap.ui.core.control from which determine value and busy bindings to use during the call.</p></td>
         </tr>
 
     
@@ -6863,7 +6884,7 @@ In case of technical error the message will be the concatenation of status code,
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Thu Mar 26 2020 18:57:28 GMT+0200 (IST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Wed Apr 29 2020 12:19:30 GMT+0300 (IDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

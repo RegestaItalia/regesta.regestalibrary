@@ -195,9 +195,9 @@ sap.ui.define([
 		 * @param	{sap.ui.model.resource.ResourceModel}	i18n		The i18n model for parsing the response.
 		 * @param	{string}								url			The url to call.
 		 * @param	{object}								options		Additional options for the http call. Refer to {@link http://api.jquery.com/jquery.ajax/} to see the full option list (success and resolve won't be considered).
-		 * @param	{array}									[bindings]	An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.
+		 * @param	{array}									[callers]				An array of sap.ui.core.control from which determine value and busy bindings to use during the call.
 		 * 
-		 * çreturns	{Promise}											The resulting promise.
+		 * @returns	{Promise}											The resulting promise.
 		 */
 		ajaxAsync: function (i18n, url, options, callers) {
 				return new Promise(function (resolve, reject) {
@@ -314,7 +314,7 @@ sap.ui.define([
 		 * @param	{object}								options.urlParameters	An object containing the parameters that will be passed as query strings.
 		 * @param	{object}								options.headers			An object of headers for this request.
 		 * @param	{string}								options.groupId			The id of the batch to which the request shoiìuld be bundled.
-		 * @param	{array}									[bindings]				An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.
+		 * @param	{array}									[callers]				An array of sap.ui.core.control from which determine value and busy bindings to use during the call.
 		 * 
 		 * @returns	{Promise}														The resulting promise.
 		 */
@@ -436,7 +436,7 @@ sap.ui.define([
 		 * @param	{object}								options.urlParameters	An object containing the parameters that will be passed as query strings.
 		 * @param	{object}								options.headers			An object of headers for this request.
 		 * @param	{string}								options.groupId			The id of the batch to which the request shoiìuld be bundled.
-		 * @param	{array}									[bindings]				An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.
+		 * @param	{array}									[callers]				An array of sap.ui.core.control from which determine value and busy bindings to use during the call.
 		 * 
 		 * @returns	{promise}														The resulting promise.
 		 */
@@ -925,7 +925,7 @@ sap.ui.define([
 		 * @param	{array}									options.filters			An array of sap.ui.model.Filter.
 		 * @param	{array}									options.sorters			An array of sap.ui.model.Sorter.
 		 * @param	{string}								options.groupId			The id of the batch to which the request shoiìuld be bundled.
-		 * @param	{array}									[bindings]				An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.
+		 * @param	{array}									[callers]				An array of sap.ui.core.control from which determine value and busy bindings to use during the call.
 		 * 
 		 * @returns	{Promise}														The resulting promise.
 		 */
@@ -1037,7 +1037,7 @@ sap.ui.define([
 		 * @param	{object}								options.urlParameters	An object containing the parameters that will be passed as query strings.
 		 * @param	{object}								options.headers			An object of headers for this request.
 		 * @param	{string}								options.groupId			The id of the batch to which the request shoiìuld be bundled.
-		 * @param	{array} 								[bindings]				An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.
+		 * @param	{array} 								[callers]				An array of sap.ui.core.control from which determine value and busy bindings to use during the call.
 		 * 
 		 * @returns	{Promise}														The resulting promise.
 		 */
@@ -1186,7 +1186,7 @@ sap.ui.define([
 		 * @param	{object}								options.urlParameters	An object containing the parameters that will be passed as query strings.
 		 * @param	{object}								options.headers			An object of headers for this request.
 		 * @param	{string}								options.groupId			The id of the batch to which the request shoiìuld be bundled.
-		 * @param	{array} 								[bindings]				An array of sap.ui.model.Binding to the busy property of the controls to set busy during the execution of the request. If not provided, the sap.ui.core.BusyIndicator will be displayed.
+		 * @param	{array} 								[callers]				An array of sap.ui.core.control from which determine value and busy bindings to use during the call.
 		 * 
 		 * @returns {Promise}														The resulting promise.
 		 */
@@ -1214,7 +1214,7 @@ sap.ui.define([
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Thu Mar 26 2020 18:57:28 GMT+0200 (IST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Wed Apr 29 2020 12:19:30 GMT+0300 (IDT) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
