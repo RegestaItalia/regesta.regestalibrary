@@ -1,3 +1,6 @@
+1.0.4
+	Modifica logica gestione messaggi http
+	
 1.0.3
 	Correzione documentazione
 	Fix chiusura outerTap dialog per nuovo tema

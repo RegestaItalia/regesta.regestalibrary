@@ -28,8 +28,7 @@ sap.ui.define([
 
 		if (messages.length === 0) {
 			messages.push({
-				message: error,
-				target: url
+				message: error
 			});
 		}
 
@@ -79,13 +78,9 @@ sap.ui.define([
 
 				return acc;
 			}, []);
-
-			if (messageTargets.length === 0) {
-				messageTargets = [url];
-			}
-
+			
 			UiHelper.showBusy(busyBindings);
-			MessageHelper.removeMessages({
+			MessageHelper.removeMessages(messageTargets.length === 0 ? [] : {
 				targets: messageTargets.reduce(function (acc, curr) {
 					if (curr.getPath) {
 						acc.push(curr.getPath());
@@ -229,7 +224,7 @@ sap.ui.define([
 			}
 
 			UiHelper.showBusy(busyBindings);
-			MessageHelper.removeMessages({
+			MessageHelper.removeMessages(messageTargets.length === 0 ? [] : {
 				targets: messageTargets.reduce(function (acc, curr) {
 					if (curr.getPath) {
 						acc.push(curr.getPath());
@@ -353,7 +348,7 @@ sap.ui.define([
 			}
 
 			UiHelper.showBusy(busyBindings);
-			MessageHelper.removeMessages({
+			MessageHelper.removeMessages(messageTargets.length === 0 ? [] : {
 				targets: messageTargets.reduce(function (acc, curr) {
 					if (curr.getPath) {
 						acc.push(curr.getPath());
@@ -839,7 +834,7 @@ sap.ui.define([
 			}
 
 			UiHelper.showBusy(busyBindings);
-			MessageHelper.removeMessages({
+			MessageHelper.removeMessages(messageTargets.length === 0 ? [] : {
 				targets: messageTargets.reduce(function (acc, curr) {
 					if (curr.getPath) {
 						acc.push(curr.getPath());
@@ -955,7 +950,7 @@ sap.ui.define([
 			}
 
 			UiHelper.showBusy(busyBindings);
-			MessageHelper.removeMessages({
+			MessageHelper.removeMessages(messageTargets.length === 0 ? [] : {
 				targets: messageTargets.reduce(function (acc, curr) {
 					if (curr.getPath) {
 						acc.push(curr.getPath());
@@ -1105,7 +1100,7 @@ sap.ui.define([
 			}
 
 			UiHelper.showBusy(busyBindings);
-			MessageHelper.removeMessages({
+			MessageHelper.removeMessages(messageTargets.length === 0 ? [] : {
 				targets: messageTargets.reduce(function (acc, curr) {
 					if (curr.getPath) {
 						acc.push(curr.getPath());
