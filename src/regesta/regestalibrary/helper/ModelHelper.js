@@ -643,6 +643,15 @@ sap.ui.define([
 			});
 
 			return FunctionImportMetadata;
+		},/**
+		 * Shorthand: calls getModel and returns context's 1i8n model's resourceBundle.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
+		 */
+		getI18nBundle: function (context) {
+			var bundle = this.getI18nModel(context).getResourceBundle();
+
+			return bundle;
 		},
 		/**
 		 * Shorthand: calls getModel and returns the context's 1i8n model.

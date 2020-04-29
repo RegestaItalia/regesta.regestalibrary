@@ -271,7 +271,7 @@ sap.ui.define([
 		 * 
 		 * @memberof regesta.regestalibrary.helper.MessageHelper
 		 * 
-		 * @param {sap.ui.core.mvc.Controller) context The controller of view to register.
+		 * @param {sap.ui.core.mvc.Controller} context The controller of view to register.
 		 */
 		registerView: function (context) {
 			JsHelper.checkParameters("registerView", [{

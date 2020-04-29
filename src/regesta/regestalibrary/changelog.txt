@@ -1,3 +1,7 @@
+1.0.5
+	Correzione documentazione
+	Aggiunta shorthand per resourceBundle i18n
+	
 1.0.4
 	Modifica logica gestione messaggi http
 	
