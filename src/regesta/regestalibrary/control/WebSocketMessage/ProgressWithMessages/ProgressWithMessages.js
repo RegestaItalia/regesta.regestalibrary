@@ -24,7 +24,7 @@ sap.ui.define([
 				FillColor: "Critical",
 				ToValue: 60
 			}, {
-				FillColor: "Critical",
+				FillColor: "Good",
 				ToValue: 100
 			}];
 
