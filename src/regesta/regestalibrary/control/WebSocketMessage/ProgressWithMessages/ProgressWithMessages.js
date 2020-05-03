@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/base/Object",
 	"sap/ui/core/Fragment",
-	"sap/ui/model/json/JSONModel"
-], function (UI5Object, Fragment, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/suite/ui/commons/statusindicator/PropertyThreshold"
+], function (UI5Object, Fragment, JSONModel, PropertyThreshold) {
 	"use strict";
 	return UI5Object.extend("regesta.regestalibrary.control.WebSocketMessage.ProgressWithMessages.ProgressWithMessages",
 		function ProgressWithMessages() {
@@ -15,10 +16,34 @@ sap.ui.define([
 			var _at100 = null;
 			var _onError = null;
 
+			var _bThreshold = false;
+			var _aThresholds = [{
+				FillColor: "Error",
+				ToValue: 33
+			}, {
+				FillColor: "Critical",
+				ToValue: 60
+			}, {
+				FillColor: "Critical",
+				ToValue: 100
+			}];
+
 			var _LoadStatusIndicator = function () {
 				_oProgressIndicatorElement = sap.ui.xmlfragment(
 					"regesta.regestalibrary.control.WebSocketMessage.ProgressWithMessages.ProgressWithMessages");
 				_oProgressIndicatorElement.setModel(_oModel, "Progress");
+				if(_bThreshold){
+					var oStatusIndicator = _oProgressIndicatorElement.getItems().find(function(oItems){
+						return oItems instanceof sap.suite.ui.commons.statusindicator.StatusIndicator;
+					});
+					
+					_aThresholds.forEach(function(oThreshold){
+						oStatusIndicator.addPropertyThreshold(new PropertyThreshold({
+							fillColor: oThreshold.FillColor,
+							toValue: oThreshold.ToValue
+						}));
+					});
+				}
 				/*return Fragment.load({
 					name: "regesta.regestalibrary.control.WebSocketMessage.ProgressWithMessages.ProgressWithMessages",
 					controller: this
@@ -47,6 +72,9 @@ sap.ui.define([
 						Height: oParameters.Height || "auto",
 						ContentDirection: oParameters.ContentDirection || "Column"
 					});
+
+					_bThreshold = oParameters.bThreshold || _bThreshold;
+					_aThresholds = oParameters.aThresholds || _aThresholds;
 
 					_at0 = oParameters.at0 || _at0;
 					_at100 = oParameters.at100 || _at100;

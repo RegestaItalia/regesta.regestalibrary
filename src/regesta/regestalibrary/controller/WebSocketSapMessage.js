@@ -12,11 +12,17 @@ sap.ui.define([
 		//var _OwnerComponent = null;
 		var _i18nModel = null;
 		var _ProgressWithMessages = null;
+		var _actStep = null;
+		var _maxStep = null;
 
 		var _getText = function (sText) {
 			return _i18nModel.getResourceBundle().getText(sText);
 		};
-		
+
+		var _getPercentage = function () {
+			return Math.round(_actStep * (100 / _maxStep));
+		};
+
 		//OLD
 		/*var _onAttachMessage = function (oEvent) {
 			try {
@@ -43,23 +49,34 @@ sap.ui.define([
 				throw "Errore in gestione push message";
 			}
 		};*/
-		
+
 		//NEW
 		var _onAttachMessage = function (oEvent) {
 			try {
+				var oStatus = {};
 				if (oEvent.getParameter("pcpFields")) {
-					_ProgressWithMessages.onStatusValuesChange(oEvent.getParameter("pcpFields"));
+					var oPcp = oEvent.getParameter("pcpFields");
+					if (oPcp.name === "NumeroStep") {
+						_actStep = 0;
+						_maxStep = Number(oPcp.value);
+					}
 				}
+				oStatus.Percentages = _getPercentage();
+				if (oEvent.getParameter("data")) {
+					oStatus.Message = oEvent.getParameter("data");
+					++_actStep;
+				}
+				_ProgressWithMessages.onStatusValuesChange(oStatus);
 			} catch (err) {
 				_ProgressWithMessages.onError();
 				throw "Errore in gestione push message";
 			}
 		};
-		
+
 		var _onAttachOpen = function (oEvent) {
 			MessageToast.show('Websocket connection opened');
 		};
-		
+
 		return {
 			constructor: function (oParams) {
 				if (this.checkVersion()) {
@@ -97,16 +114,16 @@ sap.ui.define([
 			stop: function () {
 				//TODO: to implement
 			},
-			
-			getProgessStatusWithMessages: function(){
+
+			getProgessStatusWithMessages: function () {
 				return _ProgressWithMessages;
 			},
-			
+
 			//NOTE: TEST METHOD
-			statusIndicatorDemo: function(){
+			statusIndicatorDemo: function () {
 				var index = 0;
 				var to100 = function () {
-					setTimeout(function() {
+					setTimeout(function () {
 						_ProgressWithMessages.onStatusValuesChange({
 							Percentages: index,
 							Message: Math.random().toString(36).substring(7)
