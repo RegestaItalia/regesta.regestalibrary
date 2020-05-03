@@ -34,6 +34,11 @@ sap.ui.define([
 				throw "Errore in gestione push message";
 			}
 		};
+		
+		var _onAttachOpen = function (oEvent) {
+			MessageToast.show('Websocket connection opened');
+		};
+
 
 		return {
 			constructor: function (oParents) {
@@ -46,25 +51,10 @@ sap.ui.define([
 				}
 				_SapPcpWebSocket = new SapPcpWebSocket(oParents.SapWSEndPoint, SapPcpWebSocket.SUPPORTED_PROTOCOLS.v10);
 				_OwnerComponent = oParents.OwnerComponent;
-				_onAttachMessage = _onAttachMessage.bind(this);
 			},
 			start: function () {
-				// // Check if WebSockets are supported
-				// if (!sap.ui.Device.support.websocket) {
-				// 	MessageBox.show("Your SAPUI5 Version does not support WebSockets", {
-				// 		icon: MessageBox.Icon.INFORMATION,
-				// 		title: "WebSockets not supported",
-				// 		actions: MessageBox.Action.OK
-				// 	});
-				// }
-				// _getWsConnection.call(this, this.getModel());
-
-				// jQuery.sap.require("sap.ui.core.ws.SapPcpWebSocket");
-				// _SapPcpWebSocket = new SapPcpWebSocket("/sap/bc/apc/reg/ui5_sync_msg", SapPcpWebSocket.SUPPORTED_PROTOCOLS.v10);
-
-				this.oWs.attachOpen(function (e) {
-					MessageToast.show('Websocket connection opened');
-				});
+				_SapPcpWebSocket.attachOpen( _onAttachOpen );
+				_SapPcpWebSocket.attachMessage( _onAttachMessage );
 			},
 
 			stop: function () {}
