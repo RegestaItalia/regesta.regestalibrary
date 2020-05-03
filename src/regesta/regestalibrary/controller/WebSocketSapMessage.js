@@ -91,7 +91,6 @@ sap.ui.define([
 
 			start: function () {
 				_SapPcpWebSocket.attachOpen(_onAttachOpen);
-
 				_SapPcpWebSocket.attachMessage(_onAttachMessage);
 			},
 
