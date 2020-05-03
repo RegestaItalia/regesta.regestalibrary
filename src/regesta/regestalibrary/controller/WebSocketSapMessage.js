@@ -20,7 +20,10 @@ sap.ui.define([
 		};
 
 		var _getPercentage = function () {
-			return Math.round(_actStep * (100 / _maxStep));
+			if (_maxStep ) {
+				return Math.round(_actStep * (100 / _maxStep));
+			} else
+				return 0;
 		};
 
 		var _onAttachMessage = function (oEvent) {
@@ -28,17 +31,20 @@ sap.ui.define([
 				var oStatus = {};
 				if (oEvent.getParameter("pcpFields")) {
 					var oPcp = oEvent.getParameter("pcpFields");
-					if (oPcp.name === "NumeroStep") {
+					if (oPcp.NumeroStep) {
 						_actStep = 0;
-						_maxStep = Number(oPcp.value);
+						_maxStep = Number(oPcp.NumeroStep);
 					}
 				}
 				oStatus.Percentages = _getPercentage();
 				if (oEvent.getParameter("data")) {
-					oStatus.Message = oEvent.getParameter("data");
-					++_actStep;
+				//	oStatus.Message = oEvent.getParameter("data");
+					if (_maxStep ) {
+						++_actStep;
+					}
 				}
 				_ProgressWithMessages.onStatusValuesChange(oStatus);
+				MessageToast.show(oEvent.getParameter("data"));
 			} catch (err) {
 				_ProgressWithMessages.onError();
 				throw "Errore in gestione push message";
