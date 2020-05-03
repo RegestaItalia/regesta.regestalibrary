@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:rte="sap.ui.richtexteditor"
+	xmlns:si="sap.suite.ui.commons.statusindicator">
+	<FlexBox direction="{Progress>/ContentDirection}" class="sapUiTinyMargin SIBorderStyle" alignItems="Center" wrap="Wrap">
+		<items>
+			<si:StatusIndicator value="{Progress>/Status/Percentages}" width="{Progress>/Witdh}" height="{Progress>/Height}" class="sapUiTinyMargin SICursorStyle"
+				labelPosition="{Progress>/ProgressLabelPosition}" showLabel="{Progress>/ShowProgressLabel}">
+				<!--<si:propertyThresholds>
+					<si:PropertyThreshold fillColor="{Progress>/FillColor}" toValue="100"/>
+				</si:propertyThresholds>-->
+				<si:ShapeGroup>
+					<si:LibraryShape shapeId="{Progress>/ShapeID}" fillColor="{Progress>/FillColor}"/>
+				</si:ShapeGroup>
+			</si:StatusIndicator>
+			<Label text="{Progress>/Status/Message}" width="auto" textAlign="Center" class="sapUiTinyMargin"/>
+		</items>
+	</FlexBox>
+</core:FragmentDefinition>
