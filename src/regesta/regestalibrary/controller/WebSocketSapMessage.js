@@ -23,34 +23,6 @@ sap.ui.define([
 			return Math.round(_actStep * (100 / _maxStep));
 		};
 
-		//OLD
-		/*var _onAttachMessage = function (oEvent) {
-			try {
-				if (oEvent.getParameter("pcpFields")) {
-					switch (oEvent.getParameter("pcpFields").msgty) {
-					case 'E':
-					case 'A':
-						sap.m.MessageBox.show(oEvent.getParameter("data"), {
-							icon: MessageBox.Icon.ERROR,
-							title: "SAP messages",
-							actions: MessageBox.Action.OK
-						});
-					case 'I':
-					case 'S':
-					case 'W':
-						MessageToast.show(oEvent.getParameter("data"));
-						break;
-					default:
-						MessageToast.show(oEvent.getParameter("data"));
-						break;
-					}
-				}
-			} catch (err) {
-				throw "Errore in gestione push message";
-			}
-		};*/
-
-		//NEW
 		var _onAttachMessage = function (oEvent) {
 			try {
 				var oStatus = {};
@@ -81,14 +53,10 @@ sap.ui.define([
 			constructor: function (oParams) {
 				if (this.checkVersion()) {
 					_getText = _getText.bind(this);
-					//_onAttachMessage = _onAttachMessage.bind(this);
-					//_onAttachOpen = _onAttachOpen.bind(this);
-
 					_i18nModel = new ResourceModel({
 						bundleName: "regesta.regestalibrary.i18n.i18n"
 					});
 					_SapPcpWebSocket = new SapPcpWebSocket(oParams.SapWSEndPoint, SapPcpWebSocket.SUPPORTED_PROTOCOLS.v10);
-					//_OwnerComponent = oParams.OwnerComponent;
 					_ProgressWithMessages = new ProgressWithMessages(oParams.ProgrssWithMessages);
 				}
 			},
