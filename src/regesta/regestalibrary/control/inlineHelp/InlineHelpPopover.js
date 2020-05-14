@@ -7,7 +7,7 @@ sap.ui.define([
 		"use strict";
 
 		var customPopover = XMLComposite.extend("regesta.regestalibrary.control.inlineHelp.InlineHelpPopover", function InlineHelpPopover() {
-			var _AnnotationField = "/##com.sap.vocabularies.Common.v1.Text/String";
+			var _AnnotationField = "/##Org.OData.Core.V1.LongText/String";
 			var _PopoverImage = "regesta/regestalibrary/image/RegestaLogo.jpg";
 			var _ControlPropertyName = "";
 			var _ControlEntityTypeName = "";
