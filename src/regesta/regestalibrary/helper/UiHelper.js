@@ -914,7 +914,7 @@ sap.ui.define([
 
 				if (options.closeOnOuterTap) {
 					document.onclick = function (sube) {
-						if (sube.target.classList.contains("sapMDialogBlockLayerInit")) {
+						if (sube.target.classList.contains("sapMDialogBlockLayerInit") || sube.target.classList.contains("sapUiBLy")) {
 							var domDialogs = Array.prototype.slice.call(document.querySelectorAll("[class~=sapMDialog]"));
 							var zIndices = domDialogs.reduce(function (acc, curval) {
 								acc.push(curval.style.zIndex);
