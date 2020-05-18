@@ -9,6 +9,7 @@ sap.ui.define([
 		var _oView = null;
 		var _oDOMContext = null;
 		var _sSaveFunctionName = "";
+		var _lastClickedUi5Control = "";
 		//var _oUser = null; //TODO: implement user checks
 		var _getElementUnderTest = function (target) {
 			var aUnderTestElementControl = null;
@@ -23,11 +24,9 @@ sap.ui.define([
 			return aUnderTestElementControl && aUnderTestElementControl.length > 0 ? aUnderTestElementControl[0] : null;
 		};
 
-		// var _getHighlightedElement = function(){
-		// 	const selectedElement = _oDOMContext.getSelection().focusNode.parentElement;
-		// 	var oActiveElement = jQuery(selectedElement);
-		// 	return oActiveElement;
-		// };
+	 	var _isPageInEditMode = function(){
+	 		return _oView.getModel("ui").getProperty("/editable");
+	 	};
 
 		var _disablePointerEvents = function () {
 			_oDOMContext.style["pointer-events"] = "none";
@@ -36,11 +35,24 @@ sap.ui.define([
 		var _enablePointerEvents = function () {
 			_oDOMContext.style["pointer-events"] = "auto";
 		};
+		
+		var _onMouseDown = function (oEvent){
+			console.log("MouseDown", oEvent.target.id);
+			_lastClickedUi5Control = _getElementUnderTest(oEvent.target);
+		};
 
 		var _onF1KeyPress = function (oEvent) {
 			if (oEvent.key === "F1") {
+				console.log("_onF1KeyPress")
 				oEvent.preventDefault();
-				var oUi5Control = _getElementUnderTest(oEvent.target); //NOTE: another possible solution is to use sap.ui.getCore().getCurrentFocusedControlId() and sap.ui.getCore().byId()
+				var oUi5Control = null;
+				// if (_isPageInEditMode()){
+				// 	oUi5Control = _getElementUnderTest(oEvent.target); 
+				// } else {
+				// 	console.log("other control")
+				// 	oUi5Control = _lastClickedUi5Control;
+				// }
+				oUi5Control = _lastClickedUi5Control;
 				if (oUi5Control) {
 					if (!this.inlineHelpPopover) {
 						this.inlineHelpPopover = new InlineHelpinlineHelpPopover({
@@ -58,10 +70,11 @@ sap.ui.define([
 						_oView.addDependent(this.inlineHelpPopover);
 					} else {
 						this.inlineHelpPopover.setUi5Control(oUi5Control);
-						debugger
-						
 					}
-					this.inlineHelpPopover.openHelp();
+					console.log("Is up to date:", this.inlineHelpPopover.getIsUpToDate())
+					if (this.inlineHelpPopover.getIsUpToDate()){  //Popup is shown only if info are up to date
+						this.inlineHelpPopover.openHelp();
+					}
 				}
 			}
 		};
@@ -79,11 +92,13 @@ sap.ui.define([
 				_oDOMContext = _oView.getDomRef();
 				_sSaveFunctionName = oParents.sSaveFunctionName;
 				_onF1KeyPress = _onF1KeyPress.bind(this);
+				_onMouseDown = _onMouseDown.bind(this);
 				_getElementUnderTest = _getElementUnderTest.bind(this);
 			},
 			start: function () {
 				_PreventF1();
 				_oDOMContext.addEventListener("keydown", _onF1KeyPress);
+				_oDOMContext.addEventListener("mousedown", _onMouseDown);
 			},
 			stop: function () {
 				_oDOMContext.removeEventListener("keydown", _onF1KeyPress);

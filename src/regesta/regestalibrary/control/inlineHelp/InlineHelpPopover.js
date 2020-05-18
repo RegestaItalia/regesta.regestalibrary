@@ -27,54 +27,70 @@ sap.ui.define([
 					oMetaModel.loaded().then(function () {
 						var oEntitySet = oMetaModel.getODataEntitySet(sEntitySet);
 						var oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
-						// return oEntityType.name;
 						resolve(oEntityType.name);
 					});
 				});
 			};
+			var _checkForParts = function (oControl, keyProperty) {
+				if (oControl.getBindingInfo(keyProperty) && oControl.getBindingInfo(keyProperty).parts && oControl.getBindingInfo(keyProperty).parts
+					.length > 1) {
+					return oControl.getBindingInfo(keyProperty).parts[0].path;
+				}
+				return null;
+			};
+
+			var _setPropertiesWithSpecificKeyProperty = function (oControl, keyProperty) {
+				var oBindingContext = oControl.getBindingContext();
+				var sControlPropertyName = oControl.getBinding(keyProperty).getPath();
+				var sPopoverDescription = _checkIfStringIsEmpty("");
+				if (!sControlPropertyName) {
+					let sControlPropertyNameParts = _checkForParts(oControl, keyProperty);
+					if (sControlPropertyNameParts) {
+						sControlPropertyName = sControlPropertyNameParts;
+						sPopoverDescription = _checkIfStringIsEmpty(oBindingContext.getProperty(sControlPropertyName + _AnnotationField));
+					} else {
+						sPopoverDescription = "Questo oggetto continene parts";
+					}
+				} else {
+					sPopoverDescription = _checkIfStringIsEmpty(oBindingContext.getProperty(sControlPropertyName + _AnnotationField));
+				}
+
+				_ControlPropertyName = sControlPropertyName; //per il salvataggio
+				this.setProperty("_title", sControlPropertyName);
+				this.setProperty("_popoverDescription", sPopoverDescription);
+			};
 
 			var _setPropertiesWithInputBase = function (oControl) {
-				var oBindingContext = oControl.getBindingContext();
 				var sProperty = "";
 				if (oControl instanceof sap.m.ComboBox) {
 					sProperty = "selectedKey";
 				} else {
 					sProperty = "value";
 				}
-				var sControlPropertyName = oControl.getBinding(sProperty).getPath();
-
-				var sPopoverDescription = _checkIfStringIsEmpty(oBindingContext.getProperty(sControlPropertyName + _AnnotationField));
-
-				_ControlPropertyName = sControlPropertyName;
-				// _ControlEntityTypeName = _getEntityType(oBindingContext);
-
-				this.setProperty("_title", sControlPropertyName);
-				this.setProperty("_popoverDescription", sPopoverDescription);
+				_setPropertiesWithSpecificKeyProperty(oControl, sProperty);
 			};
 
 			var _setPropertiesWithCheckBox = function (oControl) {
-				var oBindingContext = oControl.getBindingContext();
-
-				var sControlPropertyName = oControl.getBinding("selected").getPath();
-
-				var sPopoverDescription = _checkIfStringIsEmpty(oBindingContext.getProperty(sControlPropertyName + _AnnotationField));
-
-				_ControlPropertyName = sControlPropertyName;
-				// _ControlEntityTypeName = _getEntityType(oBindingContext);
-
-				this.setProperty("_title", sControlPropertyName);
-				this.setProperty("_popoverDescription", sPopoverDescription);
+				_setPropertiesWithSpecificKeyProperty(oControl, "selected");
 			};
 
-			//TODO: implement logic for other classes and subclasses
+			var _setPropertiesWithText = function (oControl) {
+				_setPropertiesWithSpecificKeyProperty(oControl, "text");
+			};
+
 			var _setProperties = function (oControl) {
 				_getEntityType(oControl.getBindingContext()).then(function (name) {
 					_ControlEntityTypeName = name;
 				});
+				this.setIsUpToDate(true);
 				if (oControl instanceof sap.m.InputBase) {
 					_setPropertiesWithInputBase(oControl);
 				} else if (oControl instanceof sap.m.CheckBox) {
 					_setPropertiesWithCheckBox(oControl);
+				} else if (oControl instanceof sap.m.Text) {
+					_setPropertiesWithText(oControl);
+				} else {
+					this.setIsUpToDate(false); //Info are not updated, Popup is useless
 				}
 			};
 
@@ -84,29 +100,28 @@ sap.ui.define([
 				//bAauthorizedUser = logical expression;
 				this.setProperty("_authorizedUser", bAauthorizedUser);
 			};
-			
-			//TODO: visibility: hidden è stata commentata per retrocompatibilità con la 1.60, si potrebbe metterla condizionata alla versione sapui5
+
 			return {
 				metadata: {
 					properties: {
 						_title: {
 							type: "string",
-							group: "PopoverText",
-							// visibility: "hidden"
+							group: "PopoverText"
 						},
 						_popoverDescription: {
 							type: "string",
-							group: "PopoverText",
-							// visibility: "hidden"
+							group: "PopoverText"
 						},
 						_popoverImage: {
 							type: "string",
-							group: "PopoverText",
-							// visibility: "hidden"
+							group: "PopoverText"
 						},
 						_authorizedUser: {
+							type: "boolean"
+						},
+						isUpToDate: {
 							type: "boolean",
-							// visibility: "hidden"
+							defaultValue: true
 						},
 						ui5Control: {
 							type: "object"
@@ -118,8 +133,8 @@ sap.ui.define([
 				},
 
 				constructor: function (oParameters) {
-					if (!_ui5ControlModel && oParameters.ui5Control && oParameters.ui5Control.getBindingContext && oParameters.ui5Control.getBindingContext()
-						.getModel) {
+					if (!_ui5ControlModel && oParameters.ui5Control && oParameters.ui5Control.getBindingContext && oParameters.ui5Control.getBindingContext() &&
+						oParameters.ui5Control.getBindingContext().getModel) {
 						_ui5ControlModel = oParameters.ui5Control.getBindingContext().getModel();
 					}
 					// _oUser = oParameters.oUser;
@@ -135,6 +150,8 @@ sap.ui.define([
 					_getEntityType = _getEntityType.bind(this);
 					_setPropertiesWithInputBase = _setPropertiesWithInputBase.bind(this);
 					_setPropertiesWithCheckBox = _setPropertiesWithCheckBox.bind(this);
+					_setPropertiesWithText = _setPropertiesWithText.bind(this);
+					_setPropertiesWithSpecificKeyProperty = _setPropertiesWithSpecificKeyProperty.bind(this);
 					_setProperties = _setProperties.bind(this);
 					// _onUserCheck = _onUserCheck.bind(this);
 
