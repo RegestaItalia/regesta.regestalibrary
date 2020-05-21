@@ -13,7 +13,8 @@
 					<si:LibraryShape shapeId="{Progress>/ShapeID}" fillColor="{Progress>/FillColor}"/>
 				</si:ShapeGroup>
 			</si:StatusIndicator>
-			<Label text="{Progress>/Status/Message}" width="auto" textAlign="Center" class="sapUiTinyMargin"/>
+			<!--<Label text="{Progress>/Status/Message}" width="auto" textAlign="Center" class="sapUiTinyMargin"/>-->
+			<Text wrappingType="Hyphenated" text="{Progress>/Status/Message}" width="auto" textAlign="Center" class="sapUiTinyMargin"/>
 		</items>
 	</FlexBox>
 </core:FragmentDefinition>

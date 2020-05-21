@@ -12,16 +12,19 @@ sap.ui.define([
 		//var _OwnerComponent = null;
 		var _i18nModel = null;
 		var _ProgressWithMessages = null;
-		var _actStep = null;
-		var _maxStep = null;
+		var _progresMessage = {
+			activate: false,
+			actStep: null,
+			maxStep: null
+		};
 
 		var _getText = function (sText) {
 			return _i18nModel.getResourceBundle().getText(sText);
 		};
 
 		var _getPercentage = function () {
-			if (_maxStep ) {
-				return Math.round(_actStep * (100 / _maxStep));
+			if (_progresMessage.maxStep) {
+				return Math.round(_progresMessage.actStep * (100 / _progresMessage.maxStep));
 			} else
 				return 0;
 		};
@@ -29,22 +32,37 @@ sap.ui.define([
 		var _onAttachMessage = function (oEvent) {
 			try {
 				var oStatus = {};
+				var bStepEntity = false;
 				if (oEvent.getParameter("pcpFields")) {
 					var oPcp = oEvent.getParameter("pcpFields");
-					if (oPcp.NumeroStep) {
-						_actStep = 0;
-						_maxStep = Number(oPcp.NumeroStep);
+					bStepEntity = oPcp.StepEntity === "X" || bStepEntity;
+					if (oPcp.NumeroStep && bStepEntity) {
+						_progresMessage = {
+							activate: true,
+							actStep: 0,
+							maxStep: Number(oPcp.NumeroStep)
+						};
 					}
 				}
-				oStatus.Percentages = _getPercentage();
-				if (oEvent.getParameter("data")) {
-				//	oStatus.Message = oEvent.getParameter("data");
-					if (_maxStep ) {
-						++_actStep;
+				//NOTE: Gestire il parametro StepEntity su tutte le chiamate step a backend, 
+				//      aggiungerlo a tutti i messaggi che rappresentano uno Step
+				if (_progresMessage.activate /*&& bStepEntity*/) {
+					oStatus.Percentages = _getPercentage();
+					if (oEvent.getParameter("data")) {
+						oStatus.Message = oEvent.getParameter("data");
+						++_progresMessage.actStep;
 					}
+					_ProgressWithMessages.onStatusValuesChange(oStatus);
+					if (_progresMessage.actStep > _progresMessage.maxStep) {
+						_progresMessage = {
+							activate: false,
+							actStep: null,
+							maxStep: null
+						};
+					}
+				} else {
+					MessageToast.show(oEvent.getParameter("data"));
 				}
-				_ProgressWithMessages.onStatusValuesChange(oStatus);
-				MessageToast.show(oEvent.getParameter("data"));
 			} catch (err) {
 				_ProgressWithMessages.onError();
 				throw "Errore in gestione push message";
