@@ -32,11 +32,9 @@ sap.ui.define([
 		var _onAttachMessage = function (oEvent) {
 			try {
 				var oStatus = {};
-				var bStepEntity = false;
 				if (oEvent.getParameter("pcpFields")) {
 					var oPcp = oEvent.getParameter("pcpFields");
-					bStepEntity = oPcp.StepEntity === "X" || bStepEntity;
-					if (oPcp.NumeroStep && bStepEntity) {
+					if (oPcp.NumeroStep) {
 						_progresMessage = {
 							activate: true,
 							actStep: 0,
@@ -44,13 +42,12 @@ sap.ui.define([
 						};
 					}
 				}
-				//NOTE: Gestire il parametro StepEntity su tutte le chiamate step a backend, 
-				//      aggiungerlo a tutti i messaggi che rappresentano uno Step
-				if (_progresMessage.activate /*&& bStepEntity*/) {
+				if (_progresMessage.activate) {
 					oStatus.Percentages = _getPercentage();
 					if (oEvent.getParameter("data")) {
-						oStatus.Message = oEvent.getParameter("data");
+						//oStatus.Message = oEvent.getParameter("data");
 						++_progresMessage.actStep;
+						MessageToast.show(oEvent.getParameter("data"));
 					}
 					_ProgressWithMessages.onStatusValuesChange(oStatus);
 					if (_progresMessage.actStep > _progresMessage.maxStep) {
@@ -61,7 +58,9 @@ sap.ui.define([
 						};
 					}
 				} else {
-					MessageToast.show(oEvent.getParameter("data"));
+					if (oEvent.getParameter("data")) {
+						MessageToast.show(oEvent.getParameter("data"));
+					}
 				}
 			} catch (err) {
 				_ProgressWithMessages.onError();
