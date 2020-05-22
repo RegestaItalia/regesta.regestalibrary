@@ -1,3 +1,6 @@
+1.0.6
+	Fix showDialog
+
 1.0.5
 	Correzione documentazione
 	Aggiunta shorthand per resourceBundle i18n

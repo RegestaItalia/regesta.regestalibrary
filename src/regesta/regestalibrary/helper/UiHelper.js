@@ -4,7 +4,7 @@
  * @class regesta.regestalibrary.helper.UiHelper
  * @memberof regesta.regestalibrary.helper
  * @hideconstructor
-*/
+ */
 
 sap.ui.define([
 	"regesta/regestalibrary/enum/DialogAction",
@@ -802,10 +802,12 @@ sap.ui.define([
 				switch (JsHelper.typeOf(options.title)) {
 				case "string":
 					dialog.setTitle(options.title);
+
+					break;
 				case "object":
-					{
-						dialog.bindProperty("title", options.title);
-					}
+					dialog.bindProperty("title", options.title);
+
+					break;
 				}
 			} else {
 				dialog.bindProperty("title", {
