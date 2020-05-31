@@ -2,7 +2,6 @@
 	<Popover id="inlineHelpPopover" title="{$this>/_title}" class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer"
 		placement="Bottom" initialFocus="idSupportRequest" contentHeight="13rem" contentMinWidth="18rem" resizable="false">
 		<content>
-			<!--<Text text="{$this>/_popoverDescription}"/>-->
 			<rte:RichTextEditor width="100%" height="100%" customToolbar="true" showGroupFont="true" showGroupLink="true" sanitizeValue="false"
 				showGroupInsert="true" value="{$this>/_popoverDescription}" editable="{$this>/_authorizedUser}"/>
 			<Image src="{$this>/_popoverImage}" width="auto" densityAware="false"/>

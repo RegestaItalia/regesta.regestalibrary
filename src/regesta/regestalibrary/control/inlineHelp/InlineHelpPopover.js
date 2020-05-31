@@ -27,7 +27,10 @@ sap.ui.define([
 					oMetaModel.loaded().then(function () {
 						var oEntitySet = oMetaModel.getODataEntitySet(sEntitySet);
 						var oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
-						resolve(oEntityType.name);
+						resolve({
+							name: oEntityType.name,
+							model: _ui5ControlModel
+						});
 					});
 				});
 			};
@@ -49,7 +52,7 @@ sap.ui.define([
 						sControlPropertyName = sControlPropertyNameParts;
 						sPopoverDescription = _checkIfStringIsEmpty(oBindingContext.getProperty(sControlPropertyName + _AnnotationField));
 					} else {
-						sPopoverDescription = "Questo oggetto continene parts";
+						sPopoverDescription = "Questo oggetto contiene parts";
 					}
 				} else {
 					sPopoverDescription = _checkIfStringIsEmpty(oBindingContext.getProperty(sControlPropertyName + _AnnotationField));
@@ -79,8 +82,23 @@ sap.ui.define([
 			};
 
 			var _setProperties = function (oControl) {
-				_getEntityType(oControl.getBindingContext()).then(function (name) {
+				_getEntityType(oControl.getBindingContext()).then(function (name, model) {
 					_ControlEntityTypeName = name;
+					_ui5ControlModel.callFunction(_sSaveFunctionName, {
+						method: "POST",
+						urlParameters: {
+							Contesto: _ControlEntityTypeName,
+							Proprieta: _ControlPropertyName,
+							Longtext: "Read"
+						},
+						success: function (data) {
+							sap.ui.core.BusyIndicator.hide();
+						},
+						error: function (error) {
+							sap.ui.core.BusyIndicator.hide();
+							throw new Error(JSON.stringify(error));
+						}
+					});
 				});
 				this.setIsUpToDate(true);
 				if (oControl instanceof sap.m.InputBase) {
