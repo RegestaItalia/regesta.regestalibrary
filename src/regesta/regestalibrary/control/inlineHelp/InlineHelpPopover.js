@@ -98,7 +98,7 @@ sap.ui.define([
 							sap.ui.core.BusyIndicator.hide();
 							throw new Error(JSON.stringify(error));
 						}
-					});
+					}.bind(this));
 				});
 				this.setIsUpToDate(true);
 				if (oControl instanceof sap.m.InputBase) {

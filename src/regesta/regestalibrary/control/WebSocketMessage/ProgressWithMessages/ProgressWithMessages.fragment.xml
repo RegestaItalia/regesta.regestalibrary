@@ -4,16 +4,10 @@
 		<items>
 			<si:StatusIndicator value="{Progress>/Status/Percentages}" width="{Progress>/Witdh}" height="{Progress>/Height}" class="sapUiTinyMargin SICursorStyle"
 				labelPosition="{Progress>/ProgressLabelPosition}" showLabel="{Progress>/ShowProgressLabel}">
-				<!--<si:propertyThresholds>
-					<si:PropertyThreshold fillColor="{Progress>/FillColor}" toValue="{Progress>/ColorProgres/}"/>
-					<si:PropertyThreshold fillColor="{Progress>/FillColor}" toValue="100"/>
-					<si:PropertyThreshold fillColor="{Progress>/FillColor}" toValue="100"/>
-				</si:propertyThresholds>-->
 				<si:ShapeGroup>
 					<si:LibraryShape shapeId="{Progress>/ShapeID}" fillColor="{Progress>/FillColor}"/>
 				</si:ShapeGroup>
 			</si:StatusIndicator>
-			<!--<Label text="{Progress>/Status/Message}" width="auto" textAlign="Center" class="sapUiTinyMargin"/>-->
 			<Text wrappingType="Hyphenated" text="{Progress>/Status/Message}" width="auto" textAlign="Center" class="sapUiTinyMargin"/>
 		</items>
 	</FlexBox>

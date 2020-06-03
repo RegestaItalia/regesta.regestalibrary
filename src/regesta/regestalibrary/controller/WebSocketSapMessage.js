@@ -45,12 +45,11 @@ sap.ui.define([
 				if (_progresMessage.activate) {
 					oStatus.Percentages = _getPercentage();
 					if (oEvent.getParameter("data")) {
-						//oStatus.Message = oEvent.getParameter("data");
 						++_progresMessage.actStep;
 						MessageToast.show(oEvent.getParameter("data"));
 					}
 					_ProgressWithMessages.onStatusValuesChange(oStatus);
-					if (_progresMessage.actStep > _progresMessage.maxStep) {
+					if (_progresMessage.actStep > _progresMessage.maxStep || oPcp.FineFlusso) {
 						_progresMessage = {
 							activate: false,
 							actStep: null,

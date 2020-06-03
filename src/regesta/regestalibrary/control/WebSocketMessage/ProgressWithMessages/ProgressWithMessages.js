@@ -44,13 +44,6 @@ sap.ui.define([
 						}));
 					});
 				}
-				/*return Fragment.load({
-					name: "regesta.regestalibrary.control.WebSocketMessage.ProgressWithMessages.ProgressWithMessages",
-					controller: this
-				}).then(function (oFlexBox) {
-					oFlexBox.setModel(_oModel, "Progress");
-					_oProgressIndicatorElement = oFlexBox;
-				});*/
 			};
 
 			return {
