@@ -93,13 +93,17 @@ sap.ui.define([
 						},
 						success: function (data) {
 							sap.ui.core.BusyIndicator.hide();
-						},
+
+							setTimeout(function () {
+								this.setProperty("_popoverDescription", data.z_CB_TBLTODOLISTIn_line_help.Longtext);
+							}.bind(this), 500);
+						}.bind(this),
 						error: function (error) {
 							sap.ui.core.BusyIndicator.hide();
 							throw new Error(JSON.stringify(error));
 						}
-					}.bind(this));
-				});
+					});
+				}.bind(this));
 				this.setIsUpToDate(true);
 				if (oControl instanceof sap.m.InputBase) {
 					_setPropertiesWithInputBase(oControl);
