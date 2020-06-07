@@ -1,9 +1,10 @@
 sap.ui.define([
 	"sap/ui/base/Object",
-	"sap/base/Log",
+	// "sap/base/Log",
 	"regesta/regestalibrary/control/inlineHelp/InlineHelpPopover",
 	"sap/ui/core/Fragment"
-], function (UI5Object, Log, InlineHelpinlineHelpPopover, Fragment) {
+// ], function (UI5Object, Log, InlineHelpinlineHelpPopover, Fragment) {
+], function (UI5Object, InlineHelpinlineHelpPopover, Fragment) {
 	"use strict";
 	return UI5Object.extend("regesta.regestalibrary.controller.InlineHelpController", function InlineHelpController() {
 		var _oView = null;
@@ -19,7 +20,7 @@ sap.ui.define([
 					aUnderTestElementControl = oActiveElement.control();
 				}
 			} catch (err) {
-				Log.error(err);
+				// Log.error(err);
 			}
 			return aUnderTestElementControl && aUnderTestElementControl.length > 0 ? aUnderTestElementControl[0] : null;
 		};
