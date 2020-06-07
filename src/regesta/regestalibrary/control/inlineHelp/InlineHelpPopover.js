@@ -1,9 +1,10 @@
 sap.ui.define([
 		"sap/ui/core/XMLComposite",
-		"sap/ui/model/resource/ResourceModel",
-		"sap/base/Log"
+		"sap/ui/model/resource/ResourceModel"
+		// "sap/base/Log"
 	],
-	function (XMLComposite, ResourceModel, Log) {
+	// function (XMLComposite, ResourceModel, Log) {
+	function (XMLComposite, ResourceModel) {		
 		"use strict";
 
 		var customPopover = XMLComposite.extend("regesta.regestalibrary.control.inlineHelp.InlineHelpPopover", function InlineHelpPopover() {
@@ -238,7 +239,8 @@ sap.ui.define([
 					return oRichTextEditor;
 				},
 				handleRegAms: function () {
-					Log.info("To be implemented");
+					console.log("To be implemented")
+					// Log.info("To be implemented");
 				}
 			};
 		}());
