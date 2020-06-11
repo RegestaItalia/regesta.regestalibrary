@@ -26,9 +26,14 @@ sap.ui.define([], function () {
 		checkParameters: function (functionName, parameters) {
 			parameters.forEach(function (parameter) {
 				var isParameterNullOrUndefined = parameter.value === null || parameter.value === undefined;
-				var isParameterOfWrongType = !parameter.expected.find(function (type) {
-					return type === this.typeOf(parameter.value) || parameter.value && parameter.value.getMetadata && parameter.value.isA(type);
-				}.bind(this));
+				// var targetType = parameter.expected.split(".").reduce(function(acc, curr){
+				// 	acc = (Object.keys(acc).length > 0 ? acc : window)[curr];
+
+				// 	return acc;
+				// }, {});
+				// var isParameterOfWrongType = !parameter.expected.find(function (type) {
+				// 	return type === this.typeOf(parameter.value) || parameter.value && parameter.value.getMetadata && parameter.value instanceof targetType;
+				// }.bind(this));
 				var errorMessage = "";
 
 				if (isParameterNullOrUndefined) {
@@ -36,7 +41,7 @@ sap.ui.define([], function () {
 						functionName,
 						parameter.name
 					]);
-				} else if (isParameterOfWrongType) {
+				} /*else if (isParameterOfWrongType) {
 					errorMessage = this.replaceByIndex(
 						"@ {0}: mandatory parameter \"{1}\" is of wrong type: \"{2}\" expected, \"{3}\" provided.", [
 							functionName,
@@ -44,7 +49,7 @@ sap.ui.define([], function () {
 							parameter.expected.join("|"),
 							this.typeOf(parameter.value)
 						]);
-				}
+				}*/
 
 				if (errorMessage) {
 					throw new Error(errorMessage);
