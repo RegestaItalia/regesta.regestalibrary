@@ -189,7 +189,7 @@ sap.ui.define([
 				expected: ["sap.ui.base.ManagedObject", "sap.ui.core.mvc.Controller", "sap.ui.core.Component"]
 			}]);
 
-			context = context.isA("sap.ui.core.Component") ? context : context.getOwnerComponent();
+			context = context instanceof sap.ui.core.Component ? context : context.getOwnerComponent();
 
 			return context.getMetadata().getName().split(".")[1];
 		},
@@ -209,7 +209,7 @@ sap.ui.define([
 				expected: ["sap.ui.base.ManagedObject", "sap.ui.core.mvc.Controller", "sap.ui.core.Component"]
 			}]);
 
-			context = context.isA("sap.ui.core.Component") ? context : context.getOwnerComponent();
+			context = context instanceof sap.ui.core.Component ? context : context.getOwnerComponent();
 
 			return context.getManifest()["sap.app"].applicationVersion.version;
 		},
@@ -312,7 +312,6 @@ sap.ui.define([
 		 * 
 		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
-		 * @param	{sap.ui.core.mvc.Controller}	context 	The view's controller.
 		 * @param	{sap.ui.core.Element}			element 	The element of which get the fieldGroupId.
 		 * 
 		 * @returns {string}									The first fieldGroupId of the given element.
@@ -401,7 +400,7 @@ sap.ui.define([
 			}]);
 
 			var inputs = context.getView().getControlsByFieldGroupId(fieldGroupId).filter(function (control) {
-				return control.isA("sap.m.InputBase");
+				return control instanceof sap.m.InputBase || control instanceof sap.ui.comp.smartfield.SmartField;
 			}) || [];
 
 			return inputs;
@@ -501,7 +500,7 @@ sap.ui.define([
 				expected: ["sap.ui.base.ManagedObject", "sap.ui.core.mvc.Controller", "sap.ui.core.Component"]
 			}]);
 
-			context = context.isA("sap.ui.core.Component") ? context : context.getOwnerComponent();
+			context = context instanceof sap.ui.core.Component ? context : context.getOwnerComponent();
 
 			return context.getComponentData().startupParameters;
 		},

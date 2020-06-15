@@ -1,5 +1,9 @@
+1.0.8
+	Fix uiHelper ("isA" -> instanceof)
+	Correzione documentazione
+
 1.0.7
-	Fix checkParameters
+	Fix checkParameters ("isA" -> instanceof)
 
 1.0.6
 	Fix showDialog
