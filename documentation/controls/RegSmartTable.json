@@ -1,7 +1,7 @@
 {
 	"Class": "RegSmartTable",
 	"BaseControl": "SmartTable",
-	"FullPath": "regesta.regestalibrary.controls.RegSmartTable",
+	"FullPath": "regesta.regestalibrary.control.RegSmartTable",
 	"Description": "Custom smart table",
 	"Metadata": {
 		"properties": [{

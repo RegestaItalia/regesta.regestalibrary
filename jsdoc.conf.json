@@ -1,0 +1,27 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc"]
+    },
+    "source": {
+        "include": ["./package.json", "src/regesta/regestalibrary"],
+        "includePattern": ".+\\.js(doc)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "plugins": ["node_modules/jsdoc/plugins/markdown"],
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": false,
+        "useLongnameInNav": false,
+        "showInheritedInNav": true
+    },
+    "opts": {
+        "changelog": "./CHANGES.MD",
+        "destination": "./docs",
+        "recurse": true,
+        "private": true,
+        "encoding": "utf-8",
+        "mainPageTitle": "Regesta Library",
+        "template": "node_modules/docdash"
+    }
+}

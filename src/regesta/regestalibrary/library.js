@@ -11,29 +11,25 @@ sap.ui.define(["jquery.sap.global",
 	function ( /*jQuery*/ ) {
 
 		"use strict";
-
-		/**
-		 * regesta custom library for user controls and functions
-		 *
-		 * @namespace
-		 * @name regesta.regestalibrary
-		 * @author SAP SE
-		 * @version ${version}
-		 * @public
-		 */
+		
+		/** @namespace regesta.regestalibrary.control */
+		/** @namespace regesta.regestalibrary.enum */
+		/** @namespace regesta.regestalibrary.helper */
+		/** @namespace regesta.regestalibrary.type */
 
 		// delegate further initialization of this library to the Core
 		sap.ui.getCore().initLibrary({
 			name: "regesta.regestalibrary",
-			version: "${version}",
+			// version: "${version}",
+			version: "1.0.8",
 			dependencies: ["sap.ui.core"],
 			types: [],
 			interfaces: [],
 			controls: [
-				"regesta.regestalibrary.controls.RegInput",
-				"regesta.regestalibrary.controls.RegSmartTable",
-				"regesta.regestalibrary.controls.RegCharContainer",
-				"regesta.regestalibrary.controls.RegCharItem"
+				"regesta.regestalibrary.control.RegInput",
+				"regesta.regestalibrary.control.RegSmartTable",
+				"regesta.regestalibrary.control.RegCharContainer",
+				"regesta.regestalibrary.control.RegCharItem"
 			],
 			elements: []
 		});

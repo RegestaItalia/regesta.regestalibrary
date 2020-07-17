@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<HBox >
+		<Input id="input" change="inputChange" type="Text" showValueHelp="true" valueHelpRequest="_showValueHelp"/>
+		<SelectDialog id="dialog" noDataText="No Products Found" title="{$this>/title}" items="{$this>/items}" liveChange="_liveChange" cancel="_cancel" confirm="_confirm" >
+			<StandardListItem></StandardListItem>
+		</SelectDialog>
+	</HBox>
+</core:FragmentDefinition>

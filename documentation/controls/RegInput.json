@@ -1,7 +1,7 @@
 {
 	"Class": "RegInput",
 	"BaseControl": "Input",
-	"FullPath": "regesta.regestalibrary.controls.Reginput",
+	"FullPath": "regesta.regestalibrary.control.Reginput",
 	"Description": "Custom user control for Input with integer validation",
 	"Metadata": {
 		"properties": [{

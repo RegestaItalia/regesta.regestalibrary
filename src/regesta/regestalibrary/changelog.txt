@@ -1,0 +1,26 @@
+1.0.8
+	Fix uiHelper ("isA" -> instanceof)
+	Correzione documentazione
+
+1.0.7
+	Fix checkParameters ("isA" -> instanceof)
+
+1.0.6
+	Fix showDialog
+
+1.0.5
+	Correzione documentazione
+	Aggiunta shorthand per resourceBundle i18n
+	
+1.0.4
+	Modifica logica gestione messaggi http
+	
+1.0.3
+	Correzione documentazione
+	Fix chiusura outerTap dialog per nuovo tema
+	
+1.0.2
+	Fix parsing messaggi di errore http
+
+1.0.1
+	Correzione documentazione
