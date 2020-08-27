@@ -572,6 +572,26 @@ sap.ui.define([
 			return nameParts.join("/");
 		},
 		/**
+		 * Make app go fullscreen
+		 */
+		goFullScreen: function () {
+			var className = "sapUShellApplicationContainerLimitedWidth";
+			var container = document.getElementsByClassName(className)[0]; //eslint-disable-line sap-no-dom-access
+
+			if (container) {
+				container.className = container.className.replace(className, "");
+			}
+
+			className = "sapMShellCentralBox";
+			container = document.getElementsByClassName(className)[0]; //eslint-disable-line sap-no-dom-access
+
+			if (container) {
+				container.style.left = "0";
+				container.style.margin = "0";
+				container.style.width = "100%";
+			}
+		},
+		/**
 		 * Reloads the application to its main view.
 		 * 
 		 * @memberof regesta.regestalibrary.helper.UiHelper

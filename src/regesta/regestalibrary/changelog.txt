@@ -1,3 +1,6 @@
+1.1.0
+	Aggiunta UiHelper.goFullScreen
+
 1.0.8
 	Fix uiHelper ("isA" -> instanceof)
 	Correzione documentazione
