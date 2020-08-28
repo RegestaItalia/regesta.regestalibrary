@@ -8,6 +8,7 @@ sap.ui.define([
 ], function (UI5Object, MessageToast, MessageBox, SapPcpWebSocket, ResourceModel, ProgressWithMessages) {
 	"use strict";
 	return UI5Object.extend("regesta.regestalibrary.controller.WebSocketSapMessage", function WebSocketSapMessage() {
+		var _onMessageReceivedCallback = null;
 		var _SapPcpWebSocket = null;
 		//var _OwnerComponent = null;
 		var _i18nModel = null;
@@ -17,6 +18,8 @@ sap.ui.define([
 			actStep: null,
 			maxStep: null
 		};
+
+		var _channelExtensionId = null;
 
 		var _getText = function (sText) {
 			return _i18nModel.getResourceBundle().getText(sText);
@@ -34,6 +37,12 @@ sap.ui.define([
 				var oStatus = {};
 				if (oEvent.getParameter("pcpFields")) {
 					var oPcp = oEvent.getParameter("pcpFields");
+
+					// REG LB: channel extension id ritornato dal server
+					if (oPcp.ChannelExtensionID) {
+						_channelExtensionId = oPcp.ChannelExtensionID;
+					}
+
 					if (oPcp.NumeroStep) {
 						_progresMessage = {
 							activate: true,
@@ -42,6 +51,14 @@ sap.ui.define([
 						};
 					}
 				}
+				
+				_progresMessage.key =  oPcp.Key;
+
+				// REG LB: custom progress indicator
+				if (_onMessageReceivedCallback) {
+					_onMessageReceivedCallback(_progresMessage);
+				}
+				
 				if (_progresMessage.activate) {
 					oStatus.Percentages = _getPercentage();
 					if (oEvent.getParameter("data")) {
@@ -80,6 +97,7 @@ sap.ui.define([
 					});
 					_SapPcpWebSocket = new SapPcpWebSocket(oParams.SapWSEndPoint, SapPcpWebSocket.SUPPORTED_PROTOCOLS.v10);
 					_ProgressWithMessages = new ProgressWithMessages(oParams.ProgrssWithMessages);
+					_onMessageReceivedCallback = oParams.MessageReceivedCallback;
 				}
 			},
 
@@ -107,6 +125,10 @@ sap.ui.define([
 
 			getProgessStatusWithMessages: function () {
 				return _ProgressWithMessages;
+			},
+
+			getChannelExtensionId: function () {
+				return _channelExtensionId;
 			},
 
 			//NOTE: TEST METHOD
