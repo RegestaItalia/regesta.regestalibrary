@@ -1,3 +1,6 @@
+1.1.1
+	Fix NavigationHelper.navigateExternal
+
 1.1.0
 	Aggiunta UiHelper.goFullScreen
 

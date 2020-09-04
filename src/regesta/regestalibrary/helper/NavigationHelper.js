@@ -144,6 +144,8 @@ sap.ui.define([
 				params: options.parameters
 			}));
 
+			options = options || {};
+
 			new Promise(function (resolve, reject) {
 					if (options.beforeNavigateCallback) {
 						options.beforeNavigateCallback(resolve, reject);
