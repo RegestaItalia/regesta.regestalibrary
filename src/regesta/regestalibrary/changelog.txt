@@ -1,3 +1,6 @@
+1.2.0
+	Aggiunta ModelHelper.getEntityFilterableProperties
+
 1.1.1
 	Fix NavigationHelper.navigateExternal
 

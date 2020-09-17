@@ -78,7 +78,7 @@ sap.ui.define([
 
 				return acc;
 			}, []);
-			
+
 			UiHelper.showBusy(busyBindings);
 			MessageHelper.removeMessages(messageTargets.length === 0 ? [] : {
 				targets: messageTargets.reduce(function (acc, curr) {
@@ -532,6 +532,30 @@ sap.ui.define([
 			return model;
 		},
 		/**
+		 * Returns the filterable properties of an entity
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
+		 * 
+		 * @param	{object}	entityMetadata	The metadata of the entity
+		 * 
+		 * @returns	{array}	An array containing the filterable properties of the entity
+		 */
+		getEntityFilterableProperties: function(entityMetadata){
+			JsHelper.checkParameters("getEntityFilterableProperties", [{
+				name: "entityMetadata",
+				value: entityMetadata,
+				expected: ["object"]
+			}]);
+			
+			var filterableProperties = entityMetadata.property.filter(function(property){
+	    		return !property.extensions.find(function(extension){
+	        		return extension.name === "filterable" && extension.value === "false";
+	    		});
+			});	
+			
+			return filterableProperties; 
+		},
+		/**
 		 * Returns the metadata of the given entityName.
 		 * 
 		 * @memberof regesta.regestalibrary.helper.ModelHelper
@@ -643,7 +667,8 @@ sap.ui.define([
 			});
 
 			return FunctionImportMetadata;
-		},/**
+		},
+		/**
 		 * Shorthand: calls getModel and returns context's 1i8n model's resourceBundle.
 		 * 
 		 * @memberof regesta.regestalibrary.helper.ModelHelper
