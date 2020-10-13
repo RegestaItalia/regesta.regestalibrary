@@ -13,6 +13,7 @@
  * @memberof regesta.regestalibrary.control
  * 
  * @prop	{string}	entitySet								EntitySet from which determining maxLength (if provided).
+ * @prop	{string}	keyProperty								EntitySet's property from which determining maxLength (default: value bindingPath).
  * @prop	{string}	localModel=local						Name of the model to which [busy] and [description] will bound.
  * @prop	{string}	suggestionEntitySet						EntitySet defining suggestion items, if not provided it'll be [keyProperty]Set.
  * @prop	{string}	suggestionProperties=Code,Description	A list of properties to be shown in the suggestion list, separated by a comma.
@@ -40,13 +41,15 @@ sap.ui.define([
 				entitySet: {
 					type: "string"
 				},
+				keyProperty: {
+					type: "string"
+				},
 				localModel: {
 					type: "string",
 					defaultValue: "local"
 				},
 				suggestionEntitySet: {
 					type: "string"
-						/*default: _keyProperty + "Set"*/
 				},
 				suggestionProperties: {
 					type: "string",
@@ -54,7 +57,6 @@ sap.ui.define([
 				},
 				valueHelpEntitySet: {
 					type: "string"
-						/*default: _keyProperty + "Set"*/
 				},
 				valueHelpProperties: {
 					type: "string",
@@ -260,7 +262,7 @@ sap.ui.define([
 			var valueBindingInfo = this.getBindingInfo("value").parts[0];
 			var bindingPath = valueBindingInfo.path;
 
-			this._keyProperty = bindingPath.replace("/", "");
+			this._keyProperty = this.getProperty("keyProperty") || bindingPath.replace("/", "");
 
 			if (suggestionProperties.split(",").length < 1) {
 				throw new Error("Property \"suggestionProperties\" must have at least one entry");

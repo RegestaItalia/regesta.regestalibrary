@@ -1,3 +1,6 @@
+1.2.2
+	Aggiunta keyProperty a RegInput
+
 1.2.1
 	Ripristinato enum.TimeUom
 
