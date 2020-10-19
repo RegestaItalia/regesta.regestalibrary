@@ -887,7 +887,7 @@ sap.ui.define([
 					UiHelper.showBusy(busyBindings, true);
 
 					if (options.success) {
-						options.success(data.results);
+						options.success(data.results || data); // getEntitySet / getEntity
 					}
 				}.bind(this),
 				error: function (response) {
@@ -1069,6 +1069,31 @@ sap.ui.define([
 			var bindingPath = binding.getPath();
 
 			bindingModel.setProperty(bindingContext ? bindingContext + "/" + bindingPath : bindingPath, value);
+		},
+		/**
+		 * Sets a property in given bindingContext.
+		 * 
+		 * @memberof regesta.regestalibrary.helper.ModelHelper
+		 * 
+		 * @param	{sap.ui.model.Context}	bindingContext	The bindingContext.
+		 * @param	{string}				property		The property to be set.
+		 * @param	{*}						[value]			The value of the property.
+		 */
+		setBindingContextProperty: function (bindingContext, property, value) {
+			JsHelper.checkParameters("setBindingContextProperty", [{
+				name: "bindingContext",
+				value: bindingContext,
+				expected: ["sap.ui.model.Context"]
+			}, {
+				name: "property",
+				value: property,
+				expected: ["string"]
+			}]);
+
+			var bindingModel = bindingContext.getModel();
+			var bindingPath = bindingContext.getPath();
+
+			bindingModel.setProperty(JsHelper.replaceByIndex("{0}/{1}", [bindingPath, property]), value);
 		},
 		/** 
 		 * Triggers an update request to the specified odata service.

@@ -1,3 +1,8 @@
+1.2.3
+	Aggiunto ModelHelper.setBindingContextProperty
+	Modificato NavigationHelper.afterNavigation
+	Modificato ModelHelper.Read
+
 1.2.2
 	Aggiunta keyProperty a RegInput
 

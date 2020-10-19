@@ -21,19 +21,15 @@ sap.ui.define([
 		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 * 
 		 * @param	{sap.ui.core.mvc.Controller}	context					The context of the router.
-		 * @param	{string}						route					The name of the route to which attach the matched / patternMatched handler.
 		 * @param	{function}						callback				The function to execute.
+		 * @param	{string}						route					The name of the route to which attach the matched / patternMatched handler.
 		 * @param	{boolean}						[checkPattern]=false	Defines whether to check or not the pattern. If true the callback will be attached to router's routePatternMatched/route's patternMatched event, otherwise to router's routeMatched/route's matched event.
 		 */
-		afterNavigation: function (context, routeName, callback, checkPattern) {
+		afterNavigation: function (context, callback, routeName, checkPattern) {
 			JsHelper.checkParameters("afterNavigation", [{
 				name: "context",
 				value: context,
 				expected: ["sap.ui.core.mvc.Controller"]
-			}, {
-				name: "routeName",
-				value: routeName,
-				expected: ["string"]
 			}, {
 				name: "callback",
 				value: callback,
@@ -43,12 +39,21 @@ sap.ui.define([
 			checkPattern = checkPattern || checkPattern === true;
 
 			var router = this.getRouter(context);
-			var route = router.getRoute(routeName);
+			
+			if(routeName){
+				var route = router.getRoute(routeName);
 
-			if (checkPattern) {
-				route.attachPatternMatched(callback);
-			} else {
-				route.attachMatched(callback);
+				if (checkPattern) {
+					route.attachPatternMatched(callback);
+				} else {
+					route.attachMatched(callback);
+				}
+			} else{
+				if (checkPattern) {
+					router.attachRoutePatternMatched(callback);
+				} else {
+					router.attachRouteMatched(callback);
+				}
 			}
 		},
 		/**
