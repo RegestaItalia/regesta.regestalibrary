@@ -234,8 +234,7 @@ sap.ui.define([
 			var entity = entityMetadata.name;
 
 			this.bindProperty("description", {
-				path: "/" + this._keyProperty + "Description",
-				model: localModelName
+				path: this._keyProperty + "Description"
 			});
 			this.bindProperty("busy", {
 				path: "/" + this._keyProperty + "Busy",

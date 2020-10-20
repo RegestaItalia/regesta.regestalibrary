@@ -1,3 +1,6 @@
+1.2.4
+	Modificato RegInput
+
 1.2.3
 	Aggiunto ModelHelper.setBindingContextProperty
 	Modificato NavigationHelper.afterNavigation
