@@ -134,8 +134,8 @@ sap.ui.define([
 			var filters = [];
 
 			if (term) {
-				filters.push(new Filter("Code", sap.ui.model.FilterOperator.Contains, term));
-				filters.push(new Filter("Description", sap.ui.model.FilterOperator.Contains, term));
+				filters.push(new Filter("Code", sap.ui.model.FilterOperator.EQ, term));
+				filters.push(new Filter("Description", sap.ui.model.FilterOperator.EQ, term));
 			}
 
 			if (this.mEventRegistry.suggest.length === 1) { // eslint-disable-line sap-no-ui5base-prop
@@ -281,7 +281,8 @@ sap.ui.define([
 			var smartFilterBar = new SmartFilterBar({
 				id: this.getId() + "_" + "ValueHelpFilterBar",
 				entitySet: valueHelpEntitySet,
-				persistencyKey: this._keyProperty + "ValueHelpFilterBar"
+				persistencyKey: this._keyProperty + "ValueHelpFilterBar",
+				enableBasicSearch: true
 			});
 			var smartTable = new SmartTable({
 				smartFilterId: this.getId() + "_" + "ValueHelpFilterBar",

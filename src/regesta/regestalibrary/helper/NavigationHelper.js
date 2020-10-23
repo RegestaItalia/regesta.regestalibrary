@@ -39,8 +39,8 @@ sap.ui.define([
 			checkPattern = checkPattern || checkPattern === true;
 
 			var router = this.getRouter(context);
-			
-			if(routeName){
+
+			if (routeName) {
 				var route = router.getRoute(routeName);
 
 				if (checkPattern) {
@@ -48,7 +48,7 @@ sap.ui.define([
 				} else {
 					route.attachMatched(callback);
 				}
-			} else{
+			} else {
 				if (checkPattern) {
 					router.attachRoutePatternMatched(callback);
 				} else {
@@ -105,6 +105,12 @@ sap.ui.define([
 
 			if (!router._bIsInitialized) {
 				router.initialize();
+			}
+
+			for (var key in options.parameters) {
+				if (!!options.parameters[key]) { // eslint-disable-line no-extra-boolean-cast
+					options.parameters[key] = encodeURIComponent(options.parameters[key]);
+				}
 			}
 
 			new Promise(function (resolve, reject) {
@@ -263,7 +269,8 @@ sap.ui.define([
 				}.bind(this));
 		},
 		/**
-		 * Overrides shell's back button behavior, making it navigate through a navigation hierarchy (navigateHierarchy-like behavior).
+		 * Overrides shell's back button behavior, executing given function instead of default browser-back behavior.
+		 * service "ShellUIService" must be loaded, in manifest add "ShellUIService": {"factoryName": "sap.ushell.ui5service.ShellUIService"} under sap.ui5{services: []} node.
 		 * 
 		 * @memberof regesta.regestalibrary.helper.NavigationHelper
 		 * 

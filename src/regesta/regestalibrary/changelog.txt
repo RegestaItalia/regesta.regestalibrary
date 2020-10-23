@@ -1,3 +1,7 @@
+1.2.5
+	Modifica RegInput
+	Modifica NavigationHelper.navigate
+
 1.2.4
 	Modificato RegInput
 
