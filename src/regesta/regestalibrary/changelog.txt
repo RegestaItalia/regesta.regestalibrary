@@ -1,3 +1,7 @@
+1.2.6
+	Modifica MessageHelper.getMessages
+	Modifica MessageHelper.removeMessages
+
 1.2.5
 	Modifica RegInput
 	Modifica NavigationHelper.navigate
