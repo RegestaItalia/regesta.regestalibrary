@@ -108,7 +108,7 @@ sap.ui.define([
 		onParseError: function () {
 			var view = UiHelper.getParentOfType(this, "sap.ui.core.mvc.XMLView");
 			var controller = view.getController();
-			var i18n = ModelHelper.getModel(controller, "i18n");
+			var i18n = ModelHelper.getModel(controller, "regestalibraryi18n");
 			var i18nBundle = i18n.getResourceBundle();
 			var binding = this.getBinding("value");
 			var bindingModel = binding.getModel();

@@ -4,12 +4,22 @@
  * @class regesta.regestalibrary.helper.JsHelper
  * @memberof regesta.regestalibrary.helper
  * @hideconstructor
-*/
+ */
 
 sap.ui.define([], function () {
 	"use strict";
 
 	return {
+		/**
+		 * Convert the first letter of the given string to upper case.
+		 * 
+		 * @param	string		string		The origin string.
+		 * 
+		 * @return	string		The resulting string
+		 */
+		capitalizeString: function (string) {
+			return string.substr(0, 1).toUpperCase() + string.substr(1);
+		},
 		/** 
 		 * Checks an array of mandatory parameters and throws an exception if a specified parameter is initial or has wrong type.
 		 * 
@@ -41,7 +51,8 @@ sap.ui.define([], function () {
 						functionName,
 						parameter.name
 					]);
-				} /*else if (isParameterOfWrongType) {
+				}
+				/*else if (isParameterOfWrongType) {
 					errorMessage = this.replaceByIndex(
 						"@ {0}: mandatory parameter \"{1}\" is of wrong type: \"{2}\" expected, \"{3}\" provided.", [
 							functionName,
@@ -138,6 +149,16 @@ sap.ui.define([], function () {
 			var objectKeys = Object.keys(object);
 
 			return object[objectKeys[index]];
+		},
+		/**
+		 * Convert the first letter of the given string to lower case.
+		 * 
+		 * @param	string		string		The origin string.
+		 * 
+		 * @return	string		The resulting string
+		 */
+		lowerizeString: function (string) {
+			return string.substr(0, 1).toLowerCase() + string.substr(1);
 		},
 		/** 
 		 * Parses a formatted float or integer (e.g 1.234,5).
