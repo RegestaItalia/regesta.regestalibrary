@@ -208,7 +208,7 @@ sap.ui.define([
 
 				messages = messages.filter(function (message) {
 					return options.targets.length === 0 ? !message.getTarget() : options.targets.find(function(target){
-						return message.getTarget().indexOf(target) > -1;
+						return (message.getTarget() || "").indexOf(target) > -1;
 					});
 				});
 			}
