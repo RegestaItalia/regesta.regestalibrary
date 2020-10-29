@@ -243,7 +243,7 @@ sap.ui.define([
 					UiHelper.showBusy(busyBindings, true);
 
 					if (options.success) {
-						options.success(data[functionImportMetadata.name]);
+						options.success(data[functionImportMetadata.name] || data);
 					}
 				}.bind(this),
 				error: function (response) {
