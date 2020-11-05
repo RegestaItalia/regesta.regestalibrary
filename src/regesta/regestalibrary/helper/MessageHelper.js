@@ -205,6 +205,10 @@ sap.ui.define([
 				if (JsHelper.typeOf(options.targets) !== "array") {
 					options.targets = [options.targets];
 				}
+				
+				options.targets = options.targets.filter(function(target){
+					return target;
+				});
 
 				messages = messages.filter(function (message) {
 					return options.targets.length === 0 ? !message.getTarget() : options.targets.find(function(target){
