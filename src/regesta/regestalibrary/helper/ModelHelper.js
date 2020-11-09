@@ -434,7 +434,7 @@ sap.ui.define([
 					return item.name === property;
 				});
 
-				if (propertyMetadata) {
+				if (propertyMetadata && postData[property] !== undefined && postData[property] !== null) {
 					var type = JsHelper.typeOf(postData[property]);
 
 					switch (propertyMetadata.type) {
@@ -540,20 +540,20 @@ sap.ui.define([
 		 * 
 		 * @returns	{array}	An array containing the filterable properties of the entity
 		 */
-		getEntityFilterableProperties: function(entityMetadata){
+		getEntityFilterableProperties: function (entityMetadata) {
 			JsHelper.checkParameters("getEntityFilterableProperties", [{
 				name: "entityMetadata",
 				value: entityMetadata,
 				expected: ["object"]
 			}]);
-			
-			var filterableProperties = entityMetadata.property.filter(function(property){
-	    		return !property.extensions.find(function(extension){
-	        		return extension.name === "filterable" && extension.value === "false";
-	    		});
-			});	
-			
-			return filterableProperties; 
+
+			var filterableProperties = entityMetadata.property.filter(function (property) {
+				return !property.extensions.find(function (extension) {
+					return extension.name === "filterable" && extension.value === "false";
+				});
+			});
+
+			return filterableProperties;
 		},
 		/**
 		 * Returns the metadata of the given entityName.
