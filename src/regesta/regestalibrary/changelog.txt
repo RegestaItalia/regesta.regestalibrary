@@ -1,3 +1,6 @@
+1.3.6
+	Fix ModelHelper.formatResponseMessage (rimozione punto finale messaggi SAP)
+
 1.3.5
 	Modifica ModelHelper.formalizePostData
 

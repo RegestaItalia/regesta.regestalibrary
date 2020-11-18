@@ -480,6 +480,10 @@ sap.ui.define([
 				value: i18n,
 				expected: ["sap.ui.model.resource.ResourceModel"]
 			}]);
+			
+			if(responseMessage.endsWith(".")){
+				responseMessage = responseMessage.substr(0, responseMessage.length - 1);
+			}
 
 			var key = responseMessage.split("|")[0];
 			var parameters = responseMessage.split("|").slice(1);
