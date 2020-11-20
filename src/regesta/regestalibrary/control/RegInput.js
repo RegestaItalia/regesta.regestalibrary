@@ -89,6 +89,7 @@ sap.ui.define([
 			this.attachLiveChange(this.onLiveChange);
 			this.attachParseError(this.onParseError);
 		},
+		
 		onBeforeRendering: function () {
 			Input.prototype.onBeforeRendering.apply(this, arguments);
 
@@ -163,12 +164,9 @@ sap.ui.define([
 		},
 		onValueHelpRequest: function () {
 			var valueHelpDialog = this.getAggregation("valueHelpDialog");
+			var smartFilterBar = valueHelpDialog.getContent()[0].getItems()[0];
 
-			if (!valueHelpDialog) {
-				this._createValueHelpDialog();
-
-				valueHelpDialog = this.getAggregation("valueHelpDialog");
-			}
+			smartFilterBar.search();
 
 			valueHelpDialog.open();
 		},
@@ -308,7 +306,7 @@ sap.ui.define([
 
 				this.getAggregation("valueHelpDialog").close();
 			}.bind(this));
-			smartFilterBar.search();
+			// smartFilterBar.search();
 
 			valueHelpDialog = UiHelper.showDialog(this,
 				new sap.m.VBox({
@@ -329,6 +327,7 @@ sap.ui.define([
 		},
 		_customInit: function () {
 			var showSuggestionItems = this.getShowSuggestion();
+			var showValueHelp = this.getShowValueHelp();
 
 			this._checkCustomProperties();
 
@@ -336,6 +335,9 @@ sap.ui.define([
 
 			if (showSuggestionItems) {
 				this._bindSuggestionItems();
+			}
+			if(showValueHelp){
+				this._createValueHelpDialog();
 			}
 
 			this._customInitialized = true;
