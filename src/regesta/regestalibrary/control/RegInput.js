@@ -302,6 +302,10 @@ sap.ui.define([
 			table.setSelectionBehavior(sap.ui.table.SelectionBehavior.RowOnly);
 			table.setSelectionMode(sap.ui.table.SelectionMode.Single);
 			table.attachRowSelectionChange(function (e) {
+				if(e.getParameter("rowIndex") === -1){
+					return;
+				}
+				
 				this.fireEvent("valueHelpItemSelected", e.getParameters());
 
 				this.getAggregation("valueHelpDialog").close();
