@@ -1,3 +1,6 @@
+1.3.9
+	Fix ModelHelper.parseResponse
+
 1.3.8
 	Fix apertura valueHelpDialog regInput
 

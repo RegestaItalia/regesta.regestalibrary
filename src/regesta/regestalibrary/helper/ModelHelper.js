@@ -795,10 +795,6 @@ sap.ui.define([
 				} catch (exc) {
 					// response is xml
 					message = JsHelper.parseXml(response.responseText || response.statusText, "message");
-
-					if (message.split("-").length > 1) {
-						message = message.split("-")[1].slice(1);
-					}
 				}
 			} catch (exc) {
 				message = "";
