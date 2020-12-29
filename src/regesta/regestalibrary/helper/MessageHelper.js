@@ -325,6 +325,8 @@ sap.ui.define([
 		 * @param	{boolean}											options.excludeNoText=false		A boolean to exclude message that have no text.
 		 */
 		removeMessages: function (options) {
+			options = options || {};
+			
 			options.excludeTechnical = false;
 			options.excludeNoText = false;
 			
