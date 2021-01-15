@@ -21,7 +21,7 @@ sap.ui.define(["jquery.sap.global",
 		sap.ui.getCore().initLibrary({
 			name: "regesta.regestalibrary",
 			// version: "${version}",
-			version: "1.3.9",
+			version: "1.4.0",
 			dependencies: ["sap.ui.core"],
 			types: [],
 			interfaces: [],
@@ -29,7 +29,8 @@ sap.ui.define(["jquery.sap.global",
 				"regesta.regestalibrary.control.RegInput",
 				"regesta.regestalibrary.control.RegSmartTable",
 				"regesta.regestalibrary.control.RegCharContainer",
-				"regesta.regestalibrary.control.RegCharItem"
+				"regesta.regestalibrary.control.RegCharItem",
+				"regesta.regestalibrary.control.RegVersionLink"
 			],
 			elements: []
 		});
