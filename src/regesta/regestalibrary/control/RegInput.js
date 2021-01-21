@@ -23,7 +23,7 @@
  * valueHelpItemSelected					Event fired at a valueHelpItem selection.
  * beforeRebindValueHelpTable				Event fired before rebinding valueHelp table.
  */
- 
+
 sap.ui.define([
 	"regesta/regestalibrary/helper/MessageHelper",
 	"regesta/regestalibrary/helper/ModelHelper",
@@ -89,7 +89,7 @@ sap.ui.define([
 			this.attachLiveChange(this.onLiveChange);
 			this.attachParseError(this.onParseError);
 		},
-		
+
 		onBeforeRendering: function () {
 			Input.prototype.onBeforeRendering.apply(this, arguments);
 
@@ -134,13 +134,25 @@ sap.ui.define([
 			var term = e.getParameter("suggestValue");
 			var filters = [];
 
-			if (term) {
-				filters.push(new Filter("Code", sap.ui.model.FilterOperator.EQ, term));
-				filters.push(new Filter("Description", sap.ui.model.FilterOperator.EQ, term));
-			}
+			if (this.getMaxLength()) {
+				if (term) {
+					source.getModel().setHeaders({
+						queryFilter: term
+					});
 
-			if (this.mEventRegistry.suggest.length === 1) { // eslint-disable-line sap-no-ui5base-prop
-				suggestionBinding.filter(filters);
+					suggestionBinding.refresh();
+
+					source.getModel().setHeaders({});
+				}
+			} else {
+				if (term) {
+					filters.push(new Filter("Code", sap.ui.model.FilterOperator.EQ, term));
+					filters.push(new Filter("Description", sap.ui.model.FilterOperator.EQ, term));
+				}
+
+				if (this.mEventRegistry.suggest.length === 1) { // eslint-disable-line sap-no-ui5base-prop
+					suggestionBinding.filter(filters);
+				}
 			}
 		},
 		onSuggestionItemSelected: function (e) {
@@ -302,10 +314,10 @@ sap.ui.define([
 			table.setSelectionBehavior(sap.ui.table.SelectionBehavior.RowOnly);
 			table.setSelectionMode(sap.ui.table.SelectionMode.Single);
 			table.attachRowSelectionChange(function (e) {
-				if(e.getParameter("rowIndex") === -1){
+				if (e.getParameter("rowIndex") === -1) {
 					return;
 				}
-				
+
 				this.fireEvent("valueHelpItemSelected", e.getParameters());
 
 				this.getAggregation("valueHelpDialog").close();
@@ -340,7 +352,7 @@ sap.ui.define([
 			if (showSuggestionItems) {
 				this._bindSuggestionItems();
 			}
-			if(showValueHelp){
+			if (showValueHelp) {
 				this._createValueHelpDialog();
 			}
 

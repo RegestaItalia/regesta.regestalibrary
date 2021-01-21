@@ -1,3 +1,6 @@
+1.4.1
+	Modifica suggestion RegInput
+
 1.4.0
 	Aggiunta controllo RegVersionLink
 
