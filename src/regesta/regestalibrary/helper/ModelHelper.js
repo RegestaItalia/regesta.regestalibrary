@@ -72,7 +72,7 @@ sap.ui.define([
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
-				var binding = curr.getBinding("value");
+				var binding = curr.getBinding("value") || curr.getBinding("selectedKey");
 
 				acc.push(binding);
 
@@ -212,7 +212,7 @@ sap.ui.define([
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
-				var binding = curr.getBinding("value");
+				var binding = curr.getBinding("value") || curr.getBinding("selectedKey");
 
 				acc.push(binding);
 
@@ -336,7 +336,7 @@ sap.ui.define([
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
-				var binding = curr.getBinding("value");
+				var binding = curr.getBinding("value") || curr.getBinding("selectedKey");
 
 				acc.push(binding);
 
@@ -856,7 +856,7 @@ sap.ui.define([
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
-				var binding = curr.getBinding("value");
+				var binding = curr.getBinding("value") || curr.getBinding("selectedKey");
 
 				acc.push(binding);
 
@@ -972,7 +972,7 @@ sap.ui.define([
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
-				var binding = curr.getBinding("value");
+				var binding = curr.getBinding("value") || curr.getBinding("selectedKey");
 
 				acc.push(binding);
 
@@ -1147,7 +1147,7 @@ sap.ui.define([
 				return acc;
 			}, []);
 			var messageTargets = callers.reduce(function (acc, curr) {
-				var binding = curr.getBinding("value");
+				var binding = curr.getBinding("value") || curr.getBinding("selectedKey");
 
 				acc.push(binding);
 
