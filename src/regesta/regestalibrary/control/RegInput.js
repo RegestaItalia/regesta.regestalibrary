@@ -159,9 +159,15 @@ sap.ui.define([
 			var selectedItem = e.getParameter("selectedItem") || e.getParameter("selectedRow");
 			var selectedItemData = selectedItem.getBindingContext().getObject();
 			var suggestionProperties = this.getSuggestionProperties().split(",");
+			var model = this.getModel();
+			var valuePath = this.getBinding("value").getPath();
+			var descriptionPath = this.getBinding("description").getPath();
+			var value = selectedItemData[suggestionProperties[0]];
+			var description = selectedItemData[suggestionProperties[1]];
+			var bindingContext = this.getBindingContext();
 
-			this.setProperty("value", selectedItemData[suggestionProperties[0]]);
-			this.setProperty("description", selectedItemData[suggestionProperties[1]]);
+			model.setProperty(valuePath, value, bindingContext);
+            model.setProperty(descriptionPath, description, bindingContext);
 		},
 		onValueHelpItemSelected: function (e) {
 			var source = e.getSource();
