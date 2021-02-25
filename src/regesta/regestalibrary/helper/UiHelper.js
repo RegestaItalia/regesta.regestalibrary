@@ -291,7 +291,7 @@ sap.ui.define([
 		 * 
 		 * @memberof regesta.regestalibrary.helper.UiHelper
 		 * 
-		 * @parameter	{string}	partialId	The id of the element.
+		 * @param		{string}	partialId	The id of the element.
 		 * 
 		 * @returns 	{array} 				An array of dom element whose id ends with the given one.
 		 */
@@ -303,7 +303,7 @@ sap.ui.define([
 			}]);
 
 			var query = "[id$={0}]";
-			var domElement = document.querySelectorAll(this.replaceByIndex(query, [partialId]));
+			var domElement = document.querySelectorAll(JsHelper.replaceByIndex(query, [partialId]));
 
 			return domElement;
 		},
