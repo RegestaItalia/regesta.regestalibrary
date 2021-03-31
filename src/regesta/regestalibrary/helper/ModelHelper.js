@@ -480,8 +480,8 @@ sap.ui.define([
 				value: i18n,
 				expected: ["sap.ui.model.resource.ResourceModel"]
 			}]);
-			
-			if(responseMessage.endsWith(".")){
+
+			if (responseMessage.endsWith(".")) {
 				responseMessage = responseMessage.substr(0, responseMessage.length - 1);
 			}
 
@@ -1094,6 +1094,31 @@ sap.ui.define([
 			var bindingPath = bindingContext.getPath();
 
 			bindingModel.setProperty(JsHelper.replaceByIndex("{0}/{1}", [bindingPath, property]), value);
+		},
+		/***/
+		submitChangesAsync: function (model) {
+			JsHelper.checkParameters("update", [{
+				name: "model",
+				value: model,
+				expected: ["sap.ui.model.odata.v2.ODataModel"]
+			}]);
+
+			UiHelper.showBusy();
+
+			return new Promise(function (resolve, reject) {
+				model.submitChanges({
+					success: function (data) {
+						UiHelper.showBusy(null, true);
+
+						resolve(data);
+					},
+					error: function (error) {
+						UiHelper.showBusy(null, true);
+
+						reject(error);
+					}
+				});
+			});
 		},
 		/** 
 		 * Triggers an update request to the specified odata service.
