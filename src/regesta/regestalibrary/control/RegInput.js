@@ -61,6 +61,14 @@ sap.ui.define([
 				valueHelpProperties: {
 					type: "string",
 					defaultValue: "Code,Description"
+				},
+				autoValueHelp: {
+					type: "boolean",
+					defaultValue: true
+				},
+				autoSuggest: {
+					type: "boolean",
+					defaultValue: true
 				}
 			},
 			aggregations: {
@@ -86,6 +94,7 @@ sap.ui.define([
 			this.attachValueHelpItemSelected(this.onValueHelpItemSelected);
 			this.attachSuggest(this.onSuggest);
 			this.attachSuggestionItemSelected(this.onSuggestionItemSelected);
+
 			this.attachLiveChange(this.onLiveChange);
 			this.attachParseError(this.onParseError);
 		},
@@ -129,6 +138,10 @@ sap.ui.define([
 			}.bind(this), 0);
 		},
 		onSuggest: function (e) {
+			if (!this.getAutoSuggest()) {
+				return;
+			}
+
 			var source = e.getSource();
 			var suggestionBinding = source.getBinding("suggestionItems") || source.getBinding("suggestionRows");
 			var term = e.getParameter("suggestValue");
@@ -156,6 +169,10 @@ sap.ui.define([
 			}
 		},
 		onSuggestionItemSelected: function (e) {
+			if (!this.getAutoSuggest()) {
+				return;
+			}
+
 			var selectedItem = e.getParameter("selectedItem") || e.getParameter("selectedRow");
 			var selectedItemData = selectedItem.getBindingContext().getObject();
 			var suggestionProperties = this.getSuggestionProperties().split(",");
@@ -167,9 +184,13 @@ sap.ui.define([
 			var bindingContext = this.getBindingContext();
 
 			model.setProperty(valuePath, value, bindingContext);
-            model.setProperty(descriptionPath, description, bindingContext);
+			model.setProperty(descriptionPath, description, bindingContext);
 		},
 		onValueHelpItemSelected: function (e) {
+			if (!this.getAutoValueHelp()) {
+				return;
+			}
+
 			var source = e.getSource();
 			var selectedItem = e.getParameter("rowContext");
 			var selectedItemData = selectedItem.getObject();
@@ -181,6 +202,10 @@ sap.ui.define([
 			this.fireChange();
 		},
 		onValueHelpRequest: function () {
+			if (!this.getAutoValueHelp()) {
+				return;
+			}
+
 			var valueHelpDialog = this.getAggregation("valueHelpDialog");
 			var smartFilterBar = valueHelpDialog.getContent()[0].getItems()[0];
 
