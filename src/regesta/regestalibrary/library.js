@@ -21,7 +21,7 @@ sap.ui.define(["jquery.sap.global",
 		sap.ui.getCore().initLibrary({
 			name: "regesta.regestalibrary",
 			// version: "${version}",
-			version: "1.6.0",
+			version: "1.6.1",
 			dependencies: ["sap.ui.core"],
 			types: [],
 			interfaces: [],

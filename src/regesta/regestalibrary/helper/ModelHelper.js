@@ -178,8 +178,9 @@ sap.ui.define([
 		 * @param	{function}								options.success			The callback to be called when the request has successfully end execution.
 		 * @param	{function}								options.error			The callback to be called when the request fails.
 		 * @param	{array}									[callers]				An array of sap.ui.core.control from which determine value and busy bindings to use during the call.
+		 * @param	{bool}									[noBusy]				A boolean indicating if the busy indicator must be shown (false, default) or not.
 		 */
-		callFunction: function (model, i18n, url, options, callers) {
+		callFunction: function (model, i18n, url, options, callers, noBusy) {
 			JsHelper.checkParameters("callFuntion", [{
 				name: "model",
 				value: model,
@@ -223,7 +224,10 @@ sap.ui.define([
 				messageTargets = [url];
 			}
 
-			UiHelper.showBusy(busyBindings);
+			if(!noBusy){
+				UiHelper.showBusy(busyBindings);
+			}
+			
 			MessageHelper.removeMessages(messageTargets.length === 0 ? [] : {
 				targets: messageTargets.reduce(function (acc, curr) {
 					if (curr.getPath) {
@@ -240,14 +244,18 @@ sap.ui.define([
 				headers: options.headers,
 				groupId: options.groupId,
 				success: function (data) {
-					UiHelper.showBusy(busyBindings, true);
+					if(!noBusy){
+						UiHelper.showBusy(busyBindings, true);
+					}
 
 					if (options.success) {
 						options.success(data[functionImportMetadata.name] || data.results || data);
 					}
 				}.bind(this),
 				error: function (response) {
-					UiHelper.showBusy(busyBindings, true);
+					if(!noBusy){
+						UiHelper.showBusy(busyBindings, true);
+					}
 
 					var parsedResponse = this.httpError(response, i18n);
 
@@ -275,13 +283,13 @@ sap.ui.define([
 		 * 
 		 * @returns	{Promise}														The resulting promise.
 		 */
-		callFunctionAsync: function (model, i18n, url, options, callers) {
+		callFunctionAsync: function (model, i18n, url, options, callers, noBusy) {
 			return new Promise(function (resolve, reject) {
 				options = options || {};
 				options.success = resolve;
 				options.error = reject;
 
-				this.callFunction(model, i18n, url, options, callers);
+				this.callFunction(model, i18n, url, options, callers, noBusy);
 			}.bind(this));
 		},
 		/** 
