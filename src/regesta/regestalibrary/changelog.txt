@@ -1,3 +1,6 @@
+1.6.2
+	Fix RegVersionLink
+
 1.6.1
 	Aggiunto parametro noBusy a callFunction e callFunctionAsync
 
