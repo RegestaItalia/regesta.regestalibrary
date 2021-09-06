@@ -1,3 +1,6 @@
+1.6.3
+	Modifica RegInput
+
 1.6.2
 	Fix RegVersionLink
 

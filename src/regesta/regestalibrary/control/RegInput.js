@@ -95,7 +95,7 @@ sap.ui.define([
 			this.attachSuggest(this.onSuggest);
 			this.attachSuggestionItemSelected(this.onSuggestionItemSelected);
 
-			this.attachLiveChange(this.onLiveChange);
+			// this.attachLiveChange(this.onLiveChange);
 			this.attachParseError(this.onParseError);
 		},
 
@@ -106,15 +106,15 @@ sap.ui.define([
 				this._customInit();
 			}
 		},
-		onLiveChange: function (e) {
-			var binding = this.getBindingInfo("value").binding;
-			var bindingPath = binding.getPath();
-			var bindingContext = binding.getContext();
+		// onLiveChange: function (e) {
+		// 	var binding = this.getBindingInfo("value").binding;
+		// 	var bindingPath = binding.getPath();
+		// 	var bindingContext = binding.getContext();
 
-			MessageHelper.removeErrorMessages({
-				targets: bindingContext ? bindingContext + "/" + bindingPath : bindingPath
-			});
-		},
+		// 	MessageHelper.removeErrorMessages({
+		// 		targets: bindingContext ? bindingContext + "/" + bindingPath : bindingPath
+		// 	});
+		// },
 		onParseError: function () {
 			var view = UiHelper.getParentOfType(this, "sap.ui.core.mvc.XMLView");
 			var controller = view.getController();
