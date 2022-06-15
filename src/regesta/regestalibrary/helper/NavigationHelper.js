@@ -146,6 +146,8 @@ sap.ui.define([
 				expected: ["string"]
 			}]);
 
+			options = options || {};
+
 			var crossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
 			var hash = (crossAppNavigator && crossAppNavigator.hrefForExternal({
 				target: {
@@ -154,8 +156,6 @@ sap.ui.define([
 				},
 				params: options.parameters
 			}));
-
-			options = options || {};
 
 			new Promise(function (resolve, reject) {
 					if (options.beforeNavigateCallback) {
