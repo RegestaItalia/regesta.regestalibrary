@@ -30,17 +30,3 @@ server:
       configuration:
         component: regesta.regestalibrary
         ui5Theme: sap_fiori_3
-
-builder:
-  customTasks:
-    - name: generateJsDoc
-      afterTask: generateManifestBundle
----
-# Task extension as part of your project
-specVersion: "1.0"
-kind: extension
-type: task
-metadata:
-  name: generateJsDoc
-task:
-  path: task/generateJsDoc.js

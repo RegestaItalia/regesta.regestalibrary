@@ -11,7 +11,7 @@
     ],
     "main": "srcregesta/regestalibrary/library.js",
     "scripts": {
-        "build": "ui5 build -a --clean-dest --include-task=generateManifestBundle generateCachebusterInfo",
+        "build": "ui5 build -a --clean-dest --include-task=generateManifestBundle generateCachebusterInfo && jsdoc --verbose -c jsdoc.conf.json",
         "deploy": "npm run build && fiori deploy --config ui5-deploy.yaml && rimraf archive.zip",
         "deploy-config": "fiori add deploy-config",
         "unit-tests": "fiori run --open test/unit/unitTests.qunit.html",

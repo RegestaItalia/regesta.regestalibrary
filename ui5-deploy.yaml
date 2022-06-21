@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.5"
+metadata:
+  name: regesta.regestalibrary
+type: library
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: regesta-s4hana-rst
+          url: http://regs4rst:8000
+        app:
+          name: ZREGLIB2
+          description: Regesta library
+          package: ZTESTAT
+          transport: RSTK902620
