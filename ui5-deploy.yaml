@@ -17,7 +17,7 @@ builder:
           destination: regesta-s4hana-rst
           url: http://regs4rst:8000
         app:
-          name: ZREGLIB2
+          name: ZREGESTALIBRARY
           description: Regesta library
-          package: ZTESTAT
-          transport: RSTK902620
+          package: ZREG_SCALE_RESERVATION
+          transport: RSTK902634

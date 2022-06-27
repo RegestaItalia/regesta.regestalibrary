@@ -4,7 +4,7 @@
         "id": "regesta.regestalibrary",
         "type": "library",
         "applicationVersion": {
-            "version": "1.6.3"
+            "version": "1.6.4"
         },
         "title": "regestalibrary",
         "description": "Regesta library",
