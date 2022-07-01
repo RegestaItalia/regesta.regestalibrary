@@ -23,7 +23,11 @@
         "flatten": "cp -r dist/resources/regesta/regestalibrary/* dist && cp dist/resources/regesta/regestalibrary/.library dist ",
         "clean": "npx rimraf regestalibrary-content.zip dist",
         "clean-after-flatten": "rm -rf dist/resources dist/test-resources",
-        "deploy-rst": "npm run build && fiori deploy --config ui5-deploy.yaml && rimraf regestalibrary-content.zip"
+        "deploy-rst": "npm run build && fiori deploy --config ui5-deploy.yaml && rimraf regestalibrary-content.zip",
+        "deploy-config": "fiori add deploy-config",
+        "deploy": "npm run build && fiori deploy --config ui5-deploy.yaml && rimraf archive.zip",
+        "undeploy": "fiori undeploy --config ui5-deploy.yaml",
+        "deploy-test": "npm run build && fiori deploy --config ui5-deploy.yaml --testMode true"
     },
     "devDependencies": {
         "@ui5/cli": "^2.11.1",

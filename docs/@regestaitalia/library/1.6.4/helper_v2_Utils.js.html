@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>enum/DialogType.js - Documentation</title>
+    <title>helper/v2/Utils.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">enum/DialogType.js</h1>
+    <h1 class="page-title">helper/v2/Utils.js</h1>
     
 
     
@@ -42,26 +42,26 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Enum for dialog type.
+            <pre class="prettyprint source linenums"><code>/** 
+ * Basic helper functions.
  * 
- * @member regesta.regestalibrary.enum.DialogType
- * @memberof regesta.regestalibrary.enum
- * 
- * @property	{string}	Error			An error message dialog.
- * @property	{string}	Generic			A generic dialog.
- * @property	{string}	Information		An information message dialog.
- * @property	{string}	Question		A question message dialog.
- * @property	{string}	Success			A success message dialog.
- * @property	{string}	Warning			A warning message dialog.
+ * @class regesta.regestalibrary.helper.V2.Utils
+ * @memberof regesta.regestalibrary.helper.V2
+ * @hideconstructor
  */
-sap.ui.define({
-	Error: "Error",
-	Generic: "Generic",
-	Information: "Information",
-	Question: "Question",
-	Success: "Success",
-	Warning: "Warning"
+
+sap.ui.define([], function () {
+	"use strict";
+
+	return {
+		getLibraryText: function(key, library){
+            library = library || "sap.m"
+
+            var text = sap.ui.getCore().getLibraryResourceBundle(library).getText(key);
+
+            return text;
+        }
+	};
 });</code></pre>
         </article>
     </section>
