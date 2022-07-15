@@ -18,6 +18,7 @@
     },
     "main": "srcregesta/regestalibrary/library.js",
     "scripts": {
+        "start": "fiori run --open \"docs/@regestaitalia/library/1.7.0/index.html?sap-ui-xx-viewCache=false#testlibtester-display\"",
         "build": "npm run clean && ui5 build --include-task=generateManifestBundle generateCachebusterInfo && jsdoc --verbose -c jsdoc.conf.json && npm run flatten && npm run clean-after-flatten && npm run zip",
         "zip": "cd dist && npx bestzip ../regestalibrary-content.zip *",
         "flatten": "cp -r dist/resources/regesta/regestalibrary/* dist && cp dist/resources/regesta/regestalibrary/.library dist ",
@@ -34,6 +35,8 @@
         "@ui5/fs": "^2.0.6",
         "@ui5/logger": "^2.0.1",
         "@sap/ux-ui5-tooling": "1",
+        "eslint": "7.32.0",
+        "eslint-plugin-fiori-custom": "2.2.1",
         "rimraf": "3.0.2",
         "jsdoc": "3.6.3"
     },

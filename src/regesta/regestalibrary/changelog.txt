@@ -1,6 +1,10 @@
 ## fixed one or more functions or class -> increment minor (third number) 
 ## added one or more functions or class -> increment major (second number) 
 
+1.7.1
+    V2: MessageHelper & ModelHelper
+    V2: ServiceHelper -> ServiceManager
+
 1.7.0
     V2: DialogHelper & ServiceHelper
 

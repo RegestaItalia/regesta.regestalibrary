@@ -1,24 +1,89 @@
-/** 
- * Helper class for dialogs.
- * 
- * @class regesta.regestalibrary.helper.v2.DialogHelper
- * @memberof regesta.regestalibrary.helper.v2
- * @hideconstructor
- */
-
 sap.ui.define([
     "regesta/regestalibrary/helper/UiHelper",
+    "regesta/regestalibrary/helper/v2/MessageHelper",
     "regesta/regestalibrary/helper/v2/Utils",
     "sap/m/ButtonType",
     "sap/m/Dialog",
-    "sap/ui/base/Object",
     "sap/ui/core/CustomData",
     "sap/ui/core/ValueState"
-], function (UiHelper, Utils, ButtonType, Dialog, Object, CustomData, ValueState) {
+], function (UiHelper, MessageHelper, Utils, ButtonType, Dialog, CustomData, ValueState) {
     "use strict";
 
-    var external = {};
+    var dialogTypeDefaults = {
+        Error: {
+            icon: "sap-icon://message-error",
+            title: Utils.getLibraryText("MSGBOX_TITLE_ERROR"),
+            state: ValueState.Error
+        },
+        Warning: {
+            icon: "sap-icon://message-warning",
+            title: Utils.getLibraryText("MSGBOX_TITLE_WARNING"),
+            state: ValueState.Warning
+        },
+        Success: {
+            icon: "sap-icon://message-success",
+            title: Utils.getLibraryText("MSGBOX_TITLE_SUCCESS"),
+            state: ValueState.Success
+        },
+        Info: {
+            icon: "sap-icon://message-information",
+            title: Utils.getLibraryText("MSGBOX_TITLE_INFO"),
+            state: ValueState.Information
+        },
+        Confirm: {
+            icon: "sap-icon://question-mark",
+            title: Utils.getLibraryText("MSGBOX_TITLE_CONFIRM"),
+            state: ValueState.None
+        }
+    };
+    var buttonTypeDefaults = {
+        Close: {
+            text: Utils.getLibraryText("MSGBOX_CLOSE"),
+            buttonType: ButtonType.Default
+        },
+        Ok: {
+            text: Utils.getLibraryText("MSGBOX_OK"),
+            buttonType: ButtonType.Emphasized
+        },
+        Cancel: {
+            text: Utils.getLibraryText("MSGBOX_CANCEL"),
+            buttonType: ButtonType.Default
+        }
+    };
 
+    function createButton(type, callback) {
+        var typeDefaults = buttonTypeDefaults[type];
+
+        var button = new sap.m.Button({
+            text: typeDefaults.text,
+            type: typeDefaults.buttonType,
+            press: function (e) {
+                var dialog = UiHelper.getParentOfType(e.getSource(), "sap.m.Dialog");
+
+                dialog.close();
+
+                callback();
+            }
+        });
+
+        return button;
+    }
+    function createButtons(resolve, reject, isConfirmable, invertActions) {
+        var buttons = [];
+
+        if (isConfirmable) {
+            buttons.push(createButton("Ok", resolve));
+            buttons.push(createButton("Cancel", reject));
+
+            if (invertActions) {
+                buttons.reverse();
+            }
+        } else {
+            buttons.push(createButton("Close", resolve));
+        }
+
+        return buttons;
+    }
     function outerTapHandler(domEvent) {
         var dialogsContainer = domEvent.currentTarget;
         var tapInsideDialog = domEvent.path.find(function (part) {
@@ -38,7 +103,7 @@ sap.ui.define([
 
                     if (zIndex > maxZIndex) {
                         maxZIndex = zIndex;
-                    };
+                    }
 
                     openDialogs.push({
                         domRef: child,
@@ -55,13 +120,13 @@ sap.ui.define([
                 targetDialog.control.close();
             }
         }
-    };
+    }
     function showConfirmAsync(message, isConfirmable, invertActions) {
         isConfirmable = true;
 
-        return showMessageAsync(message, "confirm", isConfirmable, invertActions);
-    };
-    function show(dialogOptions, customOptions) {
+        return showMessageAsync(message, "Confirm", isConfirmable, invertActions);
+    }
+    function show(context, dialogOptions, customOptions) {
         dialogOptions = dialogOptions || {};
         customOptions = customOptions || {};
 
@@ -88,20 +153,24 @@ sap.ui.define([
                 width: "100%",
                 textAlign: customOptions.textAlign
             });
-
-            customOptions.addPadding
         } else if (isFragment) {
-            dialogOptions.content = sap.ui.xmlfragment(customOptions.fragmentPath, external.context);
+            dialogOptions.content = sap.ui.xmlfragment(customOptions.fragmentPath, context);
         }
+
+        var typeDefaults = dialogTypeDefaults[customOptions.type] || {};
+
+        dialogOptions.title = dialogOptions.title || typeDefaults.title;
+        dialogOptions.icon = dialogOptions.icon || typeDefaults.icon;
+        dialogOptions.state = dialogOptions.state || typeDefaults.state;
 
         var dialog = new Dialog(dialogOptions);
 
-        if (customOptions.addPadding) {
+        if (customOptions.addPadding || isMessage) {
             dialog.addStyleClass("sapUiContentPadding");
         }
 
-        if (external.context && external.context.getView) {
-            external.context.getView().addDependent(dialog);
+        if (context && context.getView) {
+            context.getView().addDependent(dialog);
         }
 
         dialog.attachAfterOpen(function (e) {
@@ -128,131 +197,74 @@ sap.ui.define([
 
         return dialog;
     }
-    function showErrorAsync(message, isConfirmable, invertActions) {
-        return showMessageAsync(message, "error", isConfirmable, invertActions);
-    };
-    function showInfoAsync(message, isConfirmable, invertActions) {
-        return showMessageAsync(message, "info", isConfirmable, invertActions);
-    };
-    function showMessageAsync(message, type, isConfirmable, invertActions) {
-        var icon;
-        var title;
-        var state;
-        var createButtons = function (resolve, reject, isConfirmable) {
-            var buttons = [];
-            var createButton = function (type, callback) {
-                var text;
-                var type;
-
-                switch (type) {
-                    case "close":
-                        text = Utils.getLibraryText("MSGBOX_CLOSE");
-                        type = ButtonType.Default;
-
-                        break;
-                    case "ok":
-                        text = Utils.getLibraryText("MSGBOX_OK");
-                        type = ButtonType.Emphasized;
-
-                        break;
-                    case "cancel":
-                        text = Utils.getLibraryText("MSGBOX_CANCEL");
-                        type = ButtonType.Default;
-
-                        break;
-                }
-
-                var button = new sap.m.Button({
-                    text: text,
-                    press: function (e) {
-                        var dialog = UiHelper.getParentOfType(e.getSource(), "sap.m.Dialog");
-
-                        dialog.close();
-
-                        callback();
-                    },
-                    type: type
-                });
-
-                return button;
-            }
-
-            if (isConfirmable) {
-                buttons.push(createButton("ok", resolve));
-                buttons.push(createButton("cancel", reject));
-
-                if (invertActions) {
-                    buttons.reverse();
-                }
-            } else {
-                buttons.push(createButton("close", resolve));
-            }
-
-            return buttons;
-        }
-
-        switch (type) {
-            case "error":
-                icon = "sap-icon://message-error";
-                title = Utils.getLibraryText("MSGBOX_TITLE_ERROR");
-                state = ValueState.Error;
-
-                break;
-            case "warning":
-                icon = "sap-icon://message-warning";
-                title = Utils.getLibraryText("MSGBOX_TITLE_WARNING");
-                state = ValueState.Warning;
-
-                break;
-            case "success":
-                icon = "sap-icon://message-success";
-                title = Utils.getLibraryText("MSGBOX_TITLE_SUCCESS");
-                state = ValueState.Success;
-
-                break;
-            case "info":
-                icon = "sap-icon://message-information";
-                title = Utils.getLibraryText("MSGBOX_TITLE_INFO");
-                state = ValueState.Information;
-
-                break;
-            case "confirm":
-                icon = "sap-icon://question-mark";
-                title = Utils.getLibraryText("MSGBOX_TITLE_CONFIRM");
-                state = ValueState.None;
-
-                break;
-        }
+    function showAsync(dialogOptions, customOptions) {
+        dialogOptions = dialogOptions || {};
+        customOptions = customOptions || {};
 
         return new Promise(function (resolve, reject) {
-            show({
-                icon: icon,
-                title: title,
-                content: message,
-                buttons: createButtons(resolve, reject, isConfirmable),
-                type: "Message",
-                state: state,
-                resizable: false
-            });
-        }.bind(this))
-    };
+            dialogOptions.buttons = createButtons(resolve, reject, customOptions.isConfirmable, customOptions.invertActions);
+
+            show(null, dialogOptions, customOptions);
+        });
+    }
+    function showErrorAsync(message, isConfirmable, invertActions) {
+        return showMessageAsync(message, "Error", isConfirmable, invertActions);
+    }
+    function showInfoAsync(message, isConfirmable, invertActions) {
+        return showMessageAsync(message, "Info", isConfirmable, invertActions);
+    }
+    function showMessageAsync(content, type, isConfirmable, invertActions) {
+        return showAsync({
+            content: content,
+            resizable: false
+        }, {
+            type: type,
+            isConfirmable: isConfirmable,
+            invertActions: invertActions,
+        });
+    }
+    function showMessagesAsync(isConfirmable, invertActions) {
+        var messages = MessageHelper.getMessages({
+            group: true
+        }) || [];
+
+        if (messages.length === 0) {
+            return Promise.resolve;
+        }
+
+        var content = new sap.m.List({
+            items: {
+                path: "/Messages",
+                factory: function () {
+                    return new sap.m.StandardListItem({
+                        title: "{message}",
+                        highlight: "{type}"
+                    });
+                }
+            }
+        });
+
+        content.setModel(new sap.ui.model.json.JSONModel({
+            Messages: messages
+        }));
+
+        return showMessageAsync(content, messages[0].type, isConfirmable, invertActions);
+    }
     function showSuccessAsync(message, isConfirmable, invertActions) {
-        return showMessageAsync(message, "success", isConfirmable, invertActions);
-    };
+        return showMessageAsync(message, "Success", isConfirmable, invertActions);
+    }
     function showWarningAsync(message, isConfirmable, invertActions) {
-        return showMessageAsync(message, "warning", isConfirmable, invertActions);
-    };
+        return showMessageAsync(message, "Warning", isConfirmable, invertActions);
+    }
 
-    return Object.extend("regesta.regestalibrary.helper.v2.ServiceHelper", {
-        constructor: function (context) {
-            external.context = context
-        },
-
+    return {
         showConfirmAsync: showConfirmAsync,
         show: show,
+        showAsync: showAsync,
         showErrorAsync: showErrorAsync,
         showInfoAsync: showInfoAsync,
+        showMessagesAsync: showMessagesAsync,
         showSuccessAsync: showSuccessAsync,
         showWarningAsync: showWarningAsync
-    });
+    };
 });
